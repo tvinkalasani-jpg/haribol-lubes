@@ -9,7 +9,6 @@ import { handleServerFunctions, RootLayout } from "@payloadcms/next/layouts";
 import { cmsEnvironment } from "@/cms/environment";
 
 import { importMap } from "./admin/importMap";
-import "./custom.css";
 
 const serverFunction: ServerFunctionClient = async (args) => {
   "use server";
