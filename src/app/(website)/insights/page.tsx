@@ -16,7 +16,7 @@ export const metadata = createMetadata({
   path: "/insights",
 });
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export default async function InsightsPage() {
   const insights = await getPublicInsights();

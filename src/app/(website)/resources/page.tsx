@@ -15,7 +15,7 @@ export const metadata = createMetadata({
   path: "/resources",
 });
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 export default async function ResourcesPage() {
   const resources = await getPublicResources();
