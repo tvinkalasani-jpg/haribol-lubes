@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm cms:importmap && next build",
     "start": "next start",
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
