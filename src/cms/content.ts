@@ -97,6 +97,11 @@ export const publicVerifiedResources: Access = ({ req }) => {
   } as Where;
 };
 
+export const publicVerifiedMedia: Access = ({ req }) => {
+  if (isContentManager(req.user)) return true;
+  return { verificationStatus: { equals: "verified" } } as Where;
+};
+
 export const enforceInsightPublishingGuard: CollectionBeforeChangeHook = ({ data }) => {
   if (
     data.publicationStatus === "published" &&
@@ -126,18 +131,40 @@ export const enforceResourcePublishingGuard: CollectionBeforeChangeHook = async 
   if (publicationStatus !== "published") return data;
 
   const technicalDocumentId = relationshipId(data.technicalDocument ?? originalDoc?.technicalDocument);
-  let mediaId = relationshipId(data.file ?? originalDoc?.file);
+  const mediaId = relationshipId(data.file ?? originalDoc?.file);
   if (technicalDocumentId) {
     const document = await req.payload.findByID({ collection: "technical-documents", id: technicalDocumentId, depth: 0, overrideAccess: true, req });
     if (document.publicationStatus !== "published" || document.verificationStatus !== "verified") {
       throw new Error("A published resource requires a published and verified Technical Document.");
     }
-    mediaId = relationshipId(document.file);
+    const privateDocumentId = relationshipId(document.file);
+    if (!privateDocumentId) throw new Error("A published resource requires an approved private document file.");
+    const privateDocument = await req.payload.findByID({ collection: "private-documents", id: privateDocumentId, depth: 0, overrideAccess: true, req });
+    if (privateDocument.verificationStatus !== "verified") {
+      throw new Error("A published resource requires a verified private document file.");
+    }
+    return data;
   }
   if (!mediaId) throw new Error("A published resource requires an approved file source.");
   const media = await req.payload.findByID({ collection: "media", id: mediaId, depth: 0, overrideAccess: true, req });
   if (media.verificationStatus !== "verified") {
     throw new Error("A published resource requires verified Media.");
+  }
+  return data;
+};
+
+export const enforceTechnicalDocumentPublishingGuard: CollectionBeforeChangeHook = async ({ data, originalDoc, req }) => {
+  const publicationStatus = data.publicationStatus ?? originalDoc?.publicationStatus;
+  const verificationStatus = data.verificationStatus ?? originalDoc?.verificationStatus;
+  if (publicationStatus !== "published") return data;
+  if (verificationStatus !== "verified") {
+    throw new Error("Technical Documents must be verified before publication.");
+  }
+  const fileId = relationshipId(data.file ?? originalDoc?.file);
+  if (!fileId) throw new Error("A published Technical Document requires a private document file.");
+  const file = await req.payload.findByID({ collection: "private-documents", id: fileId, depth: 0, overrideAccess: true, req });
+  if (file.verificationStatus !== "verified") {
+    throw new Error("A published Technical Document requires a verified private document file.");
   }
   return data;
 };

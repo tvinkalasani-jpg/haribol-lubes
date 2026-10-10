@@ -30,10 +30,10 @@ const productionEnvironment = {
   RFQ_REPOSITORY: "payload",
   NEXT_PUBLIC_WHATSAPP_NUMBER: "+254 794 205 115",
   RFQ_NOTIFICATION_EMAIL: "info@mastermax.co.ke",
-  EMAIL_PROVIDER: "configured-provider",
+  EMAIL_PROVIDER: "resend",
   EMAIL_API_KEY: "configured-secret",
   EMAIL_FROM: "verified-sender@example.com",
-  MEDIA_STORAGE_PROVIDER: "r2", R2_ACCOUNT_ID: "account", R2_ACCESS_KEY_ID: "access", R2_SECRET_ACCESS_KEY: "secret", R2_BUCKET: "public-bucket", R2_PRIVATE_BUCKET: "private-bucket", R2_ENDPOINT: "https://storage.example", R2_PUBLIC_URL: "https://assets.example.com",
+  MEDIA_STORAGE_PROVIDER: "railway-s3", S3_ENDPOINT: "https://media.storageapi.dev", S3_ACCESS_KEY_ID: "access", S3_SECRET_ACCESS_KEY: "secret", S3_BUCKET: "public-bucket", S3_REGION: "auto", S3_FORCE_PATH_STYLE: "false", PRIVATE_S3_ENDPOINT: "https://private.storageapi.dev", PRIVATE_S3_ACCESS_KEY_ID: "access", PRIVATE_S3_SECRET_ACCESS_KEY: "secret", PRIVATE_S3_BUCKET: "private-bucket", PRIVATE_S3_REGION: "auto",
   SECURITY_CSP_MODE: "enforce", SECURITY_HSTS_ENABLED: "true", RATE_LIMIT_PROVIDER: "edge", BACKUP_RESTORE_TESTED: "true", LEGAL_REVIEW_STATUS: "approved", CONTACT_ENQUIRY_MODE: "informational", ADMIN_BOOTSTRAP_MODE: "complete",
 };
 

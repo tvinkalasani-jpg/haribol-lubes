@@ -77,9 +77,9 @@ Authenticated draft preview is prepared by keeping article rendering and mapping
 
 ## Media and file privacy
 
-Development uploads stay on local disk. Media itself remains editor-only. Public files are served through `/api/resources/[slug]/file`, which first resolves a published and verified Resource, then verifies any referenced Technical Document and Media record. Responses use `nosniff` and open PDFs inline.
+Development uploads stay on local disk. With `MEDIA_STORAGE_PROVIDER=railway-s3`, Payload stores Media and Private Document Files in separate private Railway buckets. Verified Media is proxied through Payload's same-origin, access-checked file route, while unverified Media remains inaccessible to anonymous visitors.
 
-Local filesystem storage is not a complete production asset architecture. A file that has already been copied into a separately configured public static directory or exposed by infrastructure outside the application cannot be made private by hiding its link. Keep unapproved files out of public storage. Production still requires private object storage such as R2 with application-controlled or signed delivery; R2 is deliberately not configured in Phase 26.
+Technical Documents reference the `private-documents` upload collection rather than Media. `/api/resources/[slug]/file` first resolves a published and verified Resource, then repeats the Technical Document and private-file verification checks before reading the object server-side. The private collection has no anonymous read access and no direct public object URL. Responses use `nosniff` and open approved PDFs inline.
 
 ## Seed strategy
 

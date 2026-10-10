@@ -20,6 +20,7 @@ export function evaluateProductionEnvironment(environment) {
   required("S3_SECRET_ACCESS_KEY", "Configure the production media secret.");
   required("S3_BUCKET", "Configure the production media bucket.");
   required("S3_REGION", "Configure the production media region.");
+  required("S3_FORCE_PATH_STYLE", "Set the Railway bucket URL style explicitly.");
   required("PRIVATE_S3_ENDPOINT", "Configure the private production object-storage endpoint.");
   required("PRIVATE_S3_ACCESS_KEY_ID", "Configure the private-document access key.");
   required("PRIVATE_S3_SECRET_ACCESS_KEY", "Configure the private-document secret.");
@@ -31,6 +32,7 @@ export function evaluateProductionEnvironment(environment) {
   if (environment.CATALOGUE_DATA_SOURCE !== "cms") blockers.push({ key: "CATALOGUE_DATA_SOURCE", message: "Use the migrated production CMS catalogue source." });
   if (environment.RFQ_REPOSITORY !== "payload") blockers.push({ key: "RFQ_REPOSITORY", message: "Production RFQs must use the database repository." });
   if (environment.MEDIA_STORAGE_PROVIDER !== "railway-s3") blockers.push({ key: "MEDIA_STORAGE_PROVIDER", message: "Production Payload media must use Railway Object Storage through the approved S3-compatible adapter." });
+  if (!/^(true|false)$/.test(environment.S3_FORCE_PATH_STYLE || "")) blockers.push({ key: "S3_FORCE_PATH_STYLE", message: "Use the URL style shown in Railway's bucket Credentials tab; current buckets normally use false." });
   if (environment.EMAIL_PROVIDER !== "resend") blockers.push({ key: "EMAIL_PROVIDER", message: "Production transactional email must use the approved Resend provider." });
   if (!/^(edge|redis|database)$/.test(environment.RATE_LIMIT_PROVIDER || "")) blockers.push({ key: "RATE_LIMIT_PROVIDER", message: "Configure and verify a shared production rate limiter." });
   if (environment.SECURITY_CSP_MODE !== "enforce") blockers.push({ key: "SECURITY_CSP_MODE", message: "Use the tested enforcing CSP for production." });

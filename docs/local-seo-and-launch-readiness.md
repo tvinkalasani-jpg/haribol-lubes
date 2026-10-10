@@ -110,8 +110,8 @@ Run `pnpm check:production` against the intended production environment before d
 - Apply committed Payload migrations in a release step before serving the new application. Do not use development schema push in production.
 - Set a unique high-entropy `PAYLOAD_SECRET` and store all secrets in the hosting secret manager.
 - Use `CATALOGUE_DATA_SOURCE=cms` and `RFQ_REPOSITORY=payload` after migration and production-data verification.
-- Move Payload media to Cloudflare R2 or an equivalent object store. Configure private credentials, CORS if needed, a deliberate public/private URL policy, media backup, and lifecycle rules. Local filesystem media is not production-safe.
-- Configure Postmark, Resend, or another approved transactional provider. Verify the sending domain and sender; set the provider credential and `EMAIL_FROM`.
+- Live-test the configured Railway media and private-document buckets: upload, read, revoke/delete and credential-failure behavior. Keep both buckets private and serve files through the application access controls.
+- Complete the selected Resend configuration. Verify the sending domain and sender, then set the API credential and `EMAIL_FROM`.
 - Keep `info@mastermax.co.ke` only as the current approved RFQ destination. A future sender such as `website@haribollubesltd.co.ke` or `enquiries@haribollubesltd.co.ke` is an example requiring domain ownership and verification; sender and destination are separate decisions.
 - Configure automated PostgreSQL and object-storage backups and test restoration before launch.
 

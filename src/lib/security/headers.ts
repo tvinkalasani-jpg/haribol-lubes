@@ -1,19 +1,7 @@
 type SecurityEnvironment = Record<string, string | undefined>;
 
-function httpsOrigin(value: string | undefined): string | undefined {
-  if (!value) return undefined;
-  try {
-    const url = new URL(value);
-    return url.protocol === "https:" ? url.origin : undefined;
-  } catch {
-    return undefined;
-  }
-}
-
 export function buildContentSecurityPolicy(environment: SecurityEnvironment = process.env): string {
   const imageSources = ["'self'", "data:", "blob:"];
-  const mediaOrigin = httpsOrigin(environment.R2_PUBLIC_URL);
-  if (mediaOrigin) imageSources.push(mediaOrigin);
 
   const directives = [
     "default-src 'self'",

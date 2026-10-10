@@ -18,6 +18,7 @@ export function evaluateStagingEnvironment(environment) {
     ["S3_SECRET_ACCESS_KEY", "Configure the staging media secret key."],
     ["S3_BUCKET", "Configure the staging media bucket."],
     ["S3_REGION", "Configure the staging media region."],
+    ["S3_FORCE_PATH_STYLE", "Set the Railway bucket URL style explicitly."],
     ["PRIVATE_S3_ENDPOINT", "Configure Railway Object Storage for private staging documents."],
     ["PRIVATE_S3_ACCESS_KEY_ID", "Configure the private-document access key."],
     ["PRIVATE_S3_SECRET_ACCESS_KEY", "Configure the private-document secret key."],
@@ -46,6 +47,7 @@ export function evaluateStagingEnvironment(environment) {
   if (environment.CATALOGUE_DATA_SOURCE !== "cms") blockers.push({ key: "CATALOGUE_DATA_SOURCE", message: "Staging must exercise the migrated CMS catalogue." });
   if (environment.RFQ_REPOSITORY !== "payload") blockers.push({ key: "RFQ_REPOSITORY", message: "Staging RFQs must persist to PostgreSQL." });
   if (environment.MEDIA_STORAGE_PROVIDER !== "railway-s3") blockers.push({ key: "MEDIA_STORAGE_PROVIDER", message: "Staging uploads must use Railway Object Storage through the S3-compatible adapter." });
+  if (!/^(true|false)$/.test(environment.S3_FORCE_PATH_STYLE || "")) blockers.push({ key: "S3_FORCE_PATH_STYLE", message: "Use false for current Railway virtual-hosted buckets, or the value shown in the bucket Credentials tab for an older bucket." });
   if (environment.EMAIL_PROVIDER !== "resend") blockers.push({ key: "EMAIL_PROVIDER", message: "Phase 30 selects one provider: Resend." });
   if (environment.SECURITY_CSP_MODE !== "enforce") blockers.push({ key: "SECURITY_CSP_MODE", message: "Staging must exercise the enforcing CSP." });
   if (environment.STAGING_BACKUPS_ENABLED !== "true") blockers.push({ key: "STAGING_BACKUPS_ENABLED", message: "Enable provider backups before staging validation." });

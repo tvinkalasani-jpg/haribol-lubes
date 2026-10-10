@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    'private-documents': PrivateDocument;
     brands: Brand;
     'product-categories': ProductCategory;
     applications: Application;
@@ -92,6 +93,7 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    'private-documents': PrivateDocumentsSelect<false> | PrivateDocumentsSelect<true>;
     brands: BrandsSelect<false> | BrandsSelect<true>;
     'product-categories': ProductCategoriesSelect<false> | ProductCategoriesSelect<true>;
     applications: ApplicationsSelect<false> | ApplicationsSelect<true>;
@@ -185,6 +187,34 @@ export interface Media {
    * Technical verification state. This does not control whether the record is publicly published.
    */
   verificationStatus: 'verified' | 'catalogue-derived' | 'needs-review' | 'unverified' | 'deprecated';
+  prefix?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * Private technical files. Public delivery is only through an approved Resource route.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "private-documents".
+ */
+export interface PrivateDocument {
+  id: number;
+  label: string;
+  sourceType: 'supplier-original' | 'catalogue-extract' | 'project-generated' | 'cms';
+  /**
+   * Technical verification state. This does not control whether the record is publicly published.
+   */
+  verificationStatus: 'verified' | 'catalogue-derived' | 'needs-review' | 'unverified' | 'deprecated';
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -404,7 +434,7 @@ export interface TechnicalDocument {
   title: string;
   slug: string;
   documentType: 'tds' | 'sds' | 'certificate' | 'brochure' | 'approval' | 'other';
-  file: number | Media;
+  file: number | PrivateDocument;
   version?: string | null;
   language: string;
   effectiveDate?: string | null;
@@ -876,6 +906,10 @@ export interface PayloadLockedDocument {
         value: number | Media;
       } | null)
     | ({
+        relationTo: 'private-documents';
+        value: number | PrivateDocument;
+      } | null)
+    | ({
         relationTo: 'brands';
         value: number | Brand;
       } | null)
@@ -1006,6 +1040,28 @@ export interface MediaSelect<T extends boolean = true> {
   caption?: T;
   sourceType?: T;
   verificationStatus?: T;
+  prefix?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "private-documents_select".
+ */
+export interface PrivateDocumentsSelect<T extends boolean = true> {
+  label?: T;
+  sourceType?: T;
+  verificationStatus?: T;
+  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;

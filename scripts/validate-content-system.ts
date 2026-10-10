@@ -3,7 +3,7 @@ import { getPayload } from "payload";
 import config from "@payload-config";
 import { assertCmsEnvironment } from "@/cms/environment";
 import { Insights, Resources } from "@/cms/collections";
-import { enforceInsightPublishingGuard, enforceResourcePublishingGuard, insightCategories, validateResourceSource } from "@/cms/content";
+import { enforceInsightPublishingGuard, enforceResourcePublishingGuard, enforceTechnicalDocumentPublishingGuard, insightCategories, validateResourceSource } from "@/cms/content";
 import { getRelatedInsights, getReadingTime } from "@/features/content/content-repository";
 import type { InsightRecord } from "@/features/content/types";
 
@@ -60,6 +60,10 @@ check(Boolean(enforceInsightPublishingGuard({ data: { publicationStatus: "publis
 await expectThrow(() => enforceResourcePublishingGuard({ data: { publicationStatus: "published", verificationStatus: "needs-review" } } as never), "resource publishing guard rejects unverified records");
 check(Boolean(await enforceResourcePublishingGuard({ data: { publicationStatus: "draft", verificationStatus: "verified" } } as never)), "resource publishing guard accepts verified drafts without public file access");
 await expectThrow(() => enforceResourcePublishingGuard({ data: { publicationStatus: "published", verificationStatus: "verified" }, req: { payload: { findByID: async () => ({ verificationStatus: "needs-review" }) } } } as never), "published resource rejects an unapproved source file");
+await expectThrow(() => enforceTechnicalDocumentPublishingGuard({ data: { publicationStatus: "published", verificationStatus: "needs-review" } } as never), "technical document publishing guard rejects unverified metadata");
+await expectThrow(() => enforceTechnicalDocumentPublishingGuard({ data: { publicationStatus: "published", verificationStatus: "verified", file: 1 }, req: { payload: { findByID: async () => ({ verificationStatus: "needs-review" }) } } } as never), "technical document publishing guard rejects an unverified private file");
+check(Boolean(await enforceTechnicalDocumentPublishingGuard({ data: { publicationStatus: "published", verificationStatus: "verified", file: 1 }, req: { payload: { findByID: async () => ({ verificationStatus: "verified" }) } } } as never)), "technical document publishing guard accepts verified metadata and private file");
+await expectThrow(() => enforceResourcePublishingGuard({ data: { publicationStatus: "published", verificationStatus: "verified", technicalDocument: 1 }, req: { payload: { findByID: async ({ collection }: { collection: string }) => collection === "technical-documents" ? { publicationStatus: "published", verificationStatus: "verified", file: 2 } : { verificationStatus: "needs-review" } } } } as never), "published technical resource rejects an unverified private file");
 await expectThrow(() => validateResourceSource({ data: {} } as never), "resource requires exactly one source");
 await expectThrow(() => validateResourceSource({ data: { file: 1, technicalDocument: 2 } } as never), "resource rejects duplicate file sources");
 check(Boolean(validateResourceSource({ data: { file: 1 } } as never)), "non-technical Media-backed resource is valid");

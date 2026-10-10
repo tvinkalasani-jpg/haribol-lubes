@@ -8,6 +8,7 @@ import sharp from "sharp";
 
 import { collections } from "./src/cms/collections";
 import { cmsEnvironment } from "./src/cms/environment";
+import { createStoragePlugins } from "./src/lib/storage/payload-storage";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -26,6 +27,7 @@ export default buildConfig({
   }),
   editor: lexicalEditor(),
   graphQL: { disable: true },
+  plugins: createStoragePlugins(),
   onInit: async (payload) => {
     if (process.env.NODE_ENV !== "production") return;
     const users = await payload.count({ collection: "users", overrideAccess: true });

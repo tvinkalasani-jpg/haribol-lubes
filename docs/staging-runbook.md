@@ -7,7 +7,7 @@ This runbook begins only after authorized Railway and Resend access exists. Neve
 1. Create Railway project/environment `staging`, application service and PostgreSQL service.
 2. Create a least-privilege PostgreSQL application role and a TLS private connection string.
 3. Enable scheduled database backups and PITR; take a manual pre-migration snapshot.
-4. Create distinct staging public-media and private-document Railway Object Storage buckets with bucket-scoped S3-compatible credentials.
+4. Create distinct staging public-media and private-document Railway Object Storage buckets with bucket-scoped S3-compatible credentials. Set `S3_FORCE_PATH_STYLE=false` for current virtual-hosted buckets, or use the exact URL style shown in each bucket's Credentials tab for an older bucket.
 5. Verify the real sender/domain in Resend and create a staging API key.
 6. Generate independent Payload, HTTP Basic and readiness secrets.
 7. Populate Railway from `.env.staging.example`; keep analytics, commerce and HSTS disabled.
@@ -16,7 +16,7 @@ Run `pnpm check:staging`. A passing result confirms required names and invariant
 
 ## 2. Migrate
 
-Set Railway's pre-deploy command to `pnpm cms:migrate`. Before deploying, record the backup identifier and inspect `pnpm cms:migrate:status`. Deploy only if the migration exits successfully. Verify that the migrations table includes `20261005_120000_phase30_return_insight_to_draft` and that the named Insight is draft, has no publication time and is not indexable.
+Set Railway's pre-deploy command to `pnpm cms:migrate`. Before deploying, record the backup identifier and inspect `pnpm cms:migrate:status`. Deploy only if the migration exits successfully. Verify that the migrations table includes `20261005_120000_phase30_return_insight_to_draft` and `20261010_124616_phase30b_railway_storage`. The storage migration intentionally stops if an existing Technical Document still points at Media; migrate those records and objects explicitly before retrying. Confirm the named Insight is draft, has no publication time and is not indexable.
 
 ## 3. Seed and bootstrap
 
@@ -32,11 +32,11 @@ With staging authentication, inspect the homepage, `robots.txt` and `sitemap.xml
 
 ## 6. Test content and Admin
 
-Sign in as editor and administrator. Verify Products, Industries, Insights, Resources, Enquiries and Media. Confirm all products remain drafts, all five seeded Insights are drafts, public Insights is empty and Resources shows its intentional empty state. Confirm the CMS catalogue matches the static catalogue before leaving `CATALOGUE_DATA_SOURCE=cms` enabled.
+Sign in as editor and administrator. Verify Products, Industries, Insights, Resources, Enquiries, Media and Private Document Files. Confirm all products remain drafts, all five seeded Insights are drafts, public Insights is empty and Resources shows its intentional empty state. Confirm the CMS catalogue matches the static catalogue before leaving `CATALOGUE_DATA_SOURCE=cms` enabled.
 
 ## 7. Test storage
 
-Upload a clearly synthetic PNG/WebP with meaningful alt text. Confirm it exists in the staging public bucket, renders from the expected staging URL, has the planned cache headers, and can be deleted. Then upload a synthetic draft PDF through the private-document path. Confirm anonymous bucket and predictable URL access fail, authorized delivery succeeds and deletion revokes access. Simulate invalid Railway Object Storage credentials in a disposable deployment and confirm upload fails without a successful partial record. Restore credentials and remove all synthetic files.
+Upload a clearly synthetic PNG/WebP with meaningful alt text. Mark it verified, confirm it exists in the media bucket, renders through the same-origin Payload file route, and can be deleted. Confirm an unverified media record is denied. Then upload a synthetic draft PDF through Private Document Files, link it to a Technical Document and Resource, and confirm anonymous bucket and private-collection access fail. Verify the Resource route remains unavailable until every publication and verification gate passes, then confirm controlled delivery succeeds and deletion/revocation removes access. Simulate invalid Railway Object Storage credentials in a disposable deployment and confirm upload fails without a successful CMS record. Restore credentials and remove all synthetic files.
 
 ## 8. Test RFQ and email
 
@@ -58,7 +58,7 @@ Create a logical dump and restore it into a scratch database. Compare migrations
 
 ## 12. Rollback
 
-For an application fault, select Railway's previous successful deployment. For database issues, stop writes, choose a safe reviewed down migration or restore/PITR fork, verify it and change the connection. Never assume application rollback reverses the database. Purge public Railway Object Storage cache after object deletion or replacement when immediate removal matters.
+For an application fault, select Railway's previous successful deployment. For database issues, stop writes, choose a safe reviewed down migration or restore/PITR fork, verify it and change the connection. Never assume application rollback reverses the database.
 
 ## Evidence checklist
 

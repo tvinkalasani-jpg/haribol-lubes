@@ -24,8 +24,9 @@ The existing structured TypeScript catalogue remains the transition baseline and
 - **Applications**: the existing application registry.
 - **Specifications**: classification records that distinguish API, GL, Dexron, TO-4, MT-1, viscosity/grade, OEM approval and other classifications. A catalogue classification is not treated as an approval.
 - **Markets**: Kenya active; Uganda, Tanzania and Rwanda planned.
-- **Media**: local upload storage with editable alternative text, caption, source and verification state.
-- **Technical Documents**: TDS, SDS, certificate, brochure, approval and other records linked to media, products and markets. No fake files are seeded.
+- **Media**: public-facing image/non-technical resource metadata with alternative text, caption, source and verification state. It uses local disk in development and Railway Object Storage through Payload in staging/production.
+- **Private Document Files**: PDF-only uploads with private collection access, independent verification and a separate Railway bucket.
+- **Technical Documents**: TDS, SDS, certificate, brochure, approval and other records linked to Private Document Files, products and markets. No fake files are seeded.
 - **Enquiries**: private RFQ records compatible with the Phase 23 server model.
 
 Industries remain typed code data during this transition because Phase 21 content is stable and migrating it would not improve Phase 25 safety. Phone, public email, WhatsApp, verified business address, social links, currency and the commerce flag remain in `siteConfig` and environment configuration so critical business configuration does not depend on CMS availability. The RFQ notification recipient is a separate server environment value.
@@ -92,9 +93,9 @@ Enquiries have no public CRUD access. Only administrators may read/update/delete
 
 The existing in-memory limiter remains insufficient for multiple application instances. A shared limiter is still required in a later infrastructure/security phase.
 
-## Media and future R2
+## Media and Railway Object Storage
 
-Development files use the ignored local `media/` directory. The collection metadata and upload boundary are compatible with a future Payload storage adapter for Cloudflare R2. R2 is not configured in this phase.
+Development files use the ignored local `media/` and `private-documents/` directories. Staging and production select the official Payload 3.89 S3 adapter with `MEDIA_STORAGE_PROVIDER=railway-s3`. Railway buckets are private: verified public Media is proxied through Payload, and technical PDFs are fetched only by the controlled Resource route after all publication and verification checks pass.
 
 ## Production requirements
 

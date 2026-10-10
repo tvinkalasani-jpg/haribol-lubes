@@ -96,8 +96,9 @@ await test("environment example contains no secret values", () => assert.doesNot
 const complete = {
   DATABASE_URL: "postgresql://app:secret@db.example/haribol?sslmode=require", PAYLOAD_SECRET: "a-unique-production-secret-with-more-than-32-characters",
   NEXT_PUBLIC_SITE_URL: "https://haribollubesltd.co.ke", SEO_INDEXING_MODE: "production", CATALOGUE_DATA_SOURCE: "cms", RFQ_REPOSITORY: "payload",
-  NEXT_PUBLIC_WHATSAPP_NUMBER: "+254 794 205 115", RFQ_NOTIFICATION_EMAIL: "info@mastermax.co.ke", EMAIL_PROVIDER: "postmark", EMAIL_API_KEY: "secret", EMAIL_FROM: "website@example.com",
-  MEDIA_STORAGE_PROVIDER: "r2", R2_ACCOUNT_ID: "account", R2_ACCESS_KEY_ID: "access", R2_SECRET_ACCESS_KEY: "secret", R2_BUCKET: "public", R2_PRIVATE_BUCKET: "private", R2_ENDPOINT: "https://storage.example", R2_PUBLIC_URL: "https://assets.example.com",
+  NEXT_PUBLIC_WHATSAPP_NUMBER: "+254 794 205 115", RFQ_NOTIFICATION_EMAIL: "info@mastermax.co.ke", EMAIL_PROVIDER: "resend", EMAIL_API_KEY: "secret", EMAIL_FROM: "website@example.com",
+  MEDIA_STORAGE_PROVIDER: "railway-s3", S3_ENDPOINT: "https://media.storageapi.dev", S3_ACCESS_KEY_ID: "access", S3_SECRET_ACCESS_KEY: "secret", S3_BUCKET: "public", S3_REGION: "auto", S3_FORCE_PATH_STYLE: "false",
+  PRIVATE_S3_ENDPOINT: "https://private.storageapi.dev", PRIVATE_S3_ACCESS_KEY_ID: "access", PRIVATE_S3_SECRET_ACCESS_KEY: "secret", PRIVATE_S3_BUCKET: "private", PRIVATE_S3_REGION: "auto",
   SECURITY_CSP_MODE: "enforce", SECURITY_HSTS_ENABLED: "true", RATE_LIMIT_PROVIDER: "edge", BACKUP_RESTORE_TESTED: "true", LEGAL_REVIEW_STATUS: "approved", CONTACT_ENQUIRY_MODE: "informational", ADMIN_BOOTSTRAP_MODE: "complete",
 };
 await test("complete catalogue launch configuration passes", () => assert.equal(evaluateProductionEnvironment(complete).ready, true));

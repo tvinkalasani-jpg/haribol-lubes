@@ -11,10 +11,12 @@
 /.rfq-test-build/
 /.whatsapp-test-build/
 /.cms-test-build/
+/.storage-test-build/
 /.commerce-test-build/
 /.checkout-test-build/
 /.storefront-test-build/
 /media/
+/private-documents/
 /.postgres-data/
 /.postgres-phase25ea/
 

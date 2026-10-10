@@ -11,7 +11,7 @@ Status: Phase 29 launch-readiness architecture. This is technical and operationa
 | RFQ endpoint | Spam, large bodies, malformed JSON, replay, cross-site requests, log/PII leakage | JSON-only mutation, origin/fetch-site checks, 32 KiB limit, schema validation, honeypot, timing, idempotency, rate limit, safe status logs | Verified shared edge limiter and notification delivery |
 | Contact form | False-success UX, spam, PII mishandling | Browser-only validation and explicit non-sending disclosure | Implement only after a separate destination, retention owner and notification workflow are approved |
 | CMS content | Stored XSS, malicious rich text, false claims | Lexical structured content, publishing/verification guards, role access | Editorial review and CSP monitoring |
-| Media/documents | Malformed upload, executable/SVG content, unpublished-file disclosure | Explicit JPEG/PNG/WebP/AVIF/PDF list, 15 MiB limit, safe filenames, verified-public resource checks | Magic-byte scanning, malware scanning if risk warrants, R2 public/private split |
+| Media/documents | Malformed upload, executable/SVG content, unpublished-file disclosure | Explicit JPEG/PNG/WebP/AVIF/PDF list, 15 MiB limit, safe filenames, separate Railway buckets, repeated publication/verification checks | Magic-byte scanning and malware scanning if risk warrants |
 | Database/secrets | Credential leakage, public exposure, excessive privilege, destructive migration | Environment-only credentials, ORM/parameterised access, access controls, fail-closed launch check | Private/TLS connection, least privilege, migration role, backups and restore test |
 | Email | Header/HTML injection, spoofing, PII in logs, missed notifications | Provider-neutral notifier boundary, stored enquiry remains authoritative | Verified sender, escaped templates, retry worker and delivery monitoring |
 | Analytics | PII leakage, pre-consent tracking, tag injection | No provider installed; typed event names; property safeguards; consent-gated no-op adapter | Approve policy, adapter and consent mode before enabling |
@@ -23,7 +23,7 @@ SSRF is currently limited because no public endpoint fetches user-provided URLs.
 
 `src/lib/security/headers.ts` supplies nosniff, strict-origin referrer policy, restrictive permissions, SAMEORIGIN framing, COOP and CORP. Production defaults to an enforcing CSP; development defaults to report-only. `SECURITY_CSP_MODE` can explicitly select `off`, `report-only` or `enforce`, but the production-readiness command requires `enforce`.
 
-The CSP uses self as the default, connection and form source; disables objects; restricts base URI and frame ancestors; allows only self/data/blob images plus the configured HTTPS R2 public origin; and contains no wildcard or `unsafe-eval`. `unsafe-inline` remains for scripts and styles because Next.js hydration and Payload Admin currently emit inline bootstrap/style content. Replacing it requires a tested nonce/hash integration across both application surfaces. Future analytics, payments or storage origins must be added individually after approval.
+The CSP uses self as the default, connection and form source; disables objects; restricts base URI and frame ancestors; allows only self/data/blob images; and contains no wildcard or `unsafe-eval`. Public CMS media stays same-origin through Payload, so no storage hostname is added. `unsafe-inline` remains for scripts and styles because Next.js hydration and Payload Admin currently emit inline bootstrap/style content. Replacing it requires a tested nonce/hash integration across both application surfaces. Future analytics or payments origins must be added individually after approval.
 
 HSTS is emitted only when `NODE_ENV=production` and `SECURITY_HSTS_ENABLED=true`. Begin with `max-age=86400`. Increase after verified HTTPS stability. Do not add `includeSubDomains` until every subdomain is HTTPS-only, and do not preload without a separate irreversible-domain review.
 
@@ -43,13 +43,13 @@ Inputs are bounded and validated before storage. RFQ source pages are allowliste
 
 Editor uploads allow JPEG, PNG, WebP, AVIF and PDF only, one file per request, with a 15 MiB request limit and safe filenames. Arbitrary SVG is disallowed because no SVG sanitizer is installed; trusted repository-owned SVG may still be reviewed and shipped as code assets. MIME allowlisting is necessary but does not prove file contents. Production ingestion should validate magic bytes and add malware scanning if the document threat/risk justifies it.
 
-Public resource delivery requires a published Resource, a published and verified Technical Document where applicable, and verified Media. Predictable IDs do not grant access. Production R2 architecture should use:
+Public resource delivery requires a published Resource, a published and verified Technical Document where applicable, and a verified source file. Predictable IDs do not grant access. Railway Object Storage uses:
 
-- a public media bucket for approved product/editorial images, exposed through an approved asset hostname with immutable versioned keys and long cache lifetimes;
-- a private documents bucket for draft/unpublished files and controlled technical documents, with no public bucket URL;
-- keys such as `media/{collection}/{year}/{generated-id}-{safe-name}` rather than user-controlled paths;
-- a Payload storage adapter selected and tested before launch;
-- signed, short-lived downloads for private delivery, with application authorization before signing;
+- a private Railway media bucket, proxied by Payload with verified-public read access;
+- a separate private documents bucket and upload collection with no anonymous collection or bucket access;
+- controlled prefixes and safe filenames rather than user-controlled object paths;
+- the official Payload S3 adapter, selected only through `MEDIA_STORAGE_PROVIDER=railway-s3`;
+- server-controlled private-document delivery after Resource, Technical Document and file verification;
 - versioning/replication or an independent backup process because object storage is not itself a backup.
 
 ## Database, transactions, migrations and backups
@@ -62,7 +62,7 @@ Take daily backups with retention approved by the business, enable point-in-time
 
 ## Secrets and logging
 
-Public variables are limited to values intentionally exposed to browsers: site URL, WhatsApp, optional analytics measurement ID and site verification. `DATABASE_URL`, `PAYLOAD_SECRET`, email/R2 credentials and future payment credentials are server-only. Store production values in the hosting secret manager, rotate on exposure and never keep seed-admin passwords in the runtime.
+Public variables are limited to values intentionally exposed to browsers: site URL, WhatsApp, optional analytics measurement ID and site verification. `DATABASE_URL`, `PAYLOAD_SECRET`, Resend credentials, Railway object-storage credentials and future payment credentials are server-only. Store production values in the hosting secret manager, rotate on exposure and never keep seed-admin passwords in the runtime.
 
 The RFQ service logs only reference number, safe status and notification status. It does not log names, email, phone, company, location, message, raw requests or secrets. Production errors use bounded categories and must not return stack traces, SQL, internal paths or Payload internals. Monitoring should record safe error classes and correlation IDs; PII belongs in access-controlled records, not log events.
 
@@ -92,7 +92,7 @@ Never send name, email, phone, company, address, messages, RFQ/order references 
 
 ## Email and monitoring
 
-Use a provider-neutral adapter with an approved Postmark, Resend or equivalent implementation. Verify a Haribol-owned sender domain, keep the RFQ recipient separate, set Reply-To only from validated input if the provider and policy approve it, escape all values and prefer plain text or a fixed safe template. Never render submitted HTML.
+Resend is the selected transactional provider. Verify a Haribol-owned sender domain, keep the RFQ recipient separate, set Reply-To only from validated input, escape all values and use plain text or a fixed safe template. Never render submitted HTML.
 
 The record is stored before notification. Delivery attempts update notification status and retry count; transient failures should enter a bounded retry queue with backoff and alerting. Permanent failures remain visible for manual handling. `info@mastermax.co.ke` is the current private RFQ recipient and is not a valid sender unless its domain owner authorises and verifies it. RFQ email delivery is a launch blocker because a persisted but unnoticed lead is an unacceptable operational failure. A future Contact backend needs its own approved destination and must not silently reuse the RFQ inbox.
 
@@ -102,7 +102,7 @@ Sentry or equivalent may later monitor server exceptions, RFQ storage/delivery, 
 
 | Classification | Items |
 |---|---|
-| Blocker | Production PostgreSQL/TLS and migrations; tested backups/restore; strong Payload secret; R2 public/private storage adapter; working RFQ email; approved Privacy/Terms; DNS/TLS/redirects; enforcing CSP; verified HSTS rollout; shared rate limiting; approved production data; final indexing gate |
+| Blocker | Production PostgreSQL/TLS and migrations; tested backups/restore; strong Payload secret; live Railway storage tests; working Resend RFQ email; approved Privacy/Terms; DNS/TLS/redirects; enforcing CSP; verified HSTS rollout; shared rate limiting; approved production data; final indexing gate |
 | High priority | Admin/session verification, runtime monitoring, real asset approval, operating contacts/hours, documented incident owner and log retention |
 | Can follow after launch | Analytics, social profiles, advanced monitoring, nonessential content expansion, commerce |
 

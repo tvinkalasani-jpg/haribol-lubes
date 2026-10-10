@@ -1,6 +1,6 @@
 # Production infrastructure
 
-Status: **prepared, not connected**. Phase 30 did not receive provider accounts, API credentials, a repository connection, or an authenticated deployment CLI. No managed service or public hostname is represented as configured until its live test is recorded.
+Status: **code complete; live verification pending**. The Railway project, staging service, PostgreSQL service and two storage buckets exist. This repository does not contain or expose their credentials. Storage uploads, migrations, administrator bootstrap and Resend delivery remain unverified until recorded against staging.
 
 ## Platform decision
 
@@ -38,9 +38,11 @@ Payload's PostgreSQL adapter owns the application pool. Start with one applicati
 
 Phase 30 adds `20261005_120000_phase30_return_insight_to_draft`, which removes publication and indexability from the test Insight. Local SQL execution and content validation confirm the intended state. It still must run through Payload's migration command against managed staging.
 
+Phase 30B adds `20261010_124616_phase30b_railway_storage`, which creates the private upload collection, adds the Media prefix field and moves the Technical Document file relationship to the private collection. It fails before changing constraints if existing Technical Documents still reference Media, because their database records and objects require an explicit reviewed migration. No Railway migration is claimed until the pre-deploy command records success.
+
 ### Backups
 
-Enable daily Railway volume backups, an appropriate weekly/monthly schedule, and PITR before staging validation. Create a manual snapshot before migrations. Perform a logical `pg_dump` and restore it into a scratch database, compare key row counts, then delete the scratch database. Record the backup time, restore start/end, restored database identity and checks. No managed backup or restore test occurred in Phase 30 because no Railway database exists; `BACKUP_RESTORE_TESTED` must remain `false`.
+Enable daily Railway volume backups, an appropriate weekly/monthly schedule, and PITR before staging validation. Create a manual snapshot before migrations. Perform a logical `pg_dump` and restore it into a scratch database, compare key row counts, then delete the scratch database. Record the backup time, restore start/end, restored database identity and checks. The staging database exists, but no managed backup or restore evidence is available in this repository; `BACKUP_RESTORE_TESTED` must remain `false` until the drill is recorded.
 
 ## Payload secret and administrator bootstrap
 
@@ -50,18 +52,18 @@ Generate the staging secret in the provider secret manager and never print it. T
 
 Use two dedicated Railway Object Storage buckets through its S3-compatible API:
 
-- Public media: approved marketing images and published public resources, exposed through a staging media hostname with explicit cache rules.
-- Private documents: drafts, unpublished technical documents and future restricted files. Do not enable public bucket access. Deliver only after an application authorization check, using short-lived presigned GET URLs or an authenticated application stream.
+- Public CMS media: approved images and non-technical public resources stored in the media bucket. Railway buckets are private, so Payload proxies these objects through its same-origin, access-checked media route. Verified media can be read publicly; unverified media cannot.
+- Private documents: technical PDFs stored in the separate `private-documents` collection and bucket. The collection has no anonymous read access. The resource-file route retrieves an object server-side only after the Resource, Technical Document and private file all pass their publication/verification gates.
 
-Use Railway bucket-scoped S3-compatible credentials and keep access keys and secrets server-only. Public delivery should continue through Payload unless a reviewed public media origin is introduced later. The private bucket must never be made anonymously readable.
+Use Railway bucket-scoped S3-compatible credentials and keep access keys and secrets server-only. Current Railway buckets use virtual-hosted addressing, so `S3_FORCE_PATH_STYLE=false`; older buckets may require `true`, and the bucket Credentials tab is authoritative. The same explicit switch is applied to both configured buckets. The private bucket must never be made anonymously readable.
 
-The current Payload Media collection still stores local files and the S3 adapter is not yet installed. Railway Object Storage is therefore a **launch blocker**, not a completed integration. Before enabling CMS uploads in staging, implement and test the approved Payload S3 adapter; the existing single Media collection cannot safely infer privacy from file type alone, so private-document routing remains a separate requirement.
+`@payloadcms/storage-s3` 3.89 is installed and enabled only when `MEDIA_STORAGE_PROVIDER=railway-s3`. Local development keeps ignored `media/` and `private-documents/` directories. The adapter disables local file writes when enabled and throws upload errors back through the Payload operation, preventing a failed object write from being reported as a successful CMS save.
 
-Required live storage test: upload a synthetic raster image with alt text, verify the object storage object and public URL/cache headers, render it, delete it and verify deletion. Upload a synthetic draft PDF to the private path, verify anonymous access is denied, test authenticated/presigned access, revoke/delete it, and simulate an object storage failure to confirm no successful Media record remains.
+Required live storage test: upload a synthetic raster image with alt text, verify the object and same-origin Payload URL/cache headers, render it, delete it and verify deletion. Upload a synthetic draft PDF to the private collection, verify anonymous collection and predictable bucket access are denied, publish only after verification, test the controlled Resource route, revoke/delete it, and simulate invalid credentials to confirm no successful upload record remains.
 
 ## Transactional email
 
-Resend is the single selected provider. It offers per-server credentials, verified sender identities and a straightforward transactional API. The RFQ route now chooses a Resend notifier only when `EMAIL_PROVIDER=postmark`, a server token, a verified sender and a valid recipient are present. It sends plain text, uses the configured sender, adds a validated user address as Reply-To, includes the RFQ reference and never turns user text into HTML. The submission remains `STORE → NOTIFY`; provider failure sets notification status to `failed` while preserving the enquiry.
+Resend is the single selected provider. The RFQ route chooses a Resend notifier only when `EMAIL_PROVIDER=resend`, an API key, a verified sender and a valid recipient are present. It sends plain text, uses the configured sender, adds a validated user address as Reply-To, includes the RFQ reference and never turns user text into HTML. The submission remains `STORE → NOTIFY`; provider failure sets notification status to `failed` while preserving the enquiry.
 
 `RFQ_NOTIFICATION_EMAIL` remains `info@mastermax.co.ke`. `EMAIL_FROM` must remain empty until a real sender or domain is created and verified. Configure Resend SPF/DKIM exactly as Resend supplies, then publish a DMARC policy agreed with the domain owner. Do not claim DMARC alignment or inbox delivery before DNS and receipt tests succeed. The Contact form remains intentionally non-sending.
 
@@ -79,15 +81,15 @@ Use Railway deployment logs and built-in health checks for staging. Sentry remai
 
 ## Rollback
 
-Application rollback uses Railway's previous successful deployment. Database rollback is separate: prefer forward fixes for additive migrations, and use a reviewed down migration only when safe. Restore a snapshot/PITR fork for destructive or uncertain data changes, verify it, then change the application connection. Object deletion behind a cached public object storage domain also requires cache purge. Email configuration rolls back by restoring the prior environment variable set; stored failed enquiries remain retryable.
+Application rollback uses Railway's previous successful deployment. Database rollback is separate: prefer forward fixes for additive migrations, and use a reviewed down migration only when safe. Restore a snapshot/PITR fork for destructive or uncertain data changes, verify it, then change the application connection. Email configuration rolls back by restoring the prior environment variable set; stored failed enquiries remain retryable.
 
 ## DNS cutover plan
 
-Do not change live DNS in staging. Production cutover later requires the root record, a deliberate `www` redirect, provider domain verification, TLS issuance, Resend DKIM/SPF records, an approved DMARC policy, and the public object storage media hostname if used. Lower TTL before the scheduled cutover and retain a rollback record. Search Console and Google Business Profile remain outside Phase 30.
+Do not change live DNS in staging. Production cutover later requires the root record, a deliberate `www` redirect, provider domain verification, TLS issuance, Resend DKIM/SPF records and an approved DMARC policy. Lower TTL before the scheduled cutover and retain a rollback record. Search Console and Google Business Profile remain outside Phase 30.
 
 ## Launch blockers
 
-**Blockers:** authenticated Railway project/repository connection; managed staging PostgreSQL; TLS and least-privilege role; successful committed migrations; provider backups and restore drill; unique staging Payload secret; completed admin bootstrap; working object storage adapter and separate buckets; verified Resend sender/token and received RFQ test; shared rate limiter implementation; actual HTTPS staging deployment and crawl.
+**Blockers:** successful committed migrations; provider backups and restore drill; completed admin bootstrap; successful live upload/read/delete/failure tests for both Railway buckets; verified Resend sender/token and received RFQ test; shared rate limiter implementation; authenticated HTTPS staging crawl.
 
 **High priority:** staging Lighthouse/TTFB/database/media latency measurements; browser CSP review across public and Admin routes; DNS/email alignment review; privacy and terms legal review.
 

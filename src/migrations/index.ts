@@ -3,6 +3,7 @@ import * as migration_20261004_083431_phase25c_commerce_offers from './20261004_
 import * as migration_20261004_091825_phase25d_cart_checkout_orders from './20261004_091825_phase25d_cart_checkout_orders';
 import * as migration_20261004_202041_phase26_content_system from './20261004_202041_phase26_content_system';
 import * as migration_20261005_120000_phase30_return_insight_to_draft from './20261005_120000_phase30_return_insight_to_draft';
+import * as migration_20261010_124616_phase30b_railway_storage from './20261010_124616_phase30b_railway_storage';
 
 export const migrations = [
   {
@@ -23,11 +24,16 @@ export const migrations = [
   {
     up: migration_20261004_202041_phase26_content_system.up,
     down: migration_20261004_202041_phase26_content_system.down,
-    name: '20261004_202041_phase26_content_system'
+    name: '20261004_202041_phase26_content_system',
   },
   {
     up: migration_20261005_120000_phase30_return_insight_to_draft.up,
     down: migration_20261005_120000_phase30_return_insight_to_draft.down,
     name: '20261005_120000_phase30_return_insight_to_draft',
+  },
+  {
+    up: migration_20261010_124616_phase30b_railway_storage.up,
+    down: migration_20261010_124616_phase30b_railway_storage.down,
+    name: '20261010_124616_phase30b_railway_storage'
   },
 ];

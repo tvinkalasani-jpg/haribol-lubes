@@ -29,11 +29,13 @@ import { validateOrderStatusTransition, validatePaymentStatusTransition } from "
 import {
   enforceInsightPublishingGuard,
   enforceResourcePublishingGuard,
+  enforceTechnicalDocumentPublishingGuard,
   industryOptions,
   insightCategories,
   insightEditor,
   publicPublishedContent,
   publicVerifiedResources,
+  publicVerifiedMedia,
   resourceTypes,
   revalidateInsight,
   revalidateInsightDelete,
@@ -68,10 +70,30 @@ export const Media: CollectionConfig = {
     mimeTypes: ["image/jpeg", "image/png", "image/webp", "image/avif", "application/pdf"],
   },
   admin: { group: "Assets", useAsTitle: "filename" },
-  access: contentAccess,
+  access: { ...contentAccess, read: publicVerifiedMedia },
   fields: [
     { name: "alt", label: "Alternative text", type: "text", required: true },
     { name: "caption", type: "text" },
+    { name: "sourceType", label: "Source type", type: "select", required: true, defaultValue: "cms", options: ["supplier-original", "catalogue-extract", "project-generated", "cms"] },
+    verificationStatusField,
+  ],
+};
+
+export const PrivateDocuments: CollectionConfig = {
+  slug: "private-documents",
+  labels: { singular: "Private Document File", plural: "Private Document Files" },
+  upload: {
+    staticDir: path.resolve(process.cwd(), "private-documents"),
+    mimeTypes: ["application/pdf"],
+  },
+  admin: {
+    group: "Assets",
+    useAsTitle: "filename",
+    description: "Private technical files. Public delivery is only through an approved Resource route.",
+  },
+  access: contentAccess,
+  fields: [
+    { name: "label", type: "text", required: true },
     { name: "sourceType", label: "Source type", type: "select", required: true, defaultValue: "cms", options: ["supplier-original", "catalogue-extract", "project-generated", "cms"] },
     verificationStatusField,
   ],
@@ -242,8 +264,8 @@ export const ProductOffers: CollectionConfig = {
 export const TechnicalDocuments: CollectionConfig = {
   slug: "technical-documents", labels: { singular: "Technical Document", plural: "Technical Documents" },
   admin: { group: "Assets", useAsTitle: "title" }, access: { ...contentAccess, read: publicVerifiedResources }, versions,
-  hooks: { afterChange: [revalidateResources], afterDelete: [revalidateResourcesDelete] },
-  fields: [{ name: "title", type: "text", required: true }, slugField, { name: "documentType", label: "Document type", type: "select", required: true, options: [{ label: "TDS", value: "tds" }, { label: "SDS", value: "sds" }, { label: "Certificate", value: "certificate" }, { label: "Brochure", value: "brochure" }, { label: "Approval", value: "approval" }, { label: "Other", value: "other" }] }, { name: "file", type: "relationship", relationTo: "media", required: true }, { name: "version", type: "text" }, { name: "language", type: "text", required: true, defaultValue: "en" }, { name: "effectiveDate", label: "Effective date", type: "date" }, { name: "markets", type: "relationship", relationTo: "markets", hasMany: true }, { name: "products", type: "relationship", relationTo: "products", hasMany: true }, publicationStatusField, verificationStatusField],
+  hooks: { beforeChange: [enforceTechnicalDocumentPublishingGuard], afterChange: [revalidateResources], afterDelete: [revalidateResourcesDelete] },
+  fields: [{ name: "title", type: "text", required: true }, slugField, { name: "documentType", label: "Document type", type: "select", required: true, options: [{ label: "TDS", value: "tds" }, { label: "SDS", value: "sds" }, { label: "Certificate", value: "certificate" }, { label: "Brochure", value: "brochure" }, { label: "Approval", value: "approval" }, { label: "Other", value: "other" }] }, { name: "file", type: "relationship", relationTo: "private-documents", required: true }, { name: "version", type: "text" }, { name: "language", type: "text", required: true, defaultValue: "en" }, { name: "effectiveDate", label: "Effective date", type: "date" }, { name: "markets", type: "relationship", relationTo: "markets", hasMany: true }, { name: "products", type: "relationship", relationTo: "products", hasMany: true }, publicationStatusField, verificationStatusField],
 };
 
 export const Resources: CollectionConfig = {
@@ -448,4 +470,4 @@ export const PaymentTransactions: CollectionConfig = {
   ],
 };
 
-export const collections: CollectionConfig[] = [Users, Media, Brands, ProductCategories, Applications, Specifications, Markets, Products, ProductVariants, ProductOffers, TechnicalDocuments, Resources, Insights, Enquiries, Orders, PaymentTransactions];
+export const collections: CollectionConfig[] = [Users, Media, PrivateDocuments, Brands, ProductCategories, Applications, Specifications, Markets, Products, ProductVariants, ProductOffers, TechnicalDocuments, Resources, Insights, Enquiries, Orders, PaymentTransactions];

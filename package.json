@@ -25,6 +25,7 @@
     "validate:seo": "node scripts/validate-technical-seo.mjs",
     "validate:local-seo": "node scripts/validate-local-seo.mjs",
     "validate:security": "node scripts/validate-security-privacy.mjs",
+    "validate:storage": "node scripts/validate-storage.mjs",
     "scan:production": "node scripts/scan-production-artifacts.mjs",
     "check:production": "node scripts/check-production-readiness.mjs",
     "check:staging": "node scripts/check-staging-readiness.mjs",
@@ -42,9 +43,11 @@
     "cms:seed": "payload run scripts/seed-cms.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1148.0",
     "@payloadcms/db-postgres": "3.89.0",
     "@payloadcms/next": "3.89.0",
     "@payloadcms/richtext-lexical": "3.89.0",
+    "@payloadcms/storage-s3": "3.89.0",
     "next": "^16.3.6",
     "payload": "3.89.0",
     "react": "^19.3.0",
