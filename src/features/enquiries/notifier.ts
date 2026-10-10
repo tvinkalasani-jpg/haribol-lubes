@@ -21,7 +21,7 @@ function safeMailbox(value: string | undefined): string | null {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalized) ? normalized : null;
 }
 
-export class PostmarkEnquiryNotifier implements EnquiryNotifier {
+export class ResendEnquiryNotifier implements EnquiryNotifier {
   constructor(
     private readonly token: string,
     private readonly sender: string,
@@ -32,20 +32,18 @@ export class PostmarkEnquiryNotifier implements EnquiryNotifier {
   async notifySales(enquiry: RfqRecord): Promise<NotificationResult> {
     const replyTo = safeMailbox(enquiry.email || undefined);
     try {
-      const response = await this.request("https://api.postmarkapp.com/email", {
+      const response = await this.request("https://api.resend.com/emails", {
         method: "POST",
         headers: {
-          "Accept": "application/json",
+          "Authorization": `Bearer ${this.token}`,
           "Content-Type": "application/json",
-          "X-Postmark-Server-Token": this.token,
         },
         body: JSON.stringify({
-          From: this.sender,
-          To: this.recipient,
-          ...(replyTo ? { ReplyTo: replyTo } : {}),
-          Subject: `Haribol quotation request ${enquiry.referenceNumber}`,
-          TextBody: renderSalesNotification(enquiry),
-          MessageStream: "outbound",
+          from: this.sender,
+          to: [this.recipient],
+          ...(replyTo ? { reply_to: replyTo } : {}),
+          subject: `Haribol quotation request ${enquiry.referenceNumber}`,
+          text: renderSalesNotification(enquiry),
         }),
         signal: AbortSignal.timeout(10_000),
       });
@@ -57,12 +55,12 @@ export class PostmarkEnquiryNotifier implements EnquiryNotifier {
 }
 
 export function createEnquiryNotifier(environment: NodeJS.ProcessEnv = process.env, request: FetchLike = fetch): EnquiryNotifier {
-  if (environment.EMAIL_PROVIDER !== "postmark") return new UnavailableEnquiryNotifier();
+  if (environment.EMAIL_PROVIDER !== "resend") return new UnavailableEnquiryNotifier();
   const token = environment.EMAIL_API_KEY?.trim();
   const sender = safeMailbox(environment.EMAIL_FROM);
   const recipient = safeMailbox(environment.RFQ_NOTIFICATION_EMAIL);
   if (!token || !sender || !recipient) return new UnavailableEnquiryNotifier();
-  return new PostmarkEnquiryNotifier(token, sender, recipient, request);
+  return new ResendEnquiryNotifier(token, sender, recipient, request);
 }
 
 export function renderSalesNotification(enquiry: RfqRecord): string {

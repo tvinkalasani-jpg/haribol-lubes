@@ -13,14 +13,17 @@ export function evaluateStagingEnvironment(environment) {
     ["STAGING_URL", "Configure the HTTPS staging hostname."],
     ["DATABASE_URL", "Configure a dedicated managed staging PostgreSQL URL."],
     ["PAYLOAD_SECRET", "Configure a unique staging Payload secret."],
-    ["R2_ACCOUNT_ID", "Configure staging R2 access."],
-    ["R2_ACCESS_KEY_ID", "Configure the staging R2 access key."],
-    ["R2_SECRET_ACCESS_KEY", "Configure the staging R2 secret key."],
-    ["R2_BUCKET", "Configure the staging public-media bucket."],
-    ["R2_PRIVATE_BUCKET", "Configure the staging private-document bucket."],
-    ["R2_ENDPOINT", "Configure the R2 S3 endpoint."],
-    ["R2_PUBLIC_URL", "Configure the staging public-media origin."],
-    ["EMAIL_API_KEY", "Configure the Postmark staging server token."],
+    ["S3_ENDPOINT", "Configure Railway Object Storage for staging media."],
+    ["S3_ACCESS_KEY_ID", "Configure the staging media access key."],
+    ["S3_SECRET_ACCESS_KEY", "Configure the staging media secret key."],
+    ["S3_BUCKET", "Configure the staging media bucket."],
+    ["S3_REGION", "Configure the staging media region."],
+    ["PRIVATE_S3_ENDPOINT", "Configure Railway Object Storage for private staging documents."],
+    ["PRIVATE_S3_ACCESS_KEY_ID", "Configure the private-document access key."],
+    ["PRIVATE_S3_SECRET_ACCESS_KEY", "Configure the private-document secret key."],
+    ["PRIVATE_S3_BUCKET", "Configure the private-document bucket."],
+    ["PRIVATE_S3_REGION", "Configure the private-document region."],
+    ["EMAIL_API_KEY", "Configure the Resend staging API key."],
     ["EMAIL_FROM", "Configure a verified sender identity."],
     ["RFQ_NOTIFICATION_EMAIL", "Configure the approved RFQ recipient."],
     ["STAGING_ACCESS_USERNAME", "Configure staging HTTP authentication."],
@@ -42,11 +45,11 @@ export function evaluateStagingEnvironment(environment) {
   if ((environment.READINESS_TOKEN || "").length < 32) blockers.push({ key: "READINESS_TOKEN", message: "READINESS_TOKEN must contain at least 32 characters." });
   if (environment.CATALOGUE_DATA_SOURCE !== "cms") blockers.push({ key: "CATALOGUE_DATA_SOURCE", message: "Staging must exercise the migrated CMS catalogue." });
   if (environment.RFQ_REPOSITORY !== "payload") blockers.push({ key: "RFQ_REPOSITORY", message: "Staging RFQs must persist to PostgreSQL." });
-  if (environment.MEDIA_STORAGE_PROVIDER !== "r2") blockers.push({ key: "MEDIA_STORAGE_PROVIDER", message: "Staging uploads must use R2." });
-  if (environment.EMAIL_PROVIDER !== "postmark") blockers.push({ key: "EMAIL_PROVIDER", message: "Phase 30 selects one provider: Postmark." });
+  if (environment.MEDIA_STORAGE_PROVIDER !== "railway-s3") blockers.push({ key: "MEDIA_STORAGE_PROVIDER", message: "Staging uploads must use Railway Object Storage through the S3-compatible adapter." });
+  if (environment.EMAIL_PROVIDER !== "resend") blockers.push({ key: "EMAIL_PROVIDER", message: "Phase 30 selects one provider: Resend." });
   if (environment.SECURITY_CSP_MODE !== "enforce") blockers.push({ key: "SECURITY_CSP_MODE", message: "Staging must exercise the enforcing CSP." });
   if (environment.STAGING_BACKUPS_ENABLED !== "true") blockers.push({ key: "STAGING_BACKUPS_ENABLED", message: "Enable provider backups before staging validation." });
-  if (environment.R2_BUCKET && environment.R2_BUCKET === environment.R2_PRIVATE_BUCKET) blockers.push({ key: "R2_PRIVATE_BUCKET", message: "Public and private files require separate staging buckets." });
+  if (environment.S3_BUCKET && environment.S3_BUCKET === environment.PRIVATE_S3_BUCKET) blockers.push({ key: "PRIVATE_S3_BUCKET", message: "Public and private files require separate staging buckets." });
   if (environment.PAYLOAD_SEED_ADMIN_PASSWORD?.trim()) blockers.push({ key: "PAYLOAD_SEED_ADMIN_PASSWORD", message: "Remove temporary bootstrap credentials after creating the administrator." });
   if (environment.ADMIN_BOOTSTRAP_MODE !== "complete") blockers.push({ key: "ADMIN_BOOTSTRAP_MODE", message: "Complete and remove the one-time admin bootstrap before exposing staging." });
   if (environment.NEXT_PUBLIC_ANALYTICS_ENABLED === "true") blockers.push({ key: "NEXT_PUBLIC_ANALYTICS_ENABLED", message: "Analytics remains disabled in Phase 30." });

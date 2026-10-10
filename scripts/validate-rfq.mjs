@@ -63,30 +63,30 @@ test("26 rate limit returns typed outcome", async () => { const service = new Rf
 test("27 notifier failure preserves stored record", async () => { const repo = new MemoryRepository(); const service = new RfqService(repo, new Notifier("throw"), new InMemoryRfqRateLimiter()); const r = await service.submit({ raw: valid(), context, requestFingerprint: "notify", now }); assert.equal(r.type, "success"); assert.equal(repo.records.length, 1); assert.equal(repo.records[0].notificationStatus, "failed"); });
 test("28 storage failure never returns success", async () => { const repo = new MemoryRepository(); repo.fail = true; const service = new RfqService(repo, new Notifier(), new InMemoryRfqRateLimiter()); assert.equal((await service.submit({ raw: valid(), context, requestFingerprint: "storage", now })).type, "storage_error"); });
 test("29 filesystem persistence stores a synthetic record", async () => { const directory = await mkdtemp(path.join(tmpdir(), "haribol-rfq-")); try { const repo = new FilesystemEnquiryRepository(directory); const service = new RfqService(repo, new Notifier("unavailable"), new InMemoryRfqRateLimiter()); const result = await service.submit({ raw: valid(), context, requestFingerprint: "filesystem", now }); assert.equal(result.type, "success"); const files = await readdir(directory); assert.equal(files.length, 1); const stored = JSON.parse(await readFile(path.join(directory, files[0]), "utf8")); assert.equal(stored.referenceNumber, result.referenceNumber); assert.equal(stored.notificationStatus, "unavailable"); } finally { await rm(directory, { recursive: true, force: true }); } });
-test("30 Postmark adapter sends plain text with safe Reply-To", async () => {
+test("30 Resend adapter sends plain text with safe Reply-To", async () => {
   let request;
-  const fakeFetch = async (url, options) => { request = { url, options }; return new Response(JSON.stringify({ MessageID: "synthetic" }), { status: 200 }); };
-  const notifier = createEnquiryNotifier({ EMAIL_PROVIDER: "postmark", EMAIL_API_KEY: "test-token", EMAIL_FROM: "verified@example.test", RFQ_NOTIFICATION_EMAIL: "info@mastermax.co.ke" }, fakeFetch);
+  const fakeFetch = async (url, options) => { request = { url, options }; return new Response(JSON.stringify({ id: "synthetic" }), { status: 200 }); };
+  const notifier = createEnquiryNotifier({ EMAIL_PROVIDER: "resend", EMAIL_API_KEY: "test-token", EMAIL_FROM: "verified@example.test", RFQ_NOTIFICATION_EMAIL: "info@mastermax.co.ke" }, fakeFetch);
   const repo = new MemoryRepository();
   const service = new RfqService(repo, notifier, new InMemoryRfqRateLimiter());
-  const result = await service.submit({ raw: valid({ email: "buyer@example.test", message: "<script>alert(1)</script>" }), context, requestFingerprint: "postmark", now });
+  const result = await service.submit({ raw: valid({ email: "buyer@example.test", message: "<script>alert(1)</script>" }), context, requestFingerprint: "resend", now });
   assert.equal(result.type, "success");
   assert.equal(repo.records[0].notificationStatus, "sent");
-  assert.equal(request.url, "https://api.postmarkapp.com/email");
+  assert.equal(request.url, "https://api.resend.com/emails");
   const body = JSON.parse(request.options.body);
-  assert.equal(body.To, "info@mastermax.co.ke");
-  assert.equal(body.From, "verified@example.test");
-  assert.equal(body.ReplyTo, "buyer@example.test");
-  assert.equal(body.HtmlBody, undefined);
-  assert.match(body.Subject, /RFQ-2026-ABC123/);
-  assert.match(body.TextBody, /<script>alert\(1\)<\/script>/);
+  assert.deepEqual(body.to, ["info@mastermax.co.ke"]);
+  assert.equal(body.from, "verified@example.test");
+  assert.equal(body.reply_to, "buyer@example.test");
+  assert.equal(body.html, undefined);
+  assert.match(body.subject, /RFQ-2026-ABC123/);
+  assert.match(body.text, /<script>alert\(1\)<\/script>/);
 });
-test("31 Postmark provider failure preserves the stored enquiry", async () => {
+test("31 Resend provider failure preserves the stored enquiry", async () => {
   const fakeFetch = async () => new Response("failure", { status: 503 });
-  const notifier = createEnquiryNotifier({ EMAIL_PROVIDER: "postmark", EMAIL_API_KEY: "test-token", EMAIL_FROM: "verified@example.test", RFQ_NOTIFICATION_EMAIL: "info@mastermax.co.ke" }, fakeFetch);
+  const notifier = createEnquiryNotifier({ EMAIL_PROVIDER: "resend", EMAIL_API_KEY: "test-token", EMAIL_FROM: "verified@example.test", RFQ_NOTIFICATION_EMAIL: "info@mastermax.co.ke" }, fakeFetch);
   const repo = new MemoryRepository();
   const service = new RfqService(repo, notifier, new InMemoryRfqRateLimiter());
-  const result = await service.submit({ raw: valid(), context, requestFingerprint: "postmark-failure", now });
+  const result = await service.submit({ raw: valid(), context, requestFingerprint: "resend-failure", now });
   assert.equal(result.type, "success");
   assert.equal(repo.records[0].notificationStatus, "failed");
   assert.equal(repo.records[0].notificationAttempts, 1);
@@ -94,9 +94,9 @@ test("31 Postmark provider failure preserves the stored enquiry", async () => {
 test("32 malformed Reply-To is never sent", async () => {
   let body;
   const fakeFetch = async (_url, options) => { body = JSON.parse(options.body); return new Response("{}", { status: 200 }); };
-  const notifier = createEnquiryNotifier({ EMAIL_PROVIDER: "postmark", EMAIL_API_KEY: "test-token", EMAIL_FROM: "verified@example.test", RFQ_NOTIFICATION_EMAIL: "info@mastermax.co.ke" }, fakeFetch);
+  const notifier = createEnquiryNotifier({ EMAIL_PROVIDER: "resend", EMAIL_API_KEY: "test-token", EMAIL_FROM: "verified@example.test", RFQ_NOTIFICATION_EMAIL: "info@mastermax.co.ke" }, fakeFetch);
   await notifier.notifySales({ ...new MemoryRepository(), email: "attacker@example.test\r\nBcc: victim@example.test", referenceNumber: "RFQ-2026-SAFE01", createdAt: new Date(now).toISOString(), name: "Test", company: "", phone: "", businessType: "", productSlug: null, categoryId: "", gradeOrViscosity: "", specification: "", application: "", quantity: null, quantityUnit: "", location: "Test", message: "Test", source: "request-a-quote" });
-  assert.equal(body.ReplyTo, undefined);
+  assert.equal(body.reply_to, undefined);
 });
 
 let passed = 0;

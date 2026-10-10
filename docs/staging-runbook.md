@@ -1,14 +1,14 @@
 # Staging runbook
 
-This runbook begins only after authorized Railway, Cloudflare R2 and Postmark access exists. Never paste secrets into tickets, chat, logs or committed files.
+This runbook begins only after authorized Railway and Resend access exists. Never paste secrets into tickets, chat, logs or committed files.
 
 ## 1. Provision
 
 1. Create Railway project/environment `staging`, application service and PostgreSQL service.
 2. Create a least-privilege PostgreSQL application role and a TLS private connection string.
 3. Enable scheduled database backups and PITR; take a manual pre-migration snapshot.
-4. Create distinct staging public-media and private-document R2 buckets with bucket-scoped credentials.
-5. Create a Postmark staging server and verify the real sender/domain.
+4. Create distinct staging public-media and private-document Railway Object Storage buckets with bucket-scoped S3-compatible credentials.
+5. Verify the real sender/domain in Resend and create a staging API key.
 6. Generate independent Payload, HTTP Basic and readiness secrets.
 7. Populate Railway from `.env.staging.example`; keep analytics, commerce and HSTS disabled.
 
@@ -36,11 +36,11 @@ Sign in as editor and administrator. Verify Products, Industries, Insights, Reso
 
 ## 7. Test storage
 
-Upload a clearly synthetic PNG/WebP with meaningful alt text. Confirm it exists in the staging public bucket, renders from the expected staging URL, has the planned cache headers, and can be deleted. Then upload a synthetic draft PDF through the private-document path. Confirm anonymous bucket and predictable URL access fail, authorized delivery succeeds and deletion revokes access. Simulate invalid R2 credentials in a disposable deployment and confirm upload fails without a successful partial record. Restore credentials and remove all synthetic files.
+Upload a clearly synthetic PNG/WebP with meaningful alt text. Confirm it exists in the staging public bucket, renders from the expected staging URL, has the planned cache headers, and can be deleted. Then upload a synthetic draft PDF through the private-document path. Confirm anonymous bucket and predictable URL access fail, authorized delivery succeeds and deletion revokes access. Simulate invalid Railway Object Storage credentials in a disposable deployment and confirm upload fails without a successful partial record. Restore credentials and remove all synthetic files.
 
 ## 8. Test RFQ and email
 
-Submit one synthetic RFQ through the public form. Confirm validation and anti-spam controls, database persistence, a reference, Enquiries visibility, a Postmark delivery event and receipt at `info@mastermax.co.ke`. Confirm the configured sender and safe Reply-To. Temporarily use an invalid staging token, submit a second synthetic RFQ, and verify it remains stored with notification status `failed` and one attempt. Restore the token. Delete both synthetic enquiries after recording redacted evidence.
+Submit one synthetic RFQ through the public form. Confirm validation and anti-spam controls, database persistence, a reference, Enquiries visibility, a Resend delivery event and receipt at `info@mastermax.co.ke`. Confirm the configured sender and safe Reply-To. Temporarily use an invalid staging token, submit a second synthetic RFQ, and verify it remains stored with notification status `failed` and one attempt. Restore the token. Delete both synthetic enquiries after recording redacted evidence.
 
 The Contact form remains non-sending.
 
@@ -58,8 +58,8 @@ Create a logical dump and restore it into a scratch database. Compare migrations
 
 ## 12. Rollback
 
-For an application fault, select Railway's previous successful deployment. For database issues, stop writes, choose a safe reviewed down migration or restore/PITR fork, verify it and change the connection. Never assume application rollback reverses the database. Purge public R2 cache after object deletion or replacement when immediate removal matters.
+For an application fault, select Railway's previous successful deployment. For database issues, stop writes, choose a safe reviewed down migration or restore/PITR fork, verify it and change the connection. Never assume application rollback reverses the database. Purge public Railway Object Storage cache after object deletion or replacement when immediate removal matters.
 
 ## Evidence checklist
 
-Capture redacted screenshots of the authenticated staging homepage, Admin login, Insights empty state, Resources empty state, successful synthetic RFQ, received Postmark message, R2 media render, response noindex/security headers, Lighthouse result and staging-readiness report. Evidence must not show passwords, bearer tokens, database URLs, email server tokens, customer data or R2 keys.
+Capture redacted screenshots of the authenticated staging homepage, Admin login, Insights empty state, Resources empty state, successful synthetic RFQ, received Resend message, Railway Object Storage media render, response noindex/security headers, Lighthouse result and staging-readiness report. Evidence must not show passwords, bearer tokens, database URLs, email server tokens, customer data or Railway Object Storage keys.
