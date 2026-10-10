@@ -115,6 +115,6 @@ for (const insight of seededInsights) {
 
 const adminEmail = process.env.PAYLOAD_SEED_ADMIN_EMAIL;
 const adminPassword = process.env.PAYLOAD_SEED_ADMIN_PASSWORD;
-if (adminEmail && adminPassword) await upsert(client, "users", "email", adminEmail, { email: adminEmail, password: adminPassword, name: process.env.PAYLOAD_SEED_ADMIN_NAME || "Development Administrator", role: "admin" });
+if (adminEmail && adminPassword) await upsert(client, "users", "email", adminEmail, { email: adminEmail, password: adminPassword, name: process.env.PAYLOAD_SEED_ADMIN_NAME || "Development Administrator", role: "admin", loginAttempts: 0, lockUntil: null });
 
 console.info("CMS seed complete", { brands: brands.length, categories: catalogueCategories.length, applications: applications.length, specifications: specifications.length, markets: markets.length, products: products.length, variants: variantCount, insights: seededInsights.length, publishedInsights: 0, resources: 0, productOffers: 0, orders: 0, paymentTransactions: 0, adminCreated: Boolean(adminEmail && adminPassword) });
