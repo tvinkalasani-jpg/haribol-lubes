@@ -1,0 +1,80 @@
+import type { ProductCategory } from "@/types/product";
+
+export const catalogueCategories: readonly ProductCategory[] = [
+  {
+    id: "engine-oils",
+    slug: "engine-oils",
+    name: "Engine Oils",
+    description: "Lubricants for petrol, diesel and commercial engine applications.",
+    displayOrder: 10,
+    verificationStatus: "catalogue-derived",
+  },
+  {
+    id: "hydraulic-oils",
+    slug: "hydraulic-oils",
+    name: "Hydraulic Oils",
+    description: "Lubricants for hydraulic systems in industrial and mobile equipment.",
+    displayOrder: 20,
+    verificationStatus: "catalogue-derived",
+  },
+  {
+    id: "transmission-gear-oils",
+    slug: "transmission-gear-oils",
+    name: "Transmission / Gear Oils",
+    description: "Transmission, driveline and gear lubricants.",
+    displayOrder: 30,
+    verificationStatus: "catalogue-derived",
+  },
+  {
+    id: "gear-oils",
+    slug: "gear-oils",
+    name: "Gear Oils",
+    description: "Lubricants for gear systems and driveline applications.",
+    parentCategoryId: "transmission-gear-oils",
+    displayOrder: 31,
+    verificationStatus: "catalogue-derived",
+  },
+  {
+    id: "transmission-fluids",
+    slug: "transmission-fluids",
+    name: "Transmission Fluids",
+    description: "Fluids for automotive transmission and power-transfer systems.",
+    parentCategoryId: "transmission-gear-oils",
+    displayOrder: 32,
+    verificationStatus: "catalogue-derived",
+  },
+  {
+    id: "compressor-oils",
+    slug: "compressor-oils",
+    name: "Compressor Oils",
+    description: "Lubricants for compressor applications.",
+    displayOrder: 40,
+    verificationStatus: "catalogue-derived",
+  },
+  {
+    id: "industrial-lubricants",
+    slug: "industrial-lubricants",
+    name: "Industrial Lubricants",
+    description: "Lubricants for machinery, equipment and industrial processes.",
+    displayOrder: 50,
+    verificationStatus: "catalogue-derived",
+  },
+  {
+    id: "greases",
+    slug: "greases",
+    name: "Greases",
+    description: "Lubricating greases for automotive and industrial applications.",
+    displayOrder: 60,
+    verificationStatus: "catalogue-derived",
+  },
+  {
+    id: "specialty-fluids",
+    slug: "specialty-fluids",
+    name: "Specialty Fluids",
+    description: "Purpose-specific fluids for selected automotive and industrial uses.",
+    displayOrder: 70,
+    verificationStatus: "needs-review",
+  },
+] as const;
+
+export type CatalogueCategoryId = (typeof catalogueCategories)[number]["id"];

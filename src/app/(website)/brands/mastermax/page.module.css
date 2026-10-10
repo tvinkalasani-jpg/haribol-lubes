@@ -1,0 +1,118 @@
+.page {
+  padding-top: clamp(6rem, 12vw, 10rem);
+  padding-bottom: clamp(5rem, 10vw, 8rem);
+}
+
+.eyebrow,
+.company,
+.groups > div > p,
+.notice {
+  margin: 0;
+  font-size: var(--font-size-caption);
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  color: #eb7a2d;
+}
+
+.company {
+  margin-top: 1rem;
+  color: var(--color-foreground-subtle);
+}
+
+.page h1 {
+  margin-top: 2.25rem;
+  font-size: clamp(5rem, 14vw, 12rem);
+  line-height: 0.78;
+}
+
+.intro {
+  max-width: 48rem;
+  margin: 2.5rem 0 0;
+  color: var(--color-foreground-muted);
+  font-size: var(--font-size-body-lg);
+}
+
+.groups {
+  display: grid;
+  margin-top: clamp(5rem, 10vw, 8rem);
+  grid-template-columns: minmax(15rem, 0.6fr) minmax(0, 1.4fr);
+  gap: clamp(2rem, 7vw, 8rem);
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.groups > div > p {
+  color: #eb7a2d;
+}
+
+.groups h2 {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-display-lg);
+  font-weight: 600;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.groups ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+}
+
+.groups li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.groups li > span {
+  color: #eb7a2d;
+  font-family: var(--font-family-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.groups h3 {
+  margin: 0;
+  font-family: var(--font-family-display);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-weight: 600;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.groups li > a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.groups li > a:hover h3 {
+  color: #eb7a2d;
+}
+
+.groups li p {
+  max-width: 40rem;
+  margin: 0.6rem 0 0;
+  color: var(--color-foreground-subtle);
+  font-size: var(--font-size-body-sm);
+}
+
+.notice {
+  margin-top: 4rem;
+  color: var(--color-foreground-subtle);
+}
+
+@media (max-width: 48rem) {
+  .groups {
+    grid-template-columns: 1fr;
+  }
+}

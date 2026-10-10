@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "incremental": false,
+    "isolatedModules": false,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "target": "ES2022",
+    "outDir": ".rfq-test-build"
+  },
+  "include": [
+    "src/types/enquiry.ts",
+    "src/lib/validation/rfq.ts",
+    "src/features/enquiries/repository.ts",
+    "src/features/enquiries/filesystem-repository.ts",
+    "src/features/enquiries/notifier.ts",
+    "src/features/enquiries/rate-limit.ts",
+    "src/features/enquiries/rfq-service.ts"
+  ]
+}

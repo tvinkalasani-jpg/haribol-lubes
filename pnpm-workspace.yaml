@@ -1,0 +1,10 @@
+packages:
+  - "."
+
+overrides:
+  undici: 7.29.1
+
+allowBuilds:
+  esbuild: true
+  sharp: true
+  unrs-resolver: true

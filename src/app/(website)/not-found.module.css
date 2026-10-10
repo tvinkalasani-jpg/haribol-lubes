@@ -1,0 +1,8 @@
+.page { min-height: 62vh; display: grid; align-items: center; padding: clamp(5rem, 12vw, 9rem) 0; background: var(--color-surface); color: var(--color-foreground); }
+.container { max-width: 56rem; }
+.code { color: var(--color-accent); font-size: .75rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.page h1 { max-width: 18ch; margin: 1rem 0; font-family: var(--font-barlow-condensed); font-size: clamp(2.8rem, 8vw, 5.5rem); line-height: .94; text-transform: uppercase; }
+.page > div > p:not(.code) { color: var(--color-foreground-muted); }
+.page nav { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+.page nav a { border: 1px solid var(--color-border); padding: .8rem 1rem; font-weight: 700; }
+.page nav a:focus-visible, .page nav a:hover { border-color: var(--color-accent); outline: 2px solid transparent; color: var(--color-accent); }

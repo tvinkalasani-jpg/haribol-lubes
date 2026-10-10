@@ -1,0 +1,34 @@
+.productPanel,.cartShell,.checkoutShell{background:var(--color-panel);border:1px solid var(--color-border);color:var(--color-foreground);padding:clamp(1.25rem,3vw,2.5rem);box-shadow:var(--shadow-md)}
+.productPanel{margin:0 auto var(--space-8);max-width:var(--container-wide)}
+.previewFlag{display:inline-flex;padding:.45rem .65rem;background:var(--color-warning);color:var(--color-accent-foreground);font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.productPanel header p,.pageEyebrow{color:var(--color-accent-active);font-size:var(--font-size-label);font-weight:700;letter-spacing:var(--letter-spacing-eyebrow);text-transform:uppercase}
+.productPanel h2,.cartShell h1,.checkoutShell h1{font-family:var(--font-family-display);font-size:var(--font-size-h2);line-height:1;text-transform:uppercase}
+.offerSelector{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.65rem;margin:1.5rem 0}
+.offerSelector button{min-height:5rem;padding:1rem;text-align:left;color:var(--color-foreground);background:var(--color-surface-subtle);border:1px solid var(--color-border);cursor:pointer}
+.offerSelector button[aria-checked="true"]{border-color:var(--color-accent);box-shadow:var(--shadow-accent)}
+.offerSelector span,.offerSelector small{display:block}.offerSelector small{margin-top:.35rem;color:var(--color-foreground-muted)}
+.offerDetails{display:grid;grid-template-columns:minmax(0,1fr) minmax(15rem,.7fr);gap:2rem;padding-top:1.5rem;border-top:1px solid var(--color-border)}
+.promotion{color:var(--color-accent);font-size:.75rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.price,.priceOnRequest{margin:.35rem 0;font-family:var(--font-family-display);font-size:clamp(2.25rem,5vw,4rem);font-weight:700;line-height:1}.priceOnRequest{font-size:2.25rem}
+.saleMeta{display:flex;align-items:center;gap:.8rem}.saleMeta del{color:var(--color-foreground-muted)}.saleMeta strong{padding:.25rem .45rem;color:var(--color-accent-foreground);background:var(--color-accent)}
+.availability{font-weight:700;color:var(--color-success)}
+:global([data-theme="light"]) .availability{color:#155f3c}
+@media(prefers-color-scheme:light){:global(:root:not([data-theme])) .availability{color:#155f3c}}
+.purchaseActions{display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:.75rem}.cartLink{text-align:center;font-size:.85rem;font-weight:700}
+.srAnnouncement{min-height:1.5rem;margin:1rem 0 0;color:var(--color-success)}
+:global(.commerce-quantity){display:grid;grid-template-columns:3rem 1fr 3rem;align-items:end;gap:.4rem}
+:global(.commerce-quantity button),:global(.commerce-quantity input){height:3rem;color:var(--color-foreground);background:var(--color-input-background);border:1px solid var(--color-border)}
+:global(.commerce-quantity button){font-size:1.35rem;cursor:pointer}:global(.commerce-quantity button:disabled){opacity:.4;cursor:not-allowed}
+:global(.commerce-quantity label span){display:block;margin-bottom:.3rem;font-size:.75rem;color:var(--color-foreground-muted)}
+:global(.commerce-quantity input){width:100%;padding:.5rem;text-align:center}
+.commercePage{min-height:70vh;padding:var(--space-section-compact) var(--container-gutter);background:var(--color-background)}
+.cartShell,.checkoutShell{max-width:70rem;margin:0 auto}.cartHeader,.checkoutHeader{display:flex;justify-content:space-between;gap:1rem;align-items:start;border-bottom:1px solid var(--color-border);padding-bottom:1.5rem}.cartHeader p,.checkoutHeader p{margin:.5rem 0;color:var(--color-foreground-muted)}
+.cartList{display:grid;gap:1rem;padding:0;list-style:none}.cartLine{display:grid;grid-template-columns:minmax(0,1fr) 11rem 9rem;gap:1.5rem;align-items:center;padding:1.25rem;background:var(--color-surface-subtle);border:1px solid var(--color-border)}
+.cartLine h2{margin:0;font-size:1.15rem}.cartLine p{margin:.25rem 0;color:var(--color-foreground-muted)}.linePrice{text-align:right}.linePrice strong{display:block;font-size:1.2rem}.linePrice button{margin-top:.6rem;color:var(--color-danger);background:none;border:0;text-decoration:underline;cursor:pointer}
+.notice,.error{padding:.8rem 1rem;border-left:3px solid var(--color-warning);background:var(--color-surface-subtle)}.error{border-color:var(--color-danger)}
+.totals{margin-left:auto;max-width:26rem;padding-top:1.5rem}.totals div{display:flex;justify-content:space-between;padding:.55rem 0;border-bottom:1px solid var(--color-border)}.totals strong{font-size:1.25rem}.totalsActions{display:grid;gap:.75rem;margin-top:1rem;text-align:center}
+.empty{text-align:center;padding:4rem 1rem}.empty h2{font-family:var(--font-family-display);font-size:2.5rem;text-transform:uppercase}
+.checkoutGrid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(18rem,.8fr);gap:2rem;margin-top:2rem}.checkoutForm{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.checkoutForm label{display:grid;gap:.35rem}.checkoutForm label span{font-size:.8rem;font-weight:700}.checkoutForm input,.checkoutForm textarea{width:100%;padding:.8rem;color:var(--color-foreground);background:var(--color-input-background);border:1px solid var(--color-border)}.checkoutForm textarea{min-height:7rem;resize:vertical}.full{grid-column:1/-1}.paymentPlaceholder{padding:1rem;border:1px dashed var(--color-border-strong);color:var(--color-foreground-muted)}
+.summary{padding:1.25rem;background:var(--color-surface-subtle);border:1px solid var(--color-border)}.summary h2{margin-top:0}.summary ul{padding:0;list-style:none}.summary li{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px solid var(--color-border)}
+.success{padding:2rem;border:1px solid var(--color-success);background:var(--color-surface-subtle)}.success h2{font-family:var(--font-family-display);font-size:2.5rem;text-transform:uppercase}.success strong{color:var(--color-accent)}
+@media(max-width:760px){.offerDetails,.checkoutGrid{grid-template-columns:1fr}.cartLine{grid-template-columns:1fr}.linePrice{text-align:left}.checkoutForm{grid-template-columns:1fr}.full{grid-column:auto}.cartHeader,.checkoutHeader{display:block}.totals{max-width:none}.commercePage{padding-inline:.75rem}.productPanel{margin-inline:.75rem}}

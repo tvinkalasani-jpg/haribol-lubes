@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "incremental": false,
+    "isolatedModules": false,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "target": "ES2022",
+    "outDir": ".storefront-test-build"
+  },
+  "include": [
+    "src/config/site.ts",
+    "src/data/commerce/storefront-fixtures.ts",
+    "src/features/storefront/config.ts",
+    "src/lib/commerce/**/*.ts",
+    "src/lib/checkout/**/*.ts",
+    "src/lib/storefront/**/*.ts",
+    "src/types/checkout.ts",
+    "src/types/commerce.ts",
+    "src/types/product.ts"
+  ]
+}

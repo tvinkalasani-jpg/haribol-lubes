@@ -1,0 +1,26 @@
+.section {
+  position: relative;
+  padding-block: var(--space-section);
+}
+
+.elevated {
+  background: var(--color-background-elevated);
+  border-block: var(--border-subtle);
+}
+
+.full {
+  padding-block: var(--space-section);
+}
+
+.compact {
+  padding-block: var(--space-section-compact);
+}
+
+.promotional {
+  padding-block: var(--space-hero);
+  overflow: hidden;
+  background:
+    linear-gradient(110deg, rgb(224 165 43 / 9%), transparent 42%),
+    var(--color-background-elevated);
+  border-block: var(--border-subtle);
+}

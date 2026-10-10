@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "incremental": false,
+    "isolatedModules": false,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "target": "ES2022",
+    "outDir": ".checkout-test-build"
+  },
+  "include": [
+    "src/config/site.ts",
+    "src/lib/commerce/**/*.ts",
+    "src/lib/checkout/**/*.ts",
+    "src/types/checkout.ts",
+    "src/types/commerce.ts",
+    "src/types/product.ts"
+  ]
+}

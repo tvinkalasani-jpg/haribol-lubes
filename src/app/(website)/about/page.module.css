@@ -1,0 +1,159 @@
+.page { overflow: hidden; color: var(--color-foreground); background: var(--color-background); }
+
+.hero { position: relative; min-height: min(60rem, calc(100svh - var(--header-height))); background: radial-gradient(circle at 82% 28%, rgb(224 165 43 / 10%), transparent 27rem), linear-gradient(145deg, var(--color-panel), var(--color-panel-deep) 62%); border-bottom: 1px solid var(--color-border-strong); }
+.hero::before, .services::before, .kenyaSection::before { position: absolute; inset: 0; background-image: linear-gradient(var(--color-grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px); background-size: 5rem 5rem; content: ""; mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent); pointer-events: none; }
+.heroContainer { position: relative; display: flex; min-height: inherit; flex-direction: column; padding-block: 2rem clamp(4rem, 8vw, 7rem); }
+.heroGrid { display: grid; flex: 1; grid-template-columns: minmax(0, 1.35fr) minmax(20rem, 0.65fr); gap: clamp(3rem, 8vw, 9rem); align-items: end; padding-top: clamp(5rem, 11vw, 10rem); }
+.eyebrow, .orangeEyebrow, .sectionHeading > p, .growthGrid > p, .ctaGrid > div:first-child > p, .architectureHeader { margin: 0; color: var(--color-accent); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
+.heroCopy h1 { max-width: 11ch; margin-top: 1.5rem; font-size: clamp(5rem, 11vw, 11rem); letter-spacing: -0.045em; line-height: 0.78; }
+.heroStatement { max-width: 42rem; margin: 2.25rem 0 0; color: var(--color-foreground-muted); font-size: clamp(1.05rem, 1.6vw, 1.35rem); line-height: 1.65; }
+.heroReference { padding: clamp(1.5rem, 3vw, 2.5rem); background: rgb(9 12 14 / 64%); border: 1px solid var(--color-border-strong); }
+.referenceCode { display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: center; color: var(--color-accent); font-family: var(--font-family-display); font-size: clamp(1.8rem, 3vw, 3rem); font-weight: 600; }
+.referenceCode i { height: 1px; background: var(--color-border-strong); }
+.heroReference > p { margin: 2rem 0; color: var(--color-foreground-muted); font-size: 1rem; line-height: 1.7; }
+.heroReference dl, .kenyaCopy dl { margin: 0; }
+.heroReference dl > div, .kenyaCopy dl > div { display: flex; justify-content: space-between; gap: 1rem; padding: 0.9rem 0; border-top: 1px solid var(--color-border); }
+.heroReference dt, .kenyaCopy dt { color: var(--color-foreground-subtle); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.heroReference dd, .kenyaCopy dd { margin: 0; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-align: right; text-transform: uppercase; }
+
+.overview, .services, .brandSection, .commercial, .kenyaSection, .growth, .cta { position: relative; border-bottom: 1px solid var(--color-border); }
+.overviewGrid, .services > div, .brandGrid, .commercial > div, .kenyaGrid, .growthGrid, .ctaGrid { padding-block: clamp(5.5rem, 10vw, 9rem); }
+.overviewGrid { display: grid; grid-template-columns: minmax(18rem, 0.82fr) minmax(0, 1.18fr); gap: clamp(3rem, 8vw, 9rem); }
+.sectionHeading > p, .growthGrid > p { display: flex; gap: 0.75rem; align-items: center; }
+.sectionHeading > p span, .growthGrid > p span { font-family: var(--font-family-display); }
+.sectionHeading h2, .brandCopy h2, .kenyaCopy h2, .growthGrid h2, .ctaGrid h2 { margin: 1.25rem 0 0; font-family: var(--font-family-display); font-size: clamp(3rem, 5.6vw, 6rem); font-weight: 600; letter-spacing: -0.035em; line-height: 0.88; text-transform: uppercase; }
+.overviewCopy { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 4rem); align-self: end; }
+.overviewCopy p, .commercialHeading > p, .brandCopy > p, .kenyaCopy > p, .growthGrid > div > p { margin: 0; color: var(--color-foreground-muted); font-size: clamp(1rem, 1.35vw, 1.15rem); line-height: 1.75; }
+.categoryRail { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(6, minmax(0, 1fr)); margin: clamp(3rem, 7vw, 6rem) 0 0; padding: 0; list-style: none; border-top: 1px solid var(--color-border-strong); }
+.categoryRail li { min-width: 0; padding: 1.5rem 1rem 0 0; }
+.categoryRail li + li { padding-left: 1rem; border-left: 1px solid var(--color-border); }
+.categoryRail span, .serviceGrid > li > span, .industryList > li > span, .brandGroups span { display: block; color: var(--color-accent); font-family: var(--font-family-display); font-size: 0.68rem; font-weight: 700; }
+.categoryRail a { display: block; margin-top: 0.8rem; font-family: var(--font-family-display); font-size: clamp(1.1rem, 1.7vw, 1.55rem); font-weight: 600; line-height: 1; text-decoration: none; text-transform: uppercase; }
+
+.services { background: var(--color-background-elevated); }
+.services > div { position: relative; }
+.services .sectionHeading { display: grid; grid-template-columns: minmax(13rem, 0.42fr) minmax(0, 1.58fr); gap: clamp(2rem, 6vw, 7rem); align-items: end; }
+.services .sectionHeading h2 { margin: 0; }
+.serviceGrid { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); margin: clamp(4rem, 8vw, 7rem) 0 0; padding: 0; list-style: none; border-top: 1px solid var(--color-border-strong); }
+.serviceGrid li { grid-column: span 2; min-height: 21rem; padding: 1.5rem clamp(1rem, 2vw, 1.75rem) 2rem; border-bottom: 1px solid var(--color-border); }
+.serviceGrid li + li { border-left: 1px solid var(--color-border); }
+.serviceGrid h3, .industryList h3 { margin: clamp(3rem, 6vw, 6rem) 0 0; font-family: var(--font-family-display); font-size: clamp(1.55rem, 2.5vw, 2.5rem); font-weight: 600; line-height: 0.95; text-transform: uppercase; }
+.serviceGrid p, .industryList p { margin: 1rem 0 0; color: var(--color-foreground-subtle); font-size: 0.82rem; line-height: 1.65; }
+.serviceLinks, .commercialLinks { display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 2.5rem; }
+.serviceLinks a, .commercialLinks a, .brandCopy a, .ctaActions a { display: inline-flex; min-height: 3.4rem; align-items: center; justify-content: center; gap: 0.75rem; padding: 0.85rem 1.25rem; border: 1px solid var(--color-border-strong); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em; text-decoration: none; text-transform: uppercase; }
+.serviceLinks a:first-child, .brandCopy a, .ctaActions a:first-child { color: var(--color-accent-foreground); background: var(--color-accent); border-color: var(--color-accent); }
+
+.brandSection { background: radial-gradient(circle at 80% 45%, rgb(230 83 16 / 9%), transparent 30rem), var(--color-panel); }
+.brandGrid { display: grid; grid-template-columns: minmax(17rem, 0.68fr) minmax(0, 1.32fr); gap: clamp(3rem, 8vw, 9rem); align-items: start; }
+.orangeEyebrow { color: var(--mastermax-orange, #e65310); }
+.brandCopy { position: sticky; top: calc(var(--header-height) + 2rem); }
+.brandCopy > p { margin-top: 2rem; }
+.brandCopy a { margin-top: 2rem; background: var(--mastermax-orange, #e65310); border-color: var(--mastermax-orange, #e65310); }
+.brandArchitecture { padding: clamp(1.5rem, 4vw, 3rem); background: var(--color-panel-translucent); border: 1px solid var(--color-border-strong); }
+.architectureHeader { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 1.2rem; color: var(--mastermax-orange, #e65310); border-bottom: 1px solid var(--color-border); }
+.architectureHeader span:last-child { color: var(--color-foreground-subtle); }
+.companyNode, .mastermaxNode, .futureNode { padding: clamp(1.5rem, 3vw, 2.5rem); border: 1px solid var(--color-border); }
+.companyNode { margin-top: 2rem; }
+.companyNode small, .mastermaxNode small, .futureNode small { display: block; margin-bottom: 0.75rem; color: var(--color-foreground-subtle); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; }
+.companyNode strong, .mastermaxNode strong, .futureNode strong { display: block; font-family: var(--font-family-display); font-size: clamp(1.7rem, 3.2vw, 3.25rem); font-weight: 600; line-height: 0.9; text-transform: uppercase; }
+.architectureLine { display: grid; height: 4rem; place-items: center; }
+.architectureLine span { width: 1px; height: 100%; background: linear-gradient(var(--color-accent), var(--mastermax-orange, #e65310)); }
+.brandNodes { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 1rem; }
+.mastermaxNode { border-color: rgb(230 83 16 / 55%); background: rgb(230 83 16 / 7%); }
+.mastermaxNode strong { color: #f07b43; }
+.futureNode { border-style: dashed; }
+.futureNode strong { color: var(--color-foreground-muted); font-size: clamp(1.25rem, 2vw, 1.8rem); }
+.futureNode > span { display: block; margin-top: 0.75rem; color: var(--color-foreground-subtle); font-size: 0.68rem; }
+.brandGroups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 2rem 0 0; padding: 0; list-style: none; border-top: 1px solid var(--color-border); }
+.brandGroups li { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 0.75rem; padding: 1rem 0; border-bottom: 1px solid var(--color-border); font-family: var(--font-family-display); font-size: clamp(1.1rem, 2vw, 1.55rem); font-weight: 600; text-transform: uppercase; }
+.brandGroups li:nth-child(odd) { padding-right: 1rem; }
+.brandGroups li:nth-child(even) { padding-left: 1rem; border-left: 1px solid var(--color-border); }
+.brandGroups span { color: var(--mastermax-orange, #e65310); }
+
+.commercialHeading { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(20rem, 0.65fr); gap: clamp(2rem, 8vw, 8rem); align-items: end; }
+.commercialHeading > p { padding-bottom: 0.4rem; }
+.industryList { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: clamp(4rem, 8vw, 7rem) 0 0; padding: 0; list-style: none; border-top: 1px solid var(--color-border-strong); }
+.industryList li { min-height: 17rem; padding: 1.4rem clamp(1rem, 2vw, 1.6rem) 2rem; border-bottom: 1px solid var(--color-border); }
+.industryList li:not(:nth-child(4n + 1)) { border-left: 1px solid var(--color-border); }
+.industryList h3 { margin-top: 3.5rem; font-size: clamp(1.35rem, 2vw, 2rem); }
+.commercialLinks a:first-child { border-color: var(--color-accent); }
+
+.kenyaSection { background: radial-gradient(circle at 20% 50%, rgb(224 165 43 / 8%), transparent 28rem), var(--color-background-elevated); }
+.kenyaGrid { position: relative; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(20rem, 0.92fr); gap: clamp(3rem, 8vw, 9rem); align-items: center; }
+.kenyaVisual { position: relative; min-height: 44rem; margin: 0; overflow: hidden; background: var(--color-panel-translucent); border: 1px solid var(--color-border-strong); }
+.locationMark { position: absolute; inset: 5rem 2rem 12rem; display: grid; grid-template-columns: auto 1fr; align-content: center; gap: .5rem 1.25rem; background-image: linear-gradient(var(--color-grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px); background-size: 4rem 4rem; }
+.locationMark > span { display: grid; width: 3rem; height: 3rem; grid-row: span 2; place-items: center; color: var(--color-accent); border: 1px solid var(--color-accent); border-radius: 50%; }
+.locationMark strong { align-self: end; font-family: var(--font-family-display); font-size: clamp(3rem, 7vw, 6rem); line-height: .8; }
+.locationMark small { color: var(--color-foreground-subtle); font-weight: 700; letter-spacing: .15em; }
+.verifiedAddress { position: absolute; bottom: 5rem; left: 1.5rem; display: grid; gap: .3rem; color: var(--color-foreground-muted); font-style: normal; }
+.verifiedAddress strong { color: var(--color-foreground); }
+.directionsLink { position: absolute; right: 1.5rem; bottom: 1.5rem; display: inline-flex; min-height: 3rem; align-items: center; gap: 1rem; padding: .75rem 1rem; color: var(--color-accent-foreground); background: var(--color-accent); font-size: .65rem; font-weight: 700; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+.directionsLink:focus-visible { outline: 2px solid var(--color-foreground); outline-offset: 4px; }
+.mapMeta { position: absolute; z-index: 2; top: 1.5rem; right: 1.5rem; left: 1.5rem; display: flex; justify-content: space-between; color: var(--color-foreground-subtle); font-size: 0.56rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; }
+.kenyaCopy h2 { max-width: 12ch; }
+.kenyaCopy > p { margin-top: 2rem; }
+.kenyaCopy dl { margin-top: 3rem; }
+
+.growthGrid { display: grid; grid-template-columns: minmax(14rem, 0.42fr) minmax(0, 1.58fr); gap: clamp(3rem, 8vw, 9rem); }
+.growthGrid h2 { max-width: 15ch; margin-top: 0; }
+.growthGrid > div > p { max-width: 48rem; margin-top: 2rem; }
+.cta { background: linear-gradient(115deg, rgb(224 165 43 / 13%), transparent 36%), var(--color-panel); }
+.ctaGrid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(17rem, 0.6fr); gap: clamp(3rem, 8vw, 8rem); align-items: end; }
+.ctaGrid h2 { max-width: 12ch; }
+.ctaActions { display: grid; gap: 0.75rem; }
+.ctaActions a { width: 100%; }
+
+@media (hover: hover) {
+  .categoryRail a:hover, .serviceLinks a:hover, .commercialLinks a:hover, .brandCopy a:hover, .ctaActions a:hover { color: var(--color-accent-foreground); background: var(--color-foreground); border-color: var(--color-foreground); }
+}
+
+@media (max-width: 64rem) {
+  .heroGrid, .overviewGrid, .brandGrid, .commercialHeading, .kenyaGrid, .ctaGrid { gap: 3rem; }
+  .categoryRail { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .categoryRail li:nth-child(4) { padding-left: 0; border-left: 0; }
+  .categoryRail li:nth-child(n + 4) { padding-top: 1.5rem; border-top: 1px solid var(--color-border); }
+  .serviceGrid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .serviceGrid li { grid-column: span 2; }
+  .serviceGrid li:nth-child(4), .serviceGrid li:nth-child(5) { grid-column: span 3; }
+  .serviceGrid li:nth-child(4) { border-left: 0; }
+  .industryList { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .industryList li:not(:nth-child(4n + 1)) { border-left: 0; }
+  .industryList li:not(:nth-child(3n + 1)) { border-left: 1px solid var(--color-border); }
+}
+
+@media (max-width: 48rem) {
+  .hero { min-height: auto; }
+  .heroGrid, .overviewGrid, .services .sectionHeading, .brandGrid, .commercialHeading, .kenyaGrid, .growthGrid, .ctaGrid { grid-template-columns: 1fr; }
+  .heroGrid { align-items: start; padding-top: 5rem; }
+  .heroCopy h1 { font-size: clamp(4.3rem, 18vw, 7rem); }
+  .overviewCopy { grid-template-columns: 1fr; gap: 1rem; }
+  .brandCopy { position: static; }
+  .industryList { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .industryList li:not(:nth-child(3n + 1)) { border-left: 0; }
+  .industryList li:nth-child(even) { border-left: 1px solid var(--color-border); }
+  .kenyaVisual { min-height: 36rem; }
+  .kenyaCopy { order: -1; }
+}
+
+@media (max-width: 36rem) {
+  .overviewGrid, .services > div, .brandGrid, .commercial > div, .kenyaGrid, .growthGrid, .ctaGrid { padding-block: 4.5rem; }
+  .heroContainer { padding-bottom: 4.5rem; }
+  .heroGrid { gap: 2.5rem; }
+  .heroCopy h1 { font-size: clamp(4rem, 19vw, 5.6rem); line-height: 0.8; }
+  .sectionHeading h2, .brandCopy h2, .kenyaCopy h2, .growthGrid h2, .ctaGrid h2 { font-size: clamp(2.7rem, 12vw, 4rem); }
+  .categoryRail, .serviceGrid, .industryList, .brandGroups, .brandNodes { grid-template-columns: 1fr; }
+  .categoryRail li, .categoryRail li + li, .categoryRail li:nth-child(4), .categoryRail li:nth-child(n + 4) { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 0.75rem; align-items: center; padding: 1rem 0; border-top: 0; border-bottom: 1px solid var(--color-border); border-left: 0; }
+  .categoryRail a { margin-top: 0; }
+  .serviceGrid li, .serviceGrid li:nth-child(4), .serviceGrid li:nth-child(5) { min-height: 0; grid-column: auto; padding: 1.5rem 0 2rem; border-left: 0; }
+  .serviceGrid h3 { margin-top: 2.5rem; }
+  .serviceLinks, .commercialLinks { display: grid; }
+  .architectureHeader { align-items: flex-start; flex-direction: column; }
+  .futureNode { margin-top: 1rem; }
+  .brandGroups li, .brandGroups li:nth-child(odd), .brandGroups li:nth-child(even) { padding: 1rem 0; border-left: 0; }
+  .industryList li, .industryList li:nth-child(even), .industryList li:not(:nth-child(3n + 1)) { min-height: 0; padding: 1.4rem 0 2rem; border-left: 0; }
+  .industryList h3 { margin-top: 2.5rem; }
+  .kenyaVisual { min-height: 29rem; }
+  .mapMeta span:last-child { display: none; }
+}
+
+

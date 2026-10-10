@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: haribol_lubes
+      POSTGRES_USER: payload
+      POSTGRES_PASSWORD: ${POSTGRES_DEV_PASSWORD:-haribol_local_only}
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U payload -d haribol_lubes"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - haribol_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  haribol_postgres_data:

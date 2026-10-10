@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "noEmit": false, "incremental": false, "isolatedModules": false, "module": "CommonJS", "moduleResolution": "Node", "target": "ES2022", "outDir": ".theme-test-build" },
+  "include": ["src/lib/theme.ts"]
+}

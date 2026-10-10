@@ -1,0 +1,6 @@
+.list { display: flex; flex-wrap: wrap; gap: .75rem; margin: 0; padding: 0; list-style: none; }
+.list a { display: inline-flex; min-height: 2.75rem; align-items: center; gap: .55rem; color: var(--color-foreground-muted); font-size: var(--font-size-body-sm); text-decoration: none; }
+.list svg { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6; }
+.list .fill { fill: currentColor; stroke: none; }
+.list a:hover { color: var(--color-foreground); }
+.list a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }

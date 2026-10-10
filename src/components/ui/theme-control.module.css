@@ -1,0 +1,14 @@
+.root { position: relative; }
+.trigger { display: inline-flex; min-width: 5.25rem; min-height: 2.75rem; align-items: center; justify-content: center; gap: .45rem; padding: .45rem .65rem; color: var(--color-foreground-muted); background: transparent; border: 1px solid var(--color-border); font-size: .68rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; cursor: pointer; }
+.trigger svg, .menu svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6; }
+.trigger:hover, .trigger[aria-expanded="true"] { color: var(--color-foreground); border-color: var(--color-border-strong); }
+.trigger:focus-visible, .menu button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+.menu { position: absolute; z-index: 80; top: calc(100% + .65rem); right: 0; width: 10.5rem; padding: .4rem; color: var(--color-foreground); background: var(--color-header-dropdown); border: 1px solid var(--color-border-strong); box-shadow: var(--shadow-md); }
+.menu button { display: grid; width: 100%; min-height: 2.8rem; grid-template-columns: 1.25rem 1fr .6rem; align-items: center; gap: .65rem; padding: .55rem .7rem; color: var(--color-foreground-muted); background: transparent; border: 0; font-size: .72rem; font-weight: 700; text-align: left; cursor: pointer; }
+.menu button:hover, .menu button[aria-checked="true"] { color: var(--color-foreground); background: var(--color-surface-hover); }
+.menu i { width: .45rem; height: .45rem; border: 1px solid var(--color-border-strong); border-radius: 50%; }
+.menu button[aria-checked="true"] i { background: var(--color-accent); border-color: var(--color-accent); }
+.root[data-placement="mobile"] { margin-top: 1.5rem; }
+.root[data-placement="mobile"] .trigger { width: 100%; min-height: 3.25rem; justify-content: space-between; padding-inline: 1rem; }
+.root[data-placement="mobile"] .menu { position: static; width: 100%; margin-top: .5rem; }
+@media (prefers-reduced-motion: reduce) { .trigger, .menu button { transition: none; } }

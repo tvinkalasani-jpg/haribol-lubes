@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "module": "CommonJS", "moduleResolution": "Node", "noEmit": false, "outDir": ".cms-test-build", "incremental": false, "declaration": false, "isolatedModules": false },
+  "include": ["src/types/product.ts", "src/data/brands.ts", "src/data/catalogue/applications.ts", "src/data/catalogue/categories.ts", "src/data/catalogue/markets.ts", "src/data/catalogue/products.ts", "src/data/catalogue/specifications.ts", "src/features/catalogue/cms-domain-mapper.ts"]
+}

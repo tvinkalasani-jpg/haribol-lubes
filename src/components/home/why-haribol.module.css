@@ -1,0 +1,541 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  color: var(--color-foreground);
+  background:
+    linear-gradient(155deg, rgb(224 165 43 / 4%), transparent 30rem),
+    var(--color-panel);
+  border-top: 1px solid var(--color-border);
+}
+
+.section::before {
+  position: absolute;
+  top: 0;
+  right: var(--container-gutter);
+  left: var(--container-gutter);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(224 165 43 / 45%), transparent);
+  content: "";
+  pointer-events: none;
+}
+
+.container {
+  padding-top: clamp(5.5rem, 10vw, 9rem);
+  padding-bottom: clamp(5rem, 9vw, 8rem);
+}
+
+.heading {
+  margin-bottom: clamp(3.5rem, 7vw, 7rem);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+  color: var(--color-accent);
+  font-size: var(--font-size-caption);
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+}
+
+.eyebrow span {
+  font-family: var(--font-family-display);
+}
+
+.headingGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(18rem, 0.5fr);
+  align-items: end;
+  gap: clamp(2rem, 7vw, 8rem);
+}
+
+.heading h2 {
+  max-width: 65rem;
+  margin: 0;
+  font-family: var(--font-family-display);
+  font-size: clamp(3rem, 5.8vw, 6.4rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.heading h2 span {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-outline-text);
+}
+
+.headingGrid > p {
+  max-width: 31rem;
+  margin: 0 0 0.35rem;
+  color: var(--color-foreground-muted);
+  font-size: var(--font-size-body-lg);
+  line-height: 1.7;
+}
+
+.architecture {
+  display: grid;
+  grid-template-columns: minmax(25rem, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: clamp(3rem, 7vw, 8rem);
+}
+
+.manifesto {
+  min-width: 0;
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.manifestoLabel {
+  margin: 0 0 clamp(2rem, 4vw, 3.5rem);
+  color: var(--color-accent);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.manifestoStatement {
+  max-width: 38rem;
+  margin: 0;
+  font-family: var(--font-family-display);
+  font-size: clamp(2.5rem, 4.4vw, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+.manifestoStatement span {
+  color: var(--color-accent);
+}
+
+.supplyPath {
+  position: relative;
+  min-height: 22rem;
+  margin-top: clamp(3rem, 6vw, 5.5rem);
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, var(--color-grid-line), transparent 38%),
+    rgb(7 9 10 / 34%);
+  border: 1px solid var(--color-border);
+}
+
+.supplyPath::before,
+.supplyPath::after {
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+
+.supplyPath::before {
+  inset: 0;
+  background:
+    linear-gradient(var(--color-accent), var(--color-accent)) left top / 2.5rem 1px no-repeat,
+    linear-gradient(var(--color-accent), var(--color-accent)) left top / 1px 2.5rem no-repeat,
+    linear-gradient(var(--color-accent), var(--color-accent)) right bottom / 2.5rem 1px no-repeat,
+    linear-gradient(var(--color-accent), var(--color-accent)) right bottom / 1px 2.5rem no-repeat;
+  opacity: 0.65;
+}
+
+.supplyPath::after {
+  top: 20%;
+  left: 24%;
+  width: 55%;
+  height: 55%;
+  background: rgb(224 165 43 / 7%);
+  filter: blur(3rem);
+}
+
+.pathMeta {
+  position: absolute;
+  z-index: 2;
+  top: 1rem;
+  right: 1rem;
+  left: 1rem;
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-foreground-subtle);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.supplyPath svg {
+  position: absolute;
+  z-index: 1;
+  inset: 1rem 0 auto;
+  display: block;
+  width: 100%;
+}
+
+.guide,
+.route,
+.routeEcho,
+.measurements,
+.pathNodes circle {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.guide {
+  stroke: rgb(125 133 139 / 11%);
+}
+
+.route {
+  stroke: var(--color-accent);
+  stroke-dasharray: 1;
+  stroke-linecap: round;
+  stroke-width: 2;
+  animation: pathReveal 1.2s var(--ease-emphasized) both;
+}
+
+.routeEcho {
+  stroke: rgb(125 133 139 / 25%);
+}
+
+.measurements {
+  stroke: rgb(125 133 139 / 30%);
+}
+
+.pathNodes circle {
+  fill: var(--color-background);
+  stroke: var(--color-accent);
+  stroke-width: 1;
+}
+
+.pathNodes circle:last-child {
+  fill: var(--color-accent);
+}
+
+.pathLabels span {
+  position: absolute;
+  z-index: 2;
+  color: var(--color-foreground-subtle);
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.labelLocation {
+  top: 61%;
+  left: 6%;
+}
+
+.labelSourcing {
+  top: 28%;
+  left: 36%;
+}
+
+.labelSelection {
+  top: 62%;
+  right: 15%;
+}
+
+.labelEnquiry {
+  top: 48%;
+  right: 4%;
+}
+
+.supplyPath > p {
+  position: absolute;
+  z-index: 2;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  color: var(--color-foreground-subtle);
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.supplyPath > p span {
+  color: var(--color-accent);
+  font-family: var(--font-family-display);
+}
+
+.supplyPath > p i {
+  width: 1.5rem;
+  height: 1px;
+  background: var(--color-border-strong);
+}
+
+.values {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.values li {
+  position: relative;
+  display: grid;
+  min-height: 10.2rem;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: clamp(1rem, 2vw, 2rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.values li::after {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 5rem;
+  height: 1px;
+  background: var(--color-accent);
+  content: "";
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition:
+    opacity var(--duration-normal) var(--ease-standard),
+    transform var(--duration-slow) var(--ease-emphasized);
+}
+
+.values li:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.valueNumber {
+  color: var(--color-accent);
+  font-family: var(--font-family-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.valueCode {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--color-foreground-subtle);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.values h3 {
+  margin: 0;
+  font-family: var(--font-family-display);
+  font-size: clamp(1.8rem, 2.7vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.values p {
+  max-width: 38rem;
+  margin: 0.8rem 0 0;
+  color: var(--color-foreground-muted);
+  font-size: var(--font-size-body-sm);
+  line-height: 1.6;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: clamp(3.5rem, 7vw, 6rem);
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer > div:first-child > span {
+  color: var(--color-accent);
+  font-size: var(--font-size-caption);
+  font-weight: 700;
+  letter-spacing: var(--letter-spacing-eyebrow);
+  text-transform: uppercase;
+}
+
+.footer p {
+  margin: 0.45rem 0 0;
+  color: var(--color-foreground-subtle);
+  font-size: var(--font-size-body-sm);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.25rem;
+}
+
+@keyframes pathReveal {
+  from {
+    stroke-dashoffset: 1;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 64rem) {
+  .headingGrid {
+    grid-template-columns: minmax(0, 1.1fr) minmax(17rem, 0.9fr);
+    gap: 3rem;
+  }
+
+  .heading h2 {
+    font-size: clamp(3rem, 7vw, 5rem);
+  }
+
+  .architecture {
+    grid-template-columns: minmax(20rem, 0.85fr) minmax(0, 1.15fr);
+    gap: 3rem;
+  }
+
+  .manifestoStatement {
+    font-size: clamp(2.35rem, 4.7vw, 3.8rem);
+  }
+
+  .supplyPath {
+    min-height: 19rem;
+  }
+
+  .values li {
+    min-height: 9.7rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  .headingGrid,
+  .architecture {
+    grid-template-columns: 1fr;
+  }
+
+  .headingGrid {
+    gap: 1.75rem;
+  }
+
+  .heading h2 {
+    font-size: clamp(3rem, 10vw, 4.8rem);
+  }
+
+  .headingGrid > p {
+    max-width: 40rem;
+  }
+
+  .architecture {
+    gap: 4rem;
+  }
+
+  .manifestoStatement {
+    max-width: 40rem;
+    font-size: clamp(2.7rem, 8vw, 4rem);
+  }
+
+  .supplyPath {
+    width: min(100%, 42rem);
+    min-height: 21rem;
+  }
+
+  .values li {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 36rem) {
+  .container {
+    padding-top: 5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .heading {
+    margin-bottom: 3rem;
+  }
+
+  .heading h2 {
+    font-size: clamp(2.8rem, 14vw, 4.2rem);
+    line-height: 0.92;
+  }
+
+  .headingGrid > p {
+    font-size: 0.96rem;
+  }
+
+  .architecture {
+    gap: 3.25rem;
+  }
+
+  .manifestoStatement {
+    font-size: clamp(2.45rem, 12vw, 3.5rem);
+  }
+
+  .supplyPath {
+    min-height: 18rem;
+    margin-top: 2.75rem;
+  }
+
+  .supplyPath svg {
+    top: 2.5rem;
+    width: 125%;
+    translate: -12% 0;
+  }
+
+  .pathLabels span {
+    font-size: 0.46rem;
+  }
+
+  .labelSourcing {
+    left: 30%;
+  }
+
+  .supplyPath > p {
+    flex-wrap: wrap;
+  }
+
+  .values li {
+    grid-template-columns: 1.6rem minmax(0, 1fr);
+    padding-block: 1.6rem;
+  }
+
+  .values h3 {
+    font-size: clamp(1.9rem, 9vw, 2.5rem);
+  }
+
+  .values p {
+    font-size: 0.82rem;
+  }
+
+  .footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .actions a {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route,
+  .values li::after {
+    animation: none;
+    transition: none;
+  }
+
+  .route {
+    stroke-dashoffset: 0;
+  }
+}
+

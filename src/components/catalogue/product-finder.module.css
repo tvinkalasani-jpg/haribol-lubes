@@ -1,0 +1,620 @@
+.finder {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.27fr) minmax(0, 0.73fr);
+  min-height: 46rem;
+  margin-top: clamp(3rem, 7vw, 6rem);
+  border: 1px solid var(--color-border-strong);
+  background: var(--color-panel-translucent);
+  box-shadow: 0 2.5rem 6rem rgb(0 0 0 / 20%);
+}
+
+.progress {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-right: 1px solid var(--color-border-strong);
+  background:
+    linear-gradient(180deg, rgb(224 165 43 / 6%), transparent 16rem),
+    var(--color-surface-subtle);
+}
+
+.progress > p,
+.stepMeta,
+.results > header > p {
+  color: var(--color-accent);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.progress > p {
+  margin: 0 0 1.5rem;
+}
+
+.progress ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.progress li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+  min-height: 4.5rem;
+  color: var(--color-foreground-subtle);
+  border-top: 1px solid var(--color-border);
+}
+
+.progress li:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.progress li > span:first-child {
+  color: var(--color-foreground-subtle);
+  font-family: var(--font-family-display);
+  font-size: 1.05rem;
+}
+
+.progress li > span:nth-child(2) {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.progress li small {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--color-accent);
+  font-size: 0.53rem;
+  letter-spacing: 0.1em;
+}
+
+.progress li em {
+  color: var(--color-accent);
+  font-size: 0.55rem;
+  font-style: normal;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.progress .currentStep,
+.progress .currentStep > span:first-child {
+  color: var(--color-foreground);
+}
+
+.supportNote {
+  margin-top: auto;
+  padding-top: 3rem;
+}
+
+.supportNote > span {
+  color: var(--color-accent);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.supportNote p {
+  margin: 0.75rem 0 1rem;
+  color: var(--color-foreground-subtle);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.supportNote a {
+  color: var(--color-foreground);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.workflow {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(1.5rem, 4vw, 4rem);
+}
+
+.stepMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stepMeta span:last-child {
+  color: var(--color-foreground-subtle);
+}
+
+.liveRegion {
+  flex: 1;
+}
+
+.question {
+  min-width: 0;
+  margin: 0;
+  padding: clamp(2.5rem, 5vw, 5rem) 0 2rem;
+  border: 0;
+}
+
+.question legend,
+.results h2 {
+  max-width: 14ch;
+  padding: 0;
+  font-family: var(--font-family-display);
+  font-size: clamp(3rem, 6.2vw, 6.2rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.question > p,
+.results > header > span {
+  display: block;
+  max-width: 48rem;
+  margin: 1.5rem 0 2.5rem;
+  color: var(--color-foreground-muted);
+  font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+}
+
+.optionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.optionGrid label {
+  position: relative;
+  display: grid;
+  min-height: 6.5rem;
+  grid-template-columns: 2rem minmax(0, 1fr) 1.25rem;
+  gap: 1rem;
+  align-items: center;
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-grid-line);
+  cursor: pointer;
+  transition:
+    border-color var(--duration-normal) var(--ease-standard),
+    background-color var(--duration-normal) var(--ease-standard);
+}
+
+.optionGrid label:hover,
+.optionGrid label:has(input:checked),
+.optionGrid label:has(input:focus-visible) {
+  border-color: var(--color-accent);
+  background: rgb(224 165 43 / 6%);
+}
+
+.optionGrid label:has(input:focus-visible) {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.optionGrid input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.optionNumber {
+  color: var(--color-accent);
+  font-family: var(--font-family-display);
+  font-size: 1.1rem;
+}
+
+.optionGrid strong {
+  display: block;
+  font-family: var(--font-family-display);
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.optionGrid small {
+  display: block;
+  margin-top: 0.5rem;
+  color: var(--color-foreground-subtle);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.optionMark {
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 3px var(--color-surface);
+}
+
+.optionGrid input:checked ~ .optionMark {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.optionGrid .unsureOption {
+  grid-column: 1 / -1;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.controls button,
+.controls a,
+.emptyState button,
+.emptyState a,
+.resultActions a {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1.25rem;
+  border: 1px solid var(--color-border-strong);
+  background: transparent;
+  color: var(--color-foreground);
+  font: inherit;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.controls button:last-child {
+  min-width: 11rem;
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+}
+
+.controls button svg,
+.resultActions a svg {
+  width: 1rem;
+}
+
+.controls button:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.accuracyNote {
+  display: grid;
+  grid-template-columns: minmax(8rem, 0.22fr) minmax(0, 0.78fr);
+  gap: 1rem 2rem;
+  margin: 2rem 0 0;
+  padding: 1.25rem 0 0;
+  color: var(--color-foreground-subtle);
+  font-size: 0.72rem;
+  line-height: 1.6;
+  border-top: 1px solid var(--color-border);
+}
+
+.accuracyNote strong {
+  color: var(--color-foreground-muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.results {
+  padding-top: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.results > header > p {
+  margin: 0 0 1rem;
+}
+
+.results h2 {
+  margin: 0;
+}
+
+.results ol {
+  display: grid;
+  gap: 1rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.results li {
+  display: grid;
+  grid-template-columns: minmax(13rem, 0.36fr) minmax(0, 0.64fr);
+  min-height: 25rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-subtle);
+}
+
+.resultVisual {
+  position: relative;
+  min-height: 22rem;
+  overflow: hidden;
+  border-right: 1px solid var(--color-border);
+  background:
+    radial-gradient(circle at 50% 65%, rgb(230 83 16 / 15%), transparent 48%),
+    var(--color-panel);
+}
+
+.resultVisual img {
+  object-fit: contain;
+  padding: 2.5rem;
+}
+
+.resultVisual > span {
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
+  left: 1rem;
+  color: var(--color-accent);
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.resultContent {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.resultMeta {
+  display: flex;
+  gap: 1rem;
+  color: var(--color-foreground-subtle);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.resultMeta span:first-child {
+  color: var(--mastermax-orange, #e65310);
+}
+
+.resultContent h3 {
+  max-width: 13ch;
+  margin: 1.25rem 0 0;
+  font-family: var(--font-family-display);
+  font-size: clamp(2.4rem, 4.2vw, 4.5rem);
+  font-weight: 600;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.resultContent > p {
+  margin: 1rem 0 0;
+  color: var(--color-foreground-muted);
+  line-height: 1.6;
+}
+
+.resultContent dl {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: auto 0 1.5rem;
+  padding-top: 2rem;
+}
+
+.resultContent dl > div {
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+}
+
+.resultContent dt {
+  color: var(--color-foreground-subtle);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.resultContent dd {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.resultActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.resultActions a:first-child {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+}
+
+.emptyState {
+  margin-top: 2.5rem;
+  padding: clamp(2rem, 5vw, 4.5rem);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-subtle);
+}
+
+.emptyState > span {
+  color: var(--color-accent);
+  font-family: var(--font-family-display);
+  font-size: 1.2rem;
+}
+
+.emptyState > p {
+  max-width: 42rem;
+  margin: 1.5rem 0 2rem;
+  color: var(--color-foreground-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.emptyState > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.emptyState button {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+}
+
+@media (max-width: 64rem) {
+  .finder {
+    grid-template-columns: minmax(12rem, 0.26fr) minmax(0, 0.74fr);
+  }
+
+  .optionGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .optionGrid .unsureOption {
+    grid-column: auto;
+  }
+
+  .results li {
+    grid-template-columns: 1fr;
+  }
+
+  .resultVisual {
+    min-height: 19rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+}
+
+@media (max-width: 48rem) {
+  .finder {
+    display: block;
+    min-height: 0;
+  }
+
+  .progress {
+    padding: 1rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border-strong);
+  }
+
+  .progress > p,
+  .supportNote,
+  .progress li > span:nth-child(2),
+  .progress li em {
+    display: none;
+  }
+
+  .progress ol {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+
+  .progress li {
+    display: grid;
+    min-height: 2.75rem;
+    grid-template-columns: 1fr;
+    place-items: center;
+    border: 1px solid var(--color-border);
+  }
+
+  .progress li:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .progress .currentStep {
+    border-color: var(--color-accent);
+    background: rgb(224 165 43 / 7%);
+  }
+
+  .workflow {
+    padding: 1.25rem;
+  }
+
+  .question,
+  .results {
+    padding-top: 2.75rem;
+  }
+
+  .question legend,
+  .results h2 {
+    font-size: clamp(3rem, 14vw, 4.5rem);
+  }
+
+  .optionGrid label {
+    min-height: 5.75rem;
+  }
+
+  .controls {
+    position: sticky;
+    z-index: 3;
+    bottom: 0;
+    margin-inline: -1.25rem;
+    padding: 1rem 1.25rem;
+    background: var(--color-panel-deep);
+  }
+
+  .controls > * {
+    flex: 1;
+  }
+
+  .accuracyNote {
+    grid-template-columns: 1fr;
+  }
+
+  .resultContent dl {
+    grid-template-columns: 1fr;
+  }
+
+  .resultActions {
+    display: grid;
+  }
+
+  .emptyState > div {
+    display: grid;
+  }
+}
+
+@media (max-width: 30rem) {
+  .stepMeta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .optionGrid label {
+    grid-template-columns: 1.5rem minmax(0, 1fr) 1rem;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .controls button,
+  .controls a {
+    min-width: 0;
+    padding-inline: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .optionGrid label {
+    transition: none;
+  }
+}
+
+

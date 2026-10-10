@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "incremental": false,
+    "isolatedModules": false,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "target": "ES2022",
+    "outDir": ".business-test-build"
+  },
+  "include": [
+    "src/config/site.ts",
+    "src/lib/utils/social-links.ts",
+    "src/features/enquiries/notification-config.ts"
+  ]
+}

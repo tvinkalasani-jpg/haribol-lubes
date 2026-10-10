@@ -1,0 +1,172 @@
+:root {
+  /* Colour: neutral industrial base with a restrained energy accent. */
+  --color-background: #111416;
+  --color-background-elevated: #171b1e;
+  --color-surface: #1e2327;
+  --color-surface-hover: #272d32;
+  --color-surface-subtle: #15191c;
+  --color-foreground: #f4f1e9;
+  --color-foreground-muted: #a7adb1;
+  --color-foreground-subtle: #7d858b;
+  --color-border: #343a3f;
+  --color-border-strong: #596168;
+  --color-accent: #e0a52b;
+  --color-accent-hover: #efb73e;
+  --color-accent-active: #c88d18;
+  --color-accent-foreground: #171106;
+  --color-success: #54b984;
+  --color-warning: #dfa544;
+  --color-danger: #df6b6b;
+  --color-focus: var(--color-accent);
+  --color-panel: #111517;
+  --color-panel-raised: #181d20;
+  --color-panel-deep: #0d1012;
+  --color-input-background: #0d1113;
+  --color-panel-translucent: rgb(7 10 11 / 60%);
+  --color-overlay-soft: rgb(255 255 255 / 3%);
+  --color-grid-line: rgb(255 255 255 / 2%);
+  --color-outline-text: rgb(244 241 233 / 62%);
+  --color-header-background: rgb(17 20 22 / 38%);
+  --color-header-background-solid: rgb(23 27 30 / 94%);
+  --color-header-dropdown: rgb(23 27 30 / 98%);
+  --color-backdrop: rgb(0 0 0 / 72%);
+  --mastermax-orange: #e65310;
+  --mastermax-orange-soft: #eb7a2d;
+
+  /* Typography: values are provided by next/font in the root layout. */
+  --font-family-display: var(--font-barlow-condensed), "Arial Narrow", sans-serif;
+  --font-family-body: var(--font-manrope), Arial, sans-serif;
+  --font-size-display-xl: clamp(3.5rem, 8vw, 7.5rem);
+  --font-size-display-lg: clamp(2.875rem, 6vw, 5.5rem);
+  --font-size-h1: clamp(2.5rem, 5vw, 4.5rem);
+  --font-size-h2: clamp(2rem, 3.7vw, 3.25rem);
+  --font-size-h3: clamp(1.5rem, 2.4vw, 2.125rem);
+  --font-size-h4: clamp(1.125rem, 1.4vw, 1.375rem);
+  --font-size-body-lg: clamp(1.0625rem, 1.2vw, 1.1875rem);
+  --font-size-body: 1rem;
+  --font-size-body-sm: 0.875rem;
+  --font-size-label: 0.8125rem;
+  --font-size-caption: 0.75rem;
+  --line-height-tight: 0.94;
+  --line-height-heading: 1.04;
+  --line-height-body: 1.65;
+  --letter-spacing-display: -0.025em;
+  --letter-spacing-heading: -0.015em;
+  --letter-spacing-eyebrow: 0.16em;
+
+  /* Spacing: 4px base scale with responsive layout-level tokens. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+  --space-component: var(--space-3);
+  --space-card: clamp(1.25rem, 2.5vw, 2rem);
+  --space-layout: clamp(1.5rem, 4vw, 4rem);
+  --space-section: clamp(4.5rem, 9vw, 8rem);
+  --space-section-compact: clamp(2.5rem, 5vw, 4rem);
+  --space-hero: clamp(6rem, 14vw, 12rem);
+
+  /* Containers and grids. */
+  --container-gutter: clamp(1rem, 4vw, 3rem);
+  --container-standard: 75rem;
+  --container-wide: 90rem;
+  --container-narrow: 48rem;
+  --grid-gap: clamp(1rem, 2.5vw, 2rem);
+  --header-height: 4.5rem;
+
+  /* Shape and depth. */
+  --radius-xs: 0.125rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --border-subtle: 1px solid var(--color-border);
+  --border-strong: 1px solid var(--color-border-strong);
+  --border-interactive: 1px solid var(--color-accent);
+  --shadow-sm: 0 1px 0 rgb(255 255 255 / 4%), 0 8px 20px rgb(0 0 0 / 12%);
+  --shadow-md: 0 1px 0 rgb(255 255 255 / 5%), 0 16px 36px rgb(0 0 0 / 20%);
+  --shadow-accent: 0 0 0 1px rgb(224 165 43 / 20%), 0 10px 24px rgb(0 0 0 / 18%);
+
+  /* Motion: controlled and mechanical rather than playful. */
+  --duration-fast: 120ms;
+  --duration-normal: 220ms;
+  --duration-slow: 420ms;
+  --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme="light"] {
+  --color-background: #eeeae1;
+  --color-background-elevated: #e4dfd5;
+  --color-surface: #d9d3c8;
+  --color-surface-hover: #cec7bb;
+  --color-surface-subtle: #e9e5dc;
+  --color-foreground: #171b1e;
+  --color-foreground-muted: #4f575c;
+  --color-foreground-subtle: #596166;
+  --color-border: #c4bdb1;
+  --color-border-strong: #8b918f;
+  --color-accent: #875803;
+  --color-accent-hover: #704701;
+  --color-accent-active: #5c3900;
+  --color-accent-foreground: #fffaf0;
+  --color-success: #22754d;
+  --color-warning: #8b5b08;
+  --color-danger: #a83939;
+  --color-focus: var(--color-accent);
+  --color-panel: #ded8cd;
+  --color-panel-raised: #d2cbc0;
+  --color-panel-deep: #e8e3da;
+  --color-input-background: #f5f1e9;
+  --color-panel-translucent: rgb(222 216 205 / 88%);
+  --color-overlay-soft: rgb(23 27 30 / 4%);
+  --color-grid-line: rgb(23 27 30 / 5%);
+  --color-outline-text: rgb(23 27 30 / 48%);
+  --color-header-background: rgb(238 234 225 / 76%);
+  --color-header-background-solid: rgb(238 234 225 / 96%);
+  --color-header-dropdown: rgb(238 234 225 / 99%);
+  --color-backdrop: rgb(17 20 22 / 54%);
+  --mastermax-orange: #b83f0b;
+  --mastermax-orange-soft: #c6521d;
+  --shadow-sm: 0 1px 0 rgb(255 255 255 / 55%), 0 8px 20px rgb(31 29 25 / 10%);
+  --shadow-md: 0 1px 0 rgb(255 255 255 / 60%), 0 16px 36px rgb(31 29 25 / 16%);
+  --shadow-accent: 0 0 0 1px rgb(135 88 3 / 22%), 0 10px 24px rgb(31 29 25 / 14%);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --color-background: #eeeae1;
+    --color-background-elevated: #e4dfd5;
+    --color-surface: #d9d3c8;
+    --color-surface-hover: #cec7bb;
+    --color-surface-subtle: #e9e5dc;
+    --color-foreground: #171b1e;
+    --color-foreground-muted: #4f575c;
+    --color-foreground-subtle: #596166;
+    --color-border: #c4bdb1;
+    --color-border-strong: #8b918f;
+    --color-accent: #875803;
+    --color-accent-hover: #704701;
+    --color-accent-active: #5c3900;
+    --color-accent-foreground: #fffaf0;
+    --color-panel: #ded8cd;
+    --color-panel-raised: #d2cbc0;
+    --color-panel-deep: #e8e3da;
+    --color-input-background: #f5f1e9;
+    --color-panel-translucent: rgb(222 216 205 / 88%);
+    --color-overlay-soft: rgb(23 27 30 / 4%);
+    --color-grid-line: rgb(23 27 30 / 5%);
+    --color-outline-text: rgb(23 27 30 / 48%);
+    --color-header-background: rgb(238 234 225 / 76%);
+    --color-header-background-solid: rgb(238 234 225 / 96%);
+    --color-header-dropdown: rgb(238 234 225 / 99%);
+    --color-backdrop: rgb(17 20 22 / 54%);
+    --mastermax-orange: #b83f0b;
+    --mastermax-orange-soft: #c6521d;
+  }
+}

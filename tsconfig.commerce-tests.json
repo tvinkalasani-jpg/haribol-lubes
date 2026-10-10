@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "incremental": false,
+    "isolatedModules": false,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "target": "ES2022",
+    "outDir": ".commerce-test-build"
+  },
+  "include": [
+    "src/cms/access.ts",
+    "src/config/site.ts",
+    "src/data/catalogue/products.ts",
+    "src/data/commerce/offers.ts",
+    "src/lib/commerce/**/*.ts",
+    "src/types/commerce.ts",
+    "src/types/product.ts"
+  ]
+}
