@@ -16,7 +16,7 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1, view
 
 export default function WebsiteLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${displayFont.variable} ${bodyFont.variable}`} data-theme="light" data-theme-preference="light" style={{ colorScheme: "light" }} suppressHydrationWarning>
       <head><script dangerouslySetInnerHTML={{ __html: themeInitializationScript }} /></head>
       <body>
         <a className="skip-link" href="#main-content">Skip to main content</a>

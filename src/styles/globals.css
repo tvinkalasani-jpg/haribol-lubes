@@ -6,18 +6,13 @@
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
   background: var(--color-background);
   scroll-behavior: smooth;
   scroll-padding-top: calc(var(--header-height) + var(--space-4));
 }
 
-html[data-theme="light"] { color-scheme: light; }
 html[data-theme="dark"] { color-scheme: dark; }
-
-@media (prefers-color-scheme: light) {
-  html:not([data-theme]) { color-scheme: light; }
-}
 
 body {
   min-height: 100vh;
@@ -28,6 +23,7 @@ body {
   font-size: var(--font-size-body);
   line-height: var(--line-height-body);
   text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
 }
 
 a {
@@ -43,8 +39,20 @@ textarea {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 4px;
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+main :is(h1, h2, h3, section[id], article[id]) {
+  scroll-margin-top: calc(var(--header-height) + var(--space-5));
+}
+
+button,
+[role="button"],
+input,
+select,
+textarea {
+  touch-action: manipulation;
 }
 
 .skip-link {
@@ -56,6 +64,7 @@ textarea {
   color: var(--color-accent-foreground);
   background: var(--color-accent);
   transform: translateY(-200%);
+  transition: transform var(--duration-fast) var(--ease-standard);
 }
 
 .skip-link:focus {
@@ -102,6 +111,26 @@ main {
   padding-top: var(--header-height);
 }
 
+@media (max-width: 48rem) {
+  input,
+  select,
+  textarea {
+    font-size: 1rem;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  a,
+  button,
+  [role="button"],
+  input,
+  select,
+  textarea,
+  label {
+    -webkit-tap-highlight-color: rgb(224 165 43 / 18%);
+  }
+}
+
 .placeholder-page {
   max-width: 48rem;
   padding-block: var(--space-section);
@@ -142,5 +171,9 @@ h1 + p {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+
+  .skip-link {
+    transition: none;
   }
 }

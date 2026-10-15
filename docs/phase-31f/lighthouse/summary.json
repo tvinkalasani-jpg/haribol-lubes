@@ -1,0 +1,101 @@
+{
+  "origin": "http://localhost:3000",
+  "generatedAt": "2026-10-13T22:37:56.184Z",
+  "profile": "Lighthouse mobile / simulated throttling",
+  "runs": [
+    {
+      "theme": "light",
+      "run": 1,
+      "performance": 87,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "fcpMs": 1354,
+      "lcpMs": 1679,
+      "tbtMs": 507,
+      "cls": 0,
+      "speedIndexMs": 1808
+    },
+    {
+      "theme": "light",
+      "run": 2,
+      "performance": 87,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "fcpMs": 1253,
+      "lcpMs": 1596,
+      "tbtMs": 494,
+      "cls": 0,
+      "speedIndexMs": 1773
+    },
+    {
+      "theme": "light",
+      "run": 3,
+      "performance": 87,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "fcpMs": 1240,
+      "lcpMs": 1353,
+      "tbtMs": 505,
+      "cls": 0,
+      "speedIndexMs": 1746
+    },
+    {
+      "theme": "dark",
+      "run": 1,
+      "performance": 95,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "fcpMs": 1334,
+      "lcpMs": 1507,
+      "tbtMs": 259,
+      "cls": 0,
+      "speedIndexMs": 1603
+    },
+    {
+      "theme": "dark",
+      "run": 2,
+      "performance": 89,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "fcpMs": 1268,
+      "lcpMs": 1422,
+      "tbtMs": 441,
+      "cls": 0,
+      "speedIndexMs": 1627
+    },
+    {
+      "theme": "dark",
+      "run": 3,
+      "performance": 94,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "fcpMs": 1349,
+      "lcpMs": 1476,
+      "tbtMs": 288,
+      "cls": 0,
+      "speedIndexMs": 1566
+    }
+  ],
+  "medians": {
+    "light": {
+      "performance": 87,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "fcpMs": 1253,
+      "lcpMs": 1596,
+      "tbtMs": 505,
+      "cls": 0,
+      "speedIndexMs": 1773
+    },
+    "dark": {
+      "performance": 94,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "fcpMs": 1334,
+      "lcpMs": 1476,
+      "tbtMs": 288,
+      "cls": 0,
+      "speedIndexMs": 1603
+    }
+  }
+}

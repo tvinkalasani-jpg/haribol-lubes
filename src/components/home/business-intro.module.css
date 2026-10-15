@@ -50,7 +50,7 @@
 .copy {
   align-self: center;
   max-width: 52rem;
-  animation: contentReveal 700ms 80ms var(--ease-emphasized) both;
+  animation: contentReveal var(--duration-reveal) 80ms var(--ease-emphasized) both;
 }
 
 .eyebrow {

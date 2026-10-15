@@ -1,0 +1,72 @@
+{
+  "origin": "http://localhost:3000",
+  "productPath": "/request-a-quote",
+  "generatedAt": "2026-10-15T17:20:51.071Z",
+  "profile": "Lighthouse mobile / simulated throttling",
+  "runs": [
+    {
+      "theme": "light",
+      "run": 1,
+      "performance": 97,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 66,
+      "fcpMs": 646,
+      "lcpMs": 829,
+      "tbtMs": 182,
+      "cls": 0,
+      "speedIndexMs": 705,
+      "mainThreadMs": 1005,
+      "bootupMs": 184,
+      "benchmarkIndex": 2952
+    },
+    {
+      "theme": "light",
+      "run": 2,
+      "performance": 97,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 66,
+      "fcpMs": 674,
+      "lcpMs": 915,
+      "tbtMs": 202,
+      "cls": 0,
+      "speedIndexMs": 818,
+      "mainThreadMs": 1081,
+      "bootupMs": 168,
+      "benchmarkIndex": 3014
+    },
+    {
+      "theme": "light",
+      "run": 3,
+      "performance": 84,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 66,
+      "fcpMs": 729,
+      "lcpMs": 1051,
+      "tbtMs": 625,
+      "cls": 0,
+      "speedIndexMs": 1174,
+      "mainThreadMs": 2057,
+      "bootupMs": 398,
+      "benchmarkIndex": 1787
+    }
+  ],
+  "medians": {
+    "light": {
+      "performance": 97,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 66,
+      "fcpMs": 674,
+      "lcpMs": 915,
+      "tbtMs": 202,
+      "cls": 0,
+      "speedIndexMs": 818,
+      "mainThreadMs": 1081,
+      "bootupMs": 184,
+      "benchmarkIndex": 2952
+    }
+  }
+}

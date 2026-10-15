@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import { Breadcrumbs } from "@/components/catalogue/breadcrumbs";
 import { InsightCard } from "@/components/content/insight-card";
+import { SupportingPageHero } from "@/components/layout/supporting-page-hero";
 import { PageContainer } from "@/components/ui/page-container";
 import { insightCategories } from "@/cms/content";
 import { getPublicInsights } from "@/features/content/content-repository";
@@ -29,14 +29,7 @@ export default async function InsightsPage() {
         createPageSchema({ type: "CollectionPage", path: "/insights", name: "Insights", description: "Practical lubricant knowledge and technical guides from Haribol Lubes Limited." }),
         createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Insights", path: "/insights" }]),
       ])} />
-      <PageContainer size="wide">
-        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Insights" }]} />
-        <header className={styles.indexHero}>
-          <p className="eyebrow">Knowledge for moving systems</p>
-          <h1>Technical insight.<br /><span>Practical decisions.</span></h1>
-          <p>Clear guidance for lubricant selection, maintenance conversations and commercial procurement in Kenya.</p>
-        </header>
-      </PageContainer>
+      <SupportingPageHero breadcrumb="Insights" code="INS" description="Clear guidance for lubricant selection, maintenance conversations and commercial procurement in Kenya." eyebrow="Knowledge for moving systems" items={[{ label: "Source", value: "Payload CMS" }, { label: "Publication", value: "Reviewed only" }, { label: "Focus", value: "Practical context" }]} title={<>Technical insight.<br />Practical decisions.</>} variant="insights" />
 
       <PageContainer size="wide">
         {featured ? (

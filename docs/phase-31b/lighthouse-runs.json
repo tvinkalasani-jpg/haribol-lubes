@@ -1,0 +1,122 @@
+{
+  "tool": "Lighthouse 13.5.0",
+  "profile": "standard mobile",
+  "origin": "http://localhost:3032/",
+  "generatedAt": "2026-10-11T15:45:42.738Z",
+  "light": [
+    {
+      "run": 1,
+      "performance": 87,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 1385.8623,
+      "lcpMs": 1538.8623,
+      "tbtMs": 490.4999999999999,
+      "cls": 0,
+      "speedIndexMs": 2021.6605045120082,
+      "mainThreadMs": 4640.56,
+      "benchmarkIndex": 939
+    },
+    {
+      "run": 2,
+      "performance": 89,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 1380.4384,
+      "lcpMs": 1564.4384,
+      "tbtMs": 433,
+      "cls": 0,
+      "speedIndexMs": 1975.972110842069,
+      "mainThreadMs": 4558.836,
+      "benchmarkIndex": 1075
+    },
+    {
+      "run": 3,
+      "performance": 86,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 1367.1254,
+      "lcpMs": 1513.1254,
+      "tbtMs": 557,
+      "cls": 0,
+      "speedIndexMs": 1983.7448344489817,
+      "mainThreadMs": 4640.836,
+      "benchmarkIndex": 729
+    }
+  ],
+  "dark": [
+    {
+      "run": 1,
+      "performance": 82,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 1450.67105,
+      "lcpMs": 1710.67105,
+      "tbtMs": 680,
+      "cls": 0,
+      "speedIndexMs": 2294.803743665917,
+      "mainThreadMs": 5178.007999999995,
+      "benchmarkIndex": 881.5
+    },
+    {
+      "run": 2,
+      "performance": 92,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 1640.61835,
+      "lcpMs": 1758.61835,
+      "tbtMs": 301.9999999999999,
+      "cls": 0,
+      "speedIndexMs": 2162.8033110158194,
+      "mainThreadMs": 5197.2920000000095,
+      "benchmarkIndex": 898.5
+    },
+    {
+      "run": 3,
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 892.5929,
+      "lcpMs": 1019.5929,
+      "tbtMs": 102.00000000000006,
+      "cls": 0,
+      "speedIndexMs": 997.6463295656213,
+      "mainThreadMs": 2295.5439999999867,
+      "benchmarkIndex": 2050
+    }
+  ],
+  "lightMedian": {
+    "run": 1,
+    "performance": 87,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 69,
+    "fcpMs": 1385.8623,
+    "lcpMs": 1538.8623,
+    "tbtMs": 490.4999999999999,
+    "cls": 0,
+    "speedIndexMs": 2021.6605045120082,
+    "mainThreadMs": 4640.56,
+    "benchmarkIndex": 939
+  },
+  "darkMedian": {
+    "run": 2,
+    "performance": 92,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 69,
+    "fcpMs": 1640.61835,
+    "lcpMs": 1758.61835,
+    "tbtMs": 301.9999999999999,
+    "cls": 0,
+    "speedIndexMs": 2162.8033110158194,
+    "mainThreadMs": 5197.2920000000095,
+    "benchmarkIndex": 898.5
+  }
+}

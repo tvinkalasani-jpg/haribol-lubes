@@ -15,7 +15,11 @@
 .context p span { grid-column: 1 / -1; color: var(--color-foreground-subtle); font-size: .62rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
 .context p strong { font-family: var(--font-family-display); font-size: 1.25rem; text-transform: uppercase; }
 .context p a { align-self: center; color: var(--color-accent); font-size: .66rem; font-weight: 700; text-transform: uppercase; }
-.formSection { background: linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px) 0 0 / 25% 100%, var(--color-background); }
+.formSection {
+  background: linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px) 0 0 / 25% 100%, var(--color-background);
+  content-visibility: auto;
+  contain-intrinsic-block-size: auto 110rem;
+}
 .formLayout { display: grid; grid-template-columns: minmax(16rem, .65fr) minmax(0, 1.35fr); gap: clamp(3rem, 8vw, 9rem); align-items: start; padding-block: clamp(4.5rem, 9vw, 8rem); }
 .formLayout > aside { position: sticky; top: calc(var(--header-height) + 2rem); }
 .formLayout aside h2 { max-width: 8ch; margin: 0; font-family: var(--font-family-display); font-size: clamp(3.4rem, 6vw, 6rem); font-weight: 600; line-height: .9; text-transform: uppercase; }
@@ -68,8 +72,10 @@
 .successActions a { color: var(--color-accent); font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 @media (hover: hover) { .submitRow button:hover { color: var(--color-accent-foreground); background: var(--color-foreground); border-color: var(--color-foreground); } }
 @media (max-width: 64rem) { .heroGrid, .formLayout { gap: 3rem; } }
-@media (max-width: 48rem) { .hero { min-height: auto; } .heroGrid, .formLayout { grid-template-columns: 1fr; } .heroGrid { padding-block: 5rem 4rem; } .hero h1 { font-size: clamp(4.3rem, 16vw, 7rem); } .formLayout > aside { position: static; } .formLayout aside h2 { font-size: clamp(3.5rem, 13vw, 5rem); } }
+@media (max-width: 48rem) { .hero { min-height: auto; } .heroGrid, .formLayout { grid-template-columns: 1fr; } .heroGrid { padding-block: 5rem 4rem; } .hero h1 { font-size: clamp(4.3rem, 16vw, 7rem); } .formLayout > aside { position: static; } .formLayout aside h2 { max-width: 11ch; font-size: clamp(3.5rem, 13vw, 5rem); } }
 @media (max-width: 36rem) { .heroGrid, .formLayout, .context > div { padding-inline: 1rem; } .hero h1 { font-size: clamp(3.7rem, 18vw, 5rem); } .context > div { display: block; } .context p { min-width: 0; margin-inline: -1rem; border-inline: 0; } .grid, .submitRow { grid-template-columns: 1fr; } .wide { grid-column: auto; } .form { padding: 1.1rem; } .form fieldset legend { font-size: 1.25rem; } .submitRow button { min-height: 3.9rem; } .success { min-height: 32rem; padding: 1.5rem; } .success h2 { font-size: 3rem; } }
 @media (prefers-reduced-motion: reduce) { .submitRow button { transition: none; } }
+
+@media print { .formSection { content-visibility: visible; contain: none; } }
 
 

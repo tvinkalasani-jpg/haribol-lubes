@@ -1,0 +1,14 @@
+{
+  "origin": "http://localhost:3039",
+  "generatedAt": "2026-10-13T17:55:42.657Z",
+  "checks": 20,
+  "passed": 20,
+  "failed": [],
+  "reducedMotionState": "reduced",
+  "pointerState": {
+    "pointerResponse": "enabled",
+    "tiltX": "0.86deg",
+    "tiltY": "1.79deg"
+  },
+  "browserErrors": []
+}

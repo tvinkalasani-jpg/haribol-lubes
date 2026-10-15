@@ -23,6 +23,7 @@ export function HeaderController({ children, className }: HeaderControllerProps)
     const productsRoot = header.querySelector<HTMLElement>("[data-products-root]");
     const productsTrigger = header.querySelector<HTMLButtonElement>("[data-products-trigger]");
     const productsPanel = header.querySelector<HTMLElement>("[data-products-panel]");
+    const productsNavigationItems = header.querySelectorAll<HTMLElement>("[data-nav-products]");
     const mobileTrigger = header.querySelector<HTMLButtonElement>("[data-mobile-trigger]");
     const mobileTriggerLabel = header.querySelector<HTMLElement>(
       "[data-mobile-trigger-label]",
@@ -47,14 +48,21 @@ export function HeaderController({ children, className }: HeaderControllerProps)
       return;
     }
 
+    const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
+
     header.querySelectorAll<HTMLAnchorElement>("[data-nav-link]").forEach((link) => {
       const linkPath = new URL(link.href).pathname.replace(/\/$/, "") || "/";
-      const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
 
-      if (linkPath === currentPath) {
+      const matchesSection = link.hasAttribute("data-nav-section") && currentPath.startsWith(`${linkPath}/`);
+
+      if (linkPath === currentPath || matchesSection) {
         link.setAttribute("aria-current", "page");
       }
     });
+
+    if (currentPath === "/products" || currentPath.startsWith("/products/")) {
+      productsNavigationItems.forEach((item) => item.setAttribute("aria-current", "page"));
+    }
 
     let scrollFrame = 0;
     let isScrolled = false;
@@ -99,6 +107,7 @@ export function HeaderController({ children, className }: HeaderControllerProps)
       );
       mobileTriggerLabel.textContent = open ? "Close" : "Menu";
       mobilePanel.setAttribute("aria-hidden", String(!open));
+      mobilePanel.toggleAttribute("inert", !open);
 
       if (open) {
         document.body.style.overflow = "hidden";
@@ -195,6 +204,14 @@ export function HeaderController({ children, className }: HeaderControllerProps)
       );
     };
 
+    const desktopMediaQuery = window.matchMedia("(min-width: 82.001rem)");
+
+    const handleDesktopMediaChange = (event: MediaQueryListEvent) => {
+      if (event.matches) {
+        setMobileOpen(false);
+      }
+    };
+
     const handleMobileLinkClick = (event: Event) => {
       if ((event.target as Element).closest("a")) {
         setMobileOpen(false);
@@ -203,6 +220,7 @@ export function HeaderController({ children, className }: HeaderControllerProps)
 
     updateScrollState();
     window.addEventListener("scroll", handleScroll, { passive: true });
+    desktopMediaQuery.addEventListener("change", handleDesktopMediaChange);
     document.addEventListener("pointerdown", handlePointerDown);
     productsTrigger.addEventListener("click", handleProductsTriggerClick);
     productsTrigger.addEventListener("keydown", handleProductsTriggerKeyDown);
@@ -215,6 +233,7 @@ export function HeaderController({ children, className }: HeaderControllerProps)
     return () => {
       window.cancelAnimationFrame(scrollFrame);
       window.removeEventListener("scroll", handleScroll);
+      desktopMediaQuery.removeEventListener("change", handleDesktopMediaChange);
       document.removeEventListener("pointerdown", handlePointerDown);
       productsTrigger.removeEventListener("click", handleProductsTriggerClick);
       productsTrigger.removeEventListener("keydown", handleProductsTriggerKeyDown);

@@ -1,16 +1,11 @@
 export const themeStorageKey = "haribol-theme";
-export const themeModes = ["system", "light", "dark"] as const;
+export const themeModes = ["light", "dark"] as const;
 export type ThemeMode = (typeof themeModes)[number];
-export type ResolvedTheme = Exclude<ThemeMode, "system">;
 
 export function normalizeThemeMode(value: unknown): ThemeMode {
   return typeof value === "string" && themeModes.includes(value as ThemeMode)
     ? (value as ThemeMode)
-    : "system";
+    : "light";
 }
 
-export function resolveTheme(mode: ThemeMode, prefersDark: boolean): ResolvedTheme {
-  return mode === "system" ? (prefersDark ? "dark" : "light") : mode;
-}
-
-export const themeInitializationScript = `(()=>{const e=document.documentElement,k="${themeStorageKey}";let m="system";try{const v=localStorage.getItem(k);if(v==="light"||v==="dark"||v==="system")m=v}catch{}const d=m==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):m;e.dataset.theme=d;e.dataset.themePreference=m})()`;
+export const themeInitializationScript = `(()=>{const e=document.documentElement,k="${themeStorageKey}";let m="light";try{const v=localStorage.getItem(k);if(v==="dark")m="dark";else if(v!==null&&v!=="light")localStorage.setItem(k,"light")}catch{}e.dataset.theme=m;e.dataset.themePreference=m;e.style.colorScheme=m})()`;

@@ -1,0 +1,682 @@
+{
+  "generatedAt": "2026-10-15T17:24:38.496Z",
+  "origin": "http://localhost:3000",
+  "productionOrigin": "https://haribollubesltd.co.ke",
+  "summary": {
+    "crawled": 66,
+    "html200": 64,
+    "redirects": 2,
+    "internalRedirects": 0,
+    "notFound": 0,
+    "noindex": 64,
+    "indexable": 0,
+    "brokenLinks": 0,
+    "canonicalErrors": 0,
+    "schemaErrors": 0,
+    "sitemapUrls": 0,
+    "duplicateTitles": 0,
+    "duplicateDescriptions": 0,
+    "headingErrors": 0
+  },
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": "Haribol Lubes Limited | Automotive & Industrial Lubricants Kenya",
+      "description": "Haribol Lubes Limited supplies automotive and industrial lubricant solutions in Kenya, including the Mastermax lubricant range.",
+      "canonical": "https://haribollubesltd.co.ke",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/products/engine-oils",
+      "status": 200,
+      "title": "Engine Oils Kenya | Haribol Lubes Limited",
+      "description": "Explore engine oils represented in Haribol Lubes Limited's Kenya catalogue, including known formulations, applications and enquiry options.",
+      "canonical": "https://haribollubesltd.co.ke/products/engine-oils",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/products/transmission-gear-oils",
+      "status": 200,
+      "title": "Transmission / Gear Oils Kenya | Haribol Lubes Limited",
+      "description": "Explore transmission / gear oils represented in Haribol Lubes Limited's Kenya catalogue, including known formulations, applications and enquiry options.",
+      "canonical": "https://haribollubesltd.co.ke/products/transmission-gear-oils",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/products/hydraulic-oils",
+      "status": 200,
+      "title": "Hydraulic Oils Kenya | Haribol Lubes Limited",
+      "description": "Explore hydraulic oils represented in Haribol Lubes Limited's Kenya catalogue, including known formulations, applications and enquiry options.",
+      "canonical": "https://haribollubesltd.co.ke/products/hydraulic-oils",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/products/industrial-lubricants",
+      "status": 200,
+      "title": "Industrial Lubricants Kenya | Haribol Lubes Limited",
+      "description": "Explore industrial lubricants represented in Haribol Lubes Limited's Kenya catalogue, including known formulations, applications and enquiry options.",
+      "canonical": "https://haribollubesltd.co.ke/products/industrial-lubricants",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/products/greases",
+      "status": 200,
+      "title": "Greases Kenya | Haribol Lubes Limited",
+      "description": "Explore greases represented in Haribol Lubes Limited's Kenya catalogue, including known formulations, applications and enquiry options.",
+      "canonical": "https://haribollubesltd.co.ke/products/greases",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/products/specialty-fluids",
+      "status": 200,
+      "title": "Specialty Fluids Kenya | Haribol Lubes Limited",
+      "description": "Contact Haribol Lubes Limited in Kenya to discuss current specialty fluids requirements and catalogue availability.",
+      "canonical": "https://haribollubesltd.co.ke/products/specialty-fluids",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/products",
+      "status": 200,
+      "title": "Lubricant Products | Haribol Lubes Limited",
+      "description": "Search automotive and industrial lubricant products, grades, applications and classifications represented in Haribol Lubes Limited's Kenya catalogue.",
+      "canonical": "https://haribollubesltd.co.ke/products",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/industries",
+      "status": 200,
+      "title": "Industries | Haribol Lubes Limited",
+      "description": "Explore automotive, commercial and industrial lubricant catalogue pathways by industry for customers in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/industries",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/product-finder",
+      "status": 200,
+      "title": "Product Finder | Haribol Lubes Limited",
+      "description": "Narrow the current Haribol lubricant catalogue by application, product category and known technical detail.",
+      "canonical": "https://haribollubesltd.co.ke/product-finder",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/resources",
+      "status": 200,
+      "title": "Technical Resources | Haribol Lubes",
+      "description": "Approved technical documents and product resources from Haribol Lubes Limited.",
+      "canonical": "https://haribollubesltd.co.ke/resources",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/about",
+      "status": 200,
+      "title": "About Haribol Lubes Limited | Lubricant Supplier Kenya",
+      "description": "Learn about Haribol Lubes Limited, an automotive and industrial lubricant supplier operating from Mlolongo, Kenya, and featuring the Mastermax lubricant range.",
+      "canonical": "https://haribollubesltd.co.ke/about",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/request-a-quote",
+      "status": 200,
+      "title": "Request a Quote | Haribol Lubes Limited Kenya",
+      "description": "Request a quotation from Haribol Lubes Limited for automotive and industrial lubricants, Mastermax products and commercial lubricant requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/request-a-quote",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/contact",
+      "status": 200,
+      "title": "Contact Haribol Lubes Limited | Mlolongo, Kenya",
+      "description": "Contact Haribol Lubes Limited in Mlolongo for automotive and industrial lubricant enquiries, Mastermax products, product selection and commercial quotation requests.",
+      "canonical": "https://haribollubesltd.co.ke/contact",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/brands/mastermax",
+      "status": 200,
+      "title": "Mastermax Lubricants | Haribol Lubes",
+      "description": "Mastermax is the current featured lubricant brand of Haribol Lubes Limited, with engine, hydraulic, transmission, compressor, industrial and grease product groups.",
+      "canonical": "https://haribollubesltd.co.ke/brands/mastermax",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/request-a-quote?source=mastermax-showcase",
+      "status": 200,
+      "title": "Request a Quote | Haribol Lubes Limited Kenya",
+      "description": "Request a quotation from Haribol Lubes Limited for automotive and industrial lubricants, Mastermax products and commercial lubricant requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/request-a-quote",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/products/compressor-oils",
+      "status": 200,
+      "title": "Compressor Oils Kenya | Haribol Lubes Limited",
+      "description": "Explore compressor oils represented in Haribol Lubes Limited's Kenya catalogue, including known formulations, applications and enquiry options.",
+      "canonical": "https://haribollubesltd.co.ke/products/compressor-oils",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/industries/automotive",
+      "status": 200,
+      "title": "Automotive Lubricants Kenya | Haribol Lubes Limited",
+      "description": "Explore automotive lubricant categories and current Mastermax catalogue matches for vehicle maintenance requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/industries/automotive",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/industries/garages-workshops",
+      "status": 200,
+      "title": "Garage & Workshop Lubricants Kenya | Haribol Lubes Limited",
+      "description": "Explore lubricant categories and current Mastermax catalogue matches for garages, workshops and maintenance enquiries in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/industries/garages-workshops",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/industries/transport-logistics",
+      "status": 200,
+      "title": "Transport & Logistics Lubricants Kenya | Haribol Lubes Limited",
+      "description": "Explore lubricant categories and current Mastermax catalogue matches relevant to transport and logistics operations in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/industries/transport-logistics",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/industries/fleet-operators",
+      "status": 200,
+      "title": "Fleet Lubricants Kenya | Haribol Lubes Limited",
+      "description": "Explore lubricant categories and current Mastermax catalogue matches for recurring fleet requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/industries/fleet-operators",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/industries/manufacturing",
+      "status": 200,
+      "title": "Industrial Lubricants for Manufacturing Kenya | Haribol Lubes Limited",
+      "description": "Explore industrial lubricant categories and current Mastermax catalogue matches for manufacturing requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/industries/manufacturing",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/industries/construction",
+      "status": 200,
+      "title": "Construction Equipment Lubricants Kenya | Haribol Lubes Limited",
+      "description": "Explore lubricant categories and current Mastermax catalogue matches relevant to construction equipment requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/industries/construction",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/industries/agriculture",
+      "status": 200,
+      "title": "Agricultural Machinery Lubricants Kenya | Haribol Lubes Limited",
+      "description": "Explore lubricant categories and current Mastermax catalogue matches relevant to agricultural machinery requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/industries/agriculture",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/industries/industrial-machinery",
+      "status": 200,
+      "title": "Industrial Machinery Lubricants Kenya | Haribol Lubes Limited",
+      "description": "Explore lubricant categories and current Mastermax catalogue matches for industrial machinery requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/industries/industrial-machinery",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/industries/wholesale-retail",
+      "status": 200,
+      "title": "Wholesale & Retail Lubricant Enquiries Kenya | Haribol Lubes Limited",
+      "description": "Explore Haribol's current lubricant catalogue and commercial enquiry pathways for wholesale and retail requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/industries/wholesale-retail",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/insights",
+      "status": 200,
+      "title": "Insights | Haribol Lubes",
+      "description": "Practical lubricant knowledge, technical guides and product-selection context from Haribol Lubes Limited.",
+      "canonical": "https://haribollubesltd.co.ke/insights",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/applications",
+      "status": 200,
+      "title": "Applications | Haribol Lubes",
+      "description": "Haribol Lubes Limited imports and distributes automotive and industrial lubricants from Mlolongo, Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/applications",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/privacy",
+      "status": 200,
+      "title": "Privacy Policy | Haribol Lubes",
+      "description": "Haribol Lubes Limited imports and distributes automotive and industrial lubricants from Mlolongo, Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/privacy",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/terms",
+      "status": 200,
+      "title": "Terms | Haribol Lubes",
+      "description": "Haribol Lubes Limited imports and distributes automotive and industrial lubricants from Mlolongo, Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/terms",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/products/engine-oils/mastermax-engine-oils",
+      "status": 200,
+      "title": "Mastermax Engine Oils | Haribol Lubes Limited Kenya",
+      "description": "Catalogue-listed multigrade and monograde engine oils. Review known catalogue formulations, applications and enquiry options from Haribol Lubes Limited in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/products/engine-oils/mastermax-engine-oils",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/products/transmission-gear-oils/mastermax-transmission-gear-oils",
+      "status": 200,
+      "title": "Mastermax Transmission / Gear Oils | Haribol Lubes Limited Kenya",
+      "description": "Catalogue-listed gear, transmission and driveline oil formulations. Review known catalogue formulations, applications and enquiry options from Haribol Lubes Limited in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/products/transmission-gear-oils/mastermax-transmission-gear-oils",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/products/hydraulic-oils/mastermax-hydraulic-oils",
+      "status": 200,
+      "title": "Mastermax Hydraulic Oils | Haribol Lubes Limited Kenya",
+      "description": "Hydraulic oils in the ISO viscosity grades listed by the catalogue. Review known catalogue formulations, applications and enquiry options from Haribol Lubes Limited in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/products/hydraulic-oils/mastermax-hydraulic-oils",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/products/industrial-lubricants/mastermax-soluble-cutting-oil",
+      "status": 200,
+      "title": "Mastermax Soluble Cutting Oil | Haribol Lubes Limited Kenya",
+      "description": "Soluble cutting oil listed in the Mastermax catalogue. Review known catalogue formulations, applications and enquiry options from Haribol Lubes Limited in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/products/industrial-lubricants/mastermax-soluble-cutting-oil",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/products/industrial-lubricants/mastermax-mould-release-oil",
+      "status": 200,
+      "title": "Mastermax Mould Release Oil | Haribol Lubes Limited Kenya",
+      "description": "Mould release oil listed in the Mastermax catalogue. Review known catalogue formulations, applications and enquiry options from Haribol Lubes Limited in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/products/industrial-lubricants/mastermax-mould-release-oil",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/products/greases/mastermax-mp3-chassis-grease",
+      "status": 200,
+      "title": "Mastermax MP3 Chassis Grease | Haribol Lubes Limited Kenya",
+      "description": "MP3 Chassis Grease listed in the Mastermax catalogue. Review known catalogue formulations, applications and enquiry options from Haribol Lubes Limited in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/products/greases/mastermax-mp3-chassis-grease",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/products/greases/mastermax-ep3-crusher-grease",
+      "status": 200,
+      "title": "Mastermax EP3 Crusher Grease | Haribol Lubes Limited Kenya",
+      "description": "EP3 Crusher Grease listed in the Mastermax catalogue. Review known catalogue formulations, applications and enquiry options from Haribol Lubes Limited in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/products/greases/mastermax-ep3-crusher-grease",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/products/greases/mastermax-high-temperature-bearing-grease",
+      "status": 200,
+      "title": "Mastermax High-Temperature Bearing Grease | Haribol Lubes Limited Kenya",
+      "description": "High-Temperature Bearing Grease listed in the Mastermax catalogue. Review known catalogue formulations, applications and enquiry options from Haribol Lubes Limited in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/products/greases/mastermax-high-temperature-bearing-grease",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/products/greases/mastermax-ep00-liquid-grease",
+      "status": 200,
+      "title": "Mastermax EP00 Liquid Grease | Haribol Lubes Limited Kenya",
+      "description": "EP00 Liquid Grease listed in the Mastermax catalogue. Review known catalogue formulations, applications and enquiry options from Haribol Lubes Limited in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/products/greases/mastermax-ep00-liquid-grease",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/products/compressor-oils/mastermax-maxpress-compressor-oil",
+      "status": 200,
+      "title": "Mastermax Maxpress Compressor Oil | Haribol Lubes Limited Kenya",
+      "description": "The Maxpress compressor-oil family in five catalogue-listed grades. Review known catalogue formulations, applications and enquiry options from Haribol Lubes Limited in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/products/compressor-oils/mastermax-maxpress-compressor-oil",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/request-a-quote?product=mastermax-engine-oils",
+      "status": 200,
+      "title": "Request a Quote | Haribol Lubes Limited Kenya",
+      "description": "Request a quotation from Haribol Lubes Limited for automotive and industrial lubricants, Mastermax products and commercial lubricant requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/request-a-quote",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/product-finder?application=petrol-engines",
+      "status": 200,
+      "title": "Product Finder | Haribol Lubes Limited",
+      "description": "Narrow the current Haribol lubricant catalogue by application, product category and known technical detail.",
+      "canonical": "https://haribollubesltd.co.ke/product-finder",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/product-finder?application=diesel-engines",
+      "status": 200,
+      "title": "Product Finder | Haribol Lubes Limited",
+      "description": "Narrow the current Haribol lubricant catalogue by application, product category and known technical detail.",
+      "canonical": "https://haribollubesltd.co.ke/product-finder",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/product-finder?application=heavy-duty-engines",
+      "status": 200,
+      "title": "Product Finder | Haribol Lubes Limited",
+      "description": "Narrow the current Haribol lubricant catalogue by application, product category and known technical detail.",
+      "canonical": "https://haribollubesltd.co.ke/product-finder",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/request-a-quote?product=mastermax-transmission-gear-oils",
+      "status": 200,
+      "title": "Request a Quote | Haribol Lubes Limited Kenya",
+      "description": "Request a quotation from Haribol Lubes Limited for automotive and industrial lubricants, Mastermax products and commercial lubricant requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/request-a-quote",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/product-finder?application=gearboxes",
+      "status": 200,
+      "title": "Product Finder | Haribol Lubes Limited",
+      "description": "Narrow the current Haribol lubricant catalogue by application, product category and known technical detail.",
+      "canonical": "https://haribollubesltd.co.ke/product-finder",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/product-finder?application=automatic-transmissions",
+      "status": 200,
+      "title": "Product Finder | Haribol Lubes Limited",
+      "description": "Narrow the current Haribol lubricant catalogue by application, product category and known technical detail.",
+      "canonical": "https://haribollubesltd.co.ke/product-finder",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/product-finder?application=driveline-systems",
+      "status": 200,
+      "title": "Product Finder | Haribol Lubes Limited",
+      "description": "Narrow the current Haribol lubricant catalogue by application, product category and known technical detail.",
+      "canonical": "https://haribollubesltd.co.ke/product-finder",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/request-a-quote?product=mastermax-hydraulic-oils",
+      "status": 200,
+      "title": "Request a Quote | Haribol Lubes Limited Kenya",
+      "description": "Request a quotation from Haribol Lubes Limited for automotive and industrial lubricants, Mastermax products and commercial lubricant requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/request-a-quote",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/product-finder?application=hydraulic-systems",
+      "status": 200,
+      "title": "Product Finder | Haribol Lubes Limited",
+      "description": "Narrow the current Haribol lubricant catalogue by application, product category and known technical detail.",
+      "canonical": "https://haribollubesltd.co.ke/product-finder",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/product-finder?application=industrial-machinery",
+      "status": 200,
+      "title": "Product Finder | Haribol Lubes Limited",
+      "description": "Narrow the current Haribol lubricant catalogue by application, product category and known technical detail.",
+      "canonical": "https://haribollubesltd.co.ke/product-finder",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/request-a-quote?product=mastermax-soluble-cutting-oil",
+      "status": 200,
+      "title": "Request a Quote | Haribol Lubes Limited Kenya",
+      "description": "Request a quotation from Haribol Lubes Limited for automotive and industrial lubricants, Mastermax products and commercial lubricant requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/request-a-quote",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/product-finder?application=metalworking",
+      "status": 200,
+      "title": "Product Finder | Haribol Lubes Limited",
+      "description": "Narrow the current Haribol lubricant catalogue by application, product category and known technical detail.",
+      "canonical": "https://haribollubesltd.co.ke/product-finder",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/request-a-quote?product=mastermax-mould-release-oil",
+      "status": 200,
+      "title": "Request a Quote | Haribol Lubes Limited Kenya",
+      "description": "Request a quotation from Haribol Lubes Limited for automotive and industrial lubricants, Mastermax products and commercial lubricant requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/request-a-quote",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/product-finder?application=mould-release",
+      "status": 200,
+      "title": "Product Finder | Haribol Lubes Limited",
+      "description": "Narrow the current Haribol lubricant catalogue by application, product category and known technical detail.",
+      "canonical": "https://haribollubesltd.co.ke/product-finder",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/request-a-quote?product=mastermax-mp3-chassis-grease",
+      "status": 200,
+      "title": "Request a Quote | Haribol Lubes Limited Kenya",
+      "description": "Request a quotation from Haribol Lubes Limited for automotive and industrial lubricants, Mastermax products and commercial lubricant requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/request-a-quote",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/product-finder?application=chassis",
+      "status": 200,
+      "title": "Product Finder | Haribol Lubes Limited",
+      "description": "Narrow the current Haribol lubricant catalogue by application, product category and known technical detail.",
+      "canonical": "https://haribollubesltd.co.ke/product-finder",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/request-a-quote?product=mastermax-ep3-crusher-grease",
+      "status": 200,
+      "title": "Request a Quote | Haribol Lubes Limited Kenya",
+      "description": "Request a quotation from Haribol Lubes Limited for automotive and industrial lubricants, Mastermax products and commercial lubricant requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/request-a-quote",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/product-finder?application=crushers",
+      "status": 200,
+      "title": "Product Finder | Haribol Lubes Limited",
+      "description": "Narrow the current Haribol lubricant catalogue by application, product category and known technical detail.",
+      "canonical": "https://haribollubesltd.co.ke/product-finder",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/request-a-quote?product=mastermax-high-temperature-bearing-grease",
+      "status": 200,
+      "title": "Request a Quote | Haribol Lubes Limited Kenya",
+      "description": "Request a quotation from Haribol Lubes Limited for automotive and industrial lubricants, Mastermax products and commercial lubricant requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/request-a-quote",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/product-finder?application=bearings",
+      "status": 200,
+      "title": "Product Finder | Haribol Lubes Limited",
+      "description": "Narrow the current Haribol lubricant catalogue by application, product category and known technical detail.",
+      "canonical": "https://haribollubesltd.co.ke/product-finder",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    },
+    {
+      "path": "/request-a-quote?product=mastermax-ep00-liquid-grease",
+      "status": 200,
+      "title": "Request a Quote | Haribol Lubes Limited Kenya",
+      "description": "Request a quotation from Haribol Lubes Limited for automotive and industrial lubricants, Mastermax products and commercial lubricant requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/request-a-quote",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/request-a-quote?product=mastermax-maxpress-compressor-oil",
+      "status": 200,
+      "title": "Request a Quote | Haribol Lubes Limited Kenya",
+      "description": "Request a quotation from Haribol Lubes Limited for automotive and industrial lubricants, Mastermax products and commercial lubricant requirements in Kenya.",
+      "canonical": "https://haribollubesltd.co.ke/request-a-quote",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 0
+    },
+    {
+      "path": "/product-finder?application=compressors",
+      "status": 200,
+      "title": "Product Finder | Haribol Lubes Limited",
+      "description": "Narrow the current Haribol lubricant catalogue by application, product category and known technical detail.",
+      "canonical": "https://haribollubesltd.co.ke/product-finder",
+      "robots": "noindex, nofollow",
+      "h1Count": 1,
+      "schemaCount": 1
+    }
+  ],
+  "redirects": [
+    {
+      "path": "/products/gear-oils",
+      "status": 308,
+      "location": "/products/transmission-gear-oils"
+    },
+    {
+      "path": "/products/transmission-fluids",
+      "status": 308,
+      "location": "/products/transmission-gear-oils"
+    }
+  ],
+  "brokenLinks": [],
+  "canonicalErrors": [],
+  "schemaErrors": [],
+  "duplicateTitles": [],
+  "duplicateDescriptions": [],
+  "headingErrors": [],
+  "sitemapChecks": []
+}

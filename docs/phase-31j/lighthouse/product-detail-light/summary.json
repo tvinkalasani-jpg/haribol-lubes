@@ -1,0 +1,72 @@
+{
+  "origin": "http://localhost:3000",
+  "productPath": "/products/engine-oils/mastermax-engine-oils",
+  "generatedAt": "2026-10-15T16:49:31.492Z",
+  "profile": "Lighthouse mobile / simulated throttling",
+  "runs": [
+    {
+      "theme": "light",
+      "run": 1,
+      "performance": 91,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 1052,
+      "lcpMs": 1401,
+      "tbtMs": 392,
+      "cls": 0,
+      "speedIndexMs": 1205,
+      "mainThreadMs": 2059,
+      "bootupMs": 477,
+      "benchmarkIndex": 1031
+    },
+    {
+      "theme": "light",
+      "run": 2,
+      "performance": 90,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 1027,
+      "lcpMs": 1153,
+      "tbtMs": 401,
+      "cls": 0,
+      "speedIndexMs": 1112,
+      "mainThreadMs": 2013,
+      "bootupMs": 467,
+      "benchmarkIndex": 1125
+    },
+    {
+      "theme": "light",
+      "run": 3,
+      "performance": 90,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 1029,
+      "lcpMs": 1152,
+      "tbtMs": 401,
+      "cls": 0,
+      "speedIndexMs": 1103,
+      "mainThreadMs": 2022,
+      "bootupMs": 445,
+      "benchmarkIndex": 1140
+    }
+  ],
+  "medians": {
+    "light": {
+      "performance": 90,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 1029,
+      "lcpMs": 1153,
+      "tbtMs": 401,
+      "cls": 0,
+      "speedIndexMs": 1112,
+      "mainThreadMs": 2022,
+      "bootupMs": 467,
+      "benchmarkIndex": 1125
+    }
+  }
+}

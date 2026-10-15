@@ -15,7 +15,7 @@
 }
 
 .eyebrow {
-  color: #eb7a2d;
+  color: var(--mastermax-orange);
 }
 
 .company {
@@ -46,7 +46,7 @@
 }
 
 .groups > div > p {
-  color: #eb7a2d;
+  color: var(--mastermax-orange);
 }
 
 .groups h2 {
@@ -74,7 +74,7 @@
 }
 
 .groups li > span {
-  color: #eb7a2d;
+  color: var(--mastermax-orange);
   font-family: var(--font-family-display);
   font-size: 0.8rem;
   font-weight: 700;
@@ -96,7 +96,7 @@
 }
 
 .groups li > a:hover h3 {
-  color: #eb7a2d;
+  color: var(--mastermax-orange);
 }
 
 .groups li p {

@@ -1,14 +1,103 @@
-.root { position: relative; }
-.trigger { display: inline-flex; min-width: 5.25rem; min-height: 2.75rem; align-items: center; justify-content: center; gap: .45rem; padding: .45rem .65rem; color: var(--color-foreground-muted); background: transparent; border: 1px solid var(--color-border); font-size: .68rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; cursor: pointer; }
-.trigger svg, .menu svg { width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.6; }
-.trigger:hover, .trigger[aria-expanded="true"] { color: var(--color-foreground); border-color: var(--color-border-strong); }
-.trigger:focus-visible, .menu button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
-.menu { position: absolute; z-index: 80; top: calc(100% + .65rem); right: 0; width: 10.5rem; padding: .4rem; color: var(--color-foreground); background: var(--color-header-dropdown); border: 1px solid var(--color-border-strong); box-shadow: var(--shadow-md); }
-.menu button { display: grid; width: 100%; min-height: 2.8rem; grid-template-columns: 1.25rem 1fr .6rem; align-items: center; gap: .65rem; padding: .55rem .7rem; color: var(--color-foreground-muted); background: transparent; border: 0; font-size: .72rem; font-weight: 700; text-align: left; cursor: pointer; }
-.menu button:hover, .menu button[aria-checked="true"] { color: var(--color-foreground); background: var(--color-surface-hover); }
-.menu i { width: .45rem; height: .45rem; border: 1px solid var(--color-border-strong); border-radius: 50%; }
-.menu button[aria-checked="true"] i { background: var(--color-accent); border-color: var(--color-accent); }
-.root[data-placement="mobile"] { margin-top: 1.5rem; }
-.root[data-placement="mobile"] .trigger { width: 100%; min-height: 3.25rem; justify-content: space-between; padding-inline: 1rem; }
-.root[data-placement="mobile"] .menu { position: static; width: 100%; margin-top: .5rem; }
-@media (prefers-reduced-motion: reduce) { .trigger, .menu button { transition: none; } }
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.label {
+  color: var(--color-foreground-muted);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(3.75rem, 1fr));
+  padding: 0.2rem;
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+}
+
+.options button {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.38rem;
+  padding: 0.35rem 0.55rem;
+  color: var(--color-foreground-muted);
+  background: transparent;
+  border: 0;
+  border-radius: calc(var(--radius-sm) - 1px);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+.options button:hover {
+  color: var(--color-foreground);
+  background: var(--color-surface-hover);
+}
+
+.options button[aria-pressed="true"] {
+  color: var(--color-accent-foreground);
+  background: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.options button:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 2px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.options svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.options i { display: none; font-style: normal; }
+.options button[aria-pressed="true"] i { display: inline; }
+
+.root[data-placement="desktop"] .label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.root[data-placement="desktop"] .options {
+  grid-template-columns: repeat(2, minmax(3.15rem, 1fr));
+}
+
+.root[data-placement="desktop"] .options button {
+  gap: 0.25rem;
+  padding-inline: 0.3rem;
+  font-size: 0.62rem;
+}
+
+.root[data-placement="mobile"] {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1.5rem;
+}
+
+.root[data-placement="mobile"] .options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.root[data-placement="mobile"] .options button { min-height: 3rem; font-size: 0.75rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .options button { transition: none; }
+}

@@ -1,0 +1,556 @@
+{
+  "origin": "http://127.0.0.1:3043",
+  "generatedAt": "2026-10-13T22:26:59.369Z",
+  "results": [
+    {
+      "theme": "light",
+      "width": 320,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "light",
+      "width": 480,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "light",
+      "width": 900,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "light",
+      "width": 1024,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "light",
+      "width": 1120,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "light",
+      "width": 1920,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "dark",
+      "width": 320,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "dark",
+      "width": 480,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "dark",
+      "width": 900,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "dark",
+      "width": 1024,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "dark",
+      "width": 1120,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    },
+    {
+      "theme": "dark",
+      "width": 1920,
+      "passed": true,
+      "section": true,
+      "visual": true,
+      "packCount": 4,
+      "groups": [
+        "engine",
+        "hydraulic",
+        "transmission",
+        "compressor",
+        "industrial",
+        "greases"
+      ],
+      "labelCount": 6,
+      "visiblePanels": 1,
+      "labelTargetsSafe": true,
+      "headingVisible": true,
+      "imageReady": true,
+      "ctas": [
+        "/brands/mastermax",
+        "/request-a-quote"
+      ],
+      "overflow": false,
+      "commerceHidden": true
+    }
+  ],
+  "interaction": {
+    "checked": true,
+    "visible": "grid"
+  },
+  "reducedMotion": {
+    "packDuration": "1e-06s",
+    "sectionPresent": true
+  },
+  "browserErrors": [],
+  "failed": 0
+}

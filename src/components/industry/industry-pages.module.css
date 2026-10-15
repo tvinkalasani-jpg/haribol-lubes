@@ -53,7 +53,7 @@
 .productMeta { display: flex; justify-content: space-between; gap: 1rem; color: var(--mastermax-orange, #e65310); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; }
 .productMeta span:last-child { color: var(--color-foreground-subtle); }
 .productGrid h3 { margin-top: 5rem; }
-.productLink { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; color: #f07b43; font-size: 0.67rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.productLink { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; color: var(--mastermax-orange); font-size: 0.67rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
 .brandLink, .selectionGrid a { display: flex; width: fit-content; gap: 0.75rem; margin: 2rem 0 0 auto; color: inherit; font-size: 0.67rem; font-weight: 700; letter-spacing: 0.09em; text-decoration: none; text-transform: uppercase; }
 .noProducts { margin-top: 4rem; padding: 2rem; border: 1px solid var(--color-border-strong); }
 .noProducts p { margin: 0; font-family: var(--font-family-display); font-size: 1.8rem; text-transform: uppercase; }

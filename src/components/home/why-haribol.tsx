@@ -53,7 +53,7 @@ export function WhyHaribol() {
       <PageContainer className={styles.container} size="wide">
         <header className={styles.heading}>
           <p className={styles.eyebrow}>
-            <span>05</span>
+            <span>08</span>
             Why Haribol
           </p>
           <div className={styles.headingGrid}>

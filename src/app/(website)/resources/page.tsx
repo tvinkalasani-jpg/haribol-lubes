@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Breadcrumbs } from "@/components/catalogue/breadcrumbs";
+import { SupportingPageHero } from "@/components/layout/supporting-page-hero";
 import { PageContainer } from "@/components/ui/page-container";
 import { getPublicResources } from "@/features/content/content-repository";
 import { formatEditorialDate, resourceTypeLabel } from "@/features/content/presentation";
@@ -25,13 +25,8 @@ export default async function ResourcesPage() {
         createPageSchema({ type: "CollectionPage", path: "/resources", name: "Technical Resources", description: "Approved technical documents and product resources from Haribol Lubes Limited." }),
         createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resources", path: "/resources" }]),
       ])} />
+      <SupportingPageHero breadcrumb="Resources" code="DOC" description="One reviewed source for product literature, technical data and safety documentation." eyebrow="Controlled document library" items={[{ label: "Publication", value: "Approved only" }, { label: "Delivery", value: "Controlled route" }, { label: "Status", value: resources.length ? `${resources.length} public` : "Awaiting approval" }]} title="Technical resources" variant="resources" />
       <PageContainer size="wide">
-        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Resources" }]} />
-        <header className={styles.resourceHero}>
-          <div><p className="eyebrow">Controlled document library</p><h1>Technical resources</h1></div>
-          <p>One reviewed source for product literature, technical data and safety documentation.</p>
-        </header>
-
         {resources.length ? (
           <section className={styles.resourceList} aria-labelledby="resource-list-heading">
             <div className={styles.sectionHeading}><div><p className="eyebrow">Available now</p><h2 id="resource-list-heading">Approved downloads</h2></div></div>

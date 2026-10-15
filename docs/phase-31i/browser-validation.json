@@ -1,0 +1,1448 @@
+{
+  "origin": "http://localhost:3000",
+  "generatedAt": "2026-10-14T19:43:40.215Z",
+  "results": [
+    {
+      "theme": "light",
+      "page": "industries",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industries",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industries",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industries",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industries",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industries",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industries",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industries",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industries",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industries",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industry",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industry",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industry",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industry",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industry",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industry",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industry",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industry",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industry",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "industry",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "about",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "about",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "about",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "about",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "about",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "about",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "about",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "about",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "about",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "about",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "contact",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "contact",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "contact",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "contact",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "contact",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "contact",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "contact",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "contact",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "contact",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "contact",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "finder",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "finder",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "finder",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "finder",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "finder",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "finder",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "finder",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "finder",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "finder",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "finder",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "resources",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "resources",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "resources",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "resources",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "resources",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "resources",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "resources",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "resources",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "resources",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "resources",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "insights",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "insights",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "insights",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "insights",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "insights",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "insights",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "insights",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "insights",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "insights",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "insights",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "rfq",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "rfq",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "rfq",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "rfq",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "rfq",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "rfq",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "rfq",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "rfq",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "rfq",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "light",
+      "page": "rfq",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industries",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industries",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industries",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industries",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industries",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industries",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industries",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industries",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industries",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industries",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industry",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industry",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industry",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industry",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industry",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industry",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industry",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industry",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industry",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "industry",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "about",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "about",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "about",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "about",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "about",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "about",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "about",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "about",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "about",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "about",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "contact",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "contact",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "contact",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "contact",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "contact",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "contact",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "contact",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "contact",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "contact",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "contact",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "finder",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "finder",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "finder",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "finder",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "finder",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "finder",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "finder",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "finder",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "finder",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "finder",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "resources",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "resources",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "resources",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "resources",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "resources",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "resources",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "resources",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "resources",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "resources",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "resources",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "insights",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "insights",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "insights",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "insights",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "insights",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "insights",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "insights",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "insights",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "insights",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "insights",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "rfq",
+      "width": 320,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "rfq",
+      "width": 390,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "rfq",
+      "width": 480,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "rfq",
+      "width": 768,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "rfq",
+      "width": 900,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "rfq",
+      "width": 1024,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "rfq",
+      "width": 1120,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "rfq",
+      "width": 1280,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "rfq",
+      "width": 1440,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    },
+    {
+      "theme": "dark",
+      "page": "rfq",
+      "width": 1920,
+      "h1": true,
+      "overflow": false,
+      "commerce": false,
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "browserErrors": []
+}

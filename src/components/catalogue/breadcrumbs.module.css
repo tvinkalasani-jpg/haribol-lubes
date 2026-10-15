@@ -30,12 +30,27 @@
 }
 
 .breadcrumbs a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-standard);
 }
 
-.breadcrumbs a:hover {
+.breadcrumbs a:hover,
+.breadcrumbs a:focus-visible {
   color: var(--color-accent);
+}
+
+@media (max-width: 30rem) {
+  .breadcrumbs { font-size: 0.68rem; letter-spacing: 0.09em; }
+  .breadcrumbs ol { gap: 0.35rem; }
+  .breadcrumbs li { gap: 0.35rem; }
+  .breadcrumbs li + li::before { width: 0.75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breadcrumbs a { transition: none; }
 }
 
 .breadcrumbs [aria-current="page"] {

@@ -339,7 +339,7 @@
 }
 
 .resultMeta a {
-  color: #eb7a2d;
+  color: var(--mastermax-orange);
   text-decoration: none;
 }
 
@@ -544,7 +544,7 @@
   width: min(100%, 32rem);
   grid-template-columns: 0.7fr 1.3fr;
   gap: 0.75rem;
-  padding: 1rem 1.25rem;
+  padding: 1rem 1.25rem max(1rem, env(safe-area-inset-bottom, 0px));
   border-top: 1px solid var(--color-border-strong);
   background: var(--color-background);
 }
@@ -663,5 +663,3 @@
     transition: none;
   }
 }
-
-

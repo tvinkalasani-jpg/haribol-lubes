@@ -1,0 +1,122 @@
+{
+  "tool": "Lighthouse 13.5.0",
+  "profile": "standard mobile",
+  "origin": "http://localhost:3036/",
+  "generatedAt": "2026-10-13T16:15:00.653Z",
+  "light": [
+    {
+      "run": 1,
+      "performance": 86,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 1601.6131500000001,
+      "lcpMs": 1814.6131500000001,
+      "tbtMs": 475,
+      "cls": 0,
+      "speedIndexMs": 3089.326313524706,
+      "mainThreadMs": 5074.268000000006,
+      "benchmarkIndex": 1051.5
+    },
+    {
+      "run": 2,
+      "performance": 96,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 1437.396,
+      "lcpMs": 1546.396,
+      "tbtMs": 202,
+      "cls": 0,
+      "speedIndexMs": 1931.2955801451749,
+      "mainThreadMs": 4806.900000000016,
+      "benchmarkIndex": 1447
+    },
+    {
+      "run": 3,
+      "performance": 91,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 1296.1550499999998,
+      "lcpMs": 1416.1550499999998,
+      "tbtMs": 387,
+      "cls": 0,
+      "speedIndexMs": 1831.598665433723,
+      "mainThreadMs": 4435.644000000015,
+      "benchmarkIndex": 1119.5
+    }
+  ],
+  "dark": [
+    {
+      "run": 1,
+      "performance": 93,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 1262.6757,
+      "lcpMs": 1598.6757,
+      "tbtMs": 307,
+      "cls": 0,
+      "speedIndexMs": 1796.4716447690107,
+      "mainThreadMs": 4450.576000000007,
+      "benchmarkIndex": 1286.5
+    },
+    {
+      "run": 2,
+      "performance": 82,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 1417.24415,
+      "lcpMs": 1711.24415,
+      "tbtMs": 687.5,
+      "cls": 0,
+      "speedIndexMs": 2289.4614948302233,
+      "mainThreadMs": 5210.720000000021,
+      "benchmarkIndex": 1273.5
+    },
+    {
+      "run": 3,
+      "performance": 85,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 1676.0066000000002,
+      "lcpMs": 1928.0066000000002,
+      "tbtMs": 542.5,
+      "cls": 0,
+      "speedIndexMs": 2525.444786860477,
+      "mainThreadMs": 6390.452000000035,
+      "benchmarkIndex": 729.5
+    }
+  ],
+  "lightMedian": {
+    "run": 3,
+    "performance": 91,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 69,
+    "fcpMs": 1296.1550499999998,
+    "lcpMs": 1416.1550499999998,
+    "tbtMs": 387,
+    "cls": 0,
+    "speedIndexMs": 1831.598665433723,
+    "mainThreadMs": 4435.644000000015,
+    "benchmarkIndex": 1119.5
+  },
+  "darkMedian": {
+    "run": 3,
+    "performance": 85,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 69,
+    "fcpMs": 1676.0066000000002,
+    "lcpMs": 1928.0066000000002,
+    "tbtMs": 542.5,
+    "cls": 0,
+    "speedIndexMs": 2525.444786860477,
+    "mainThreadMs": 6390.452000000035,
+    "benchmarkIndex": 729.5
+  }
+}

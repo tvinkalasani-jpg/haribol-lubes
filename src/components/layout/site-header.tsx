@@ -7,9 +7,11 @@ import {
   ChevronDownIcon,
   CloseIcon,
   MenuIcon,
+  WhatsAppIcon,
 } from "../ui/icons";
 import { PageContainer } from "../ui/page-container";
 import { ThemeControl } from "../ui/theme-control";
+import { WhatsAppLink } from "../ui/whatsapp-link";
 import { HeaderController } from "./header-controller";
 import styles from "./site-header.module.css";
 
@@ -25,8 +27,8 @@ export function SiteHeader() {
           {/* A native anchor keeps the static header outside the client navigation bundle. */}
           {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
           <a className={styles.wordmark} href="/">
-            <span>Haribol</span>
-            <span>Lubes</span>
+            <span className={styles.wordmarkName}>Haribol</span>
+            <span className={styles.wordmarkDescriptor}>Lubes Limited</span>
           </a>
 
           <div className={styles.desktopNavigation}>
@@ -36,6 +38,7 @@ export function SiteHeader() {
                   aria-controls={productsMenuId}
                   aria-expanded="false"
                   className={styles.navigationButton}
+                  data-nav-products
                   data-products-trigger
                   type="button"
                 >
@@ -54,7 +57,7 @@ export function SiteHeader() {
                   </div>
                   <ul>
                     {productNavigation.map((item) => (
-                      <li key={item.href}>
+                      <li key={`${item.href}-${item.label}`}>
                         <a href={item.href}>
                           {item.label}
                           <ArrowRightIcon />
@@ -80,14 +83,21 @@ export function SiteHeader() {
             </ul>
             <div className={styles.desktopActions}>
               <ThemeControl placement="desktop" />
-              <a className={styles.contactLink} data-nav-link href="/contact">
-                Contact
-              </a>
+              <WhatsAppLink
+                className={styles.whatsappLink}
+                context={{ type: "general" }}
+                source="header"
+              >
+                <WhatsAppIcon />
+                <span>WhatsApp</span>
+              </WhatsAppLink>
               <a
-                className={`${buttonStyles.button} ${buttonStyles.primary} ${buttonStyles.small}`}
+                className={`${buttonStyles.button} ${buttonStyles.primary} ${buttonStyles.medium} ${styles.quoteAction}`}
+                data-nav-link
                 href="/request-a-quote"
               >
-                <span>Request a Quote</span>
+                <span>Request Quote</span>
+                <ArrowRightIcon />
               </a>
             </div>
           </div>
@@ -118,21 +128,26 @@ export function SiteHeader() {
         className={styles.mobilePanel}
         data-mobile-panel
         id={mobileMenuId}
+        inert
         role="dialog"
       >
         <PageContainer>
           <div className={styles.mobilePanelInner}>
-            <p className={styles.mobileEyebrow}>Explore Haribol Lubes</p>
+            <div className={styles.mobileIntroduction}>
+              <p className={styles.mobileEyebrow}>Navigation</p>
+              <p>Automotive and industrial lubrication expertise.</p>
+            </div>
             <ul className={styles.mobileNavigationList}>
               <li>
                 <button
                   aria-controls={mobileProductsId}
                   aria-expanded="false"
                   className={styles.mobileProductsButton}
+                  data-nav-products
                   data-mobile-products-trigger
                   type="button"
                 >
-                  <span>Products</span>
+                  <span><i aria-hidden="true">01</i>Products</span>
                   <ChevronDownIcon />
                 </button>
                 <div
@@ -144,7 +159,7 @@ export function SiteHeader() {
                 >
                   <ul>
                     {productNavigation.map((item) => (
-                      <li key={item.href}>
+                      <li key={`${item.href}-${item.label}`}>
                         <a href={item.href}>{item.label}</a>
                       </li>
                     ))}
@@ -156,10 +171,11 @@ export function SiteHeader() {
                   </a>
                 </div>
               </li>
-              {primaryNavigation.map((item) => (
+              {primaryNavigation.map((item, index) => (
                 <li key={item.href}>
-                  <a data-nav-link href={item.href}>
-                    {item.label}
+                  <a data-nav-link data-nav-section href={item.href}>
+                    <span><i aria-hidden="true">0{index + 2}</i>{item.label}</span>
+                    <ArrowRightIcon />
                   </a>
                 </li>
               ))}
@@ -167,18 +183,31 @@ export function SiteHeader() {
             <div className={styles.mobileActions}>
               <a
                 className={`${buttonStyles.button} ${buttonStyles.primary} ${buttonStyles.large}`}
+                data-nav-link
                 href="/request-a-quote"
               >
                 <span>Request a Quote</span>
                 <ArrowRightIcon />
               </a>
-              <a className={styles.mobileContact} href="/contact">
-                Contact Haribol Lubes
+              <WhatsAppLink
+                className={styles.mobileWhatsApp}
+                context={{ type: "general" }}
+                source="header"
+              >
+                <WhatsAppIcon />
+                <span>WhatsApp Sales</span>
                 <ArrowRightIcon />
-              </a>
+              </WhatsAppLink>
             </div>
-            <ThemeControl placement="mobile" />
-            <p className={styles.mobileLocation}>{siteConfig.city} · {siteConfig.country}</p>
+            <div className={styles.mobileUtility}>
+              <ThemeControl placement="mobile" />
+              <div className={styles.mobileDetails}>
+                <a data-nav-link href="/contact">Contact</a>
+                <span>
+                  {siteConfig.businessAddress.locality}, {siteConfig.businessAddress.country}
+                </span>
+              </div>
+            </div>
           </div>
         </PageContainer>
       </div>

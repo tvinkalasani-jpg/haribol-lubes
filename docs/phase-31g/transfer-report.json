@@ -1,0 +1,62 @@
+{
+  "origin": "http://localhost:3000",
+  "generatedAt": "2026-10-14T06:13:39.295Z",
+  "cacheDisabled": true,
+  "rawHomepageUtf8Bytes": 280798,
+  "initialDocumentTransferBytes": 44083,
+  "initialScriptTransferBytes": 155673,
+  "initialScriptRequestCount": 8,
+  "initialScripts": [
+    {
+      "url": "http://localhost:3000/_next/static/chunks/2zshlnrmt3koy.js",
+      "type": "Script",
+      "status": 200,
+      "transferBytes": 4836
+    },
+    {
+      "url": "http://localhost:3000/_next/static/chunks/1cy_6eaku-9f5.js",
+      "type": "Script",
+      "status": 200,
+      "transferBytes": 4880
+    },
+    {
+      "url": "http://localhost:3000/_next/static/chunks/turbopack-04xr-tme86wsv.js",
+      "type": "Script",
+      "status": 200,
+      "transferBytes": 5500
+    },
+    {
+      "url": "http://localhost:3000/_next/static/chunks/3xadv2xllob1y.js",
+      "type": "Script",
+      "status": 200,
+      "transferBytes": 9794
+    },
+    {
+      "url": "http://localhost:3000/_next/static/chunks/0nqq8y_qpkps9.js",
+      "type": "Script",
+      "status": 200,
+      "transferBytes": 72889
+    },
+    {
+      "url": "http://localhost:3000/_next/static/chunks/3-rbnb38kfauq.js",
+      "type": "Script",
+      "status": 200,
+      "transferBytes": 6638
+    },
+    {
+      "url": "http://localhost:3000/_next/static/chunks/1a1gy6winv2vj.js",
+      "type": "Script",
+      "status": 200,
+      "transferBytes": 7052
+    },
+    {
+      "url": "http://localhost:3000/_next/static/chunks/3a3bv0k6hl45o.js",
+      "type": "Script",
+      "status": 200,
+      "transferBytes": 44084
+    }
+  ],
+  "requestsAfterKenyaScroll": 2,
+  "mapRuntimeRequestCount": 0,
+  "mapRuntimeRequests": []
+}

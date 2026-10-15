@@ -75,7 +75,7 @@ The RFQ service logs only reference number, safe status and notification status.
 | CMS user name/email/auth state | Administration and accountability | Administrators | Account lifetime plus a short approved audit period |
 | CMS content/media | Catalogue/editorial operation | Admin/editor by role | While operational; versions according to approved content policy |
 | Future order/delivery/payment references | Fulfilment, accounting, reconciliation | Restricted operational/admin roles | Decide before commerce using legal/accounting requirements |
-| Theme preference | `localStorage`: `light`, `dark` or `system` | Visitor browser | Until cleared or replaced |
+| Theme preference | `localStorage`: `light` or `dark` | Visitor browser | Until cleared or replaced |
 | Future cart | `localStorage`: offer ID and quantity only | Visitor browser | Short functional duration; no customer details |
 | Future analytics | Controlled event name, route/category/product slugs | Approved analytics users | Shortest useful configured period; no PII/free text |
 | Application/security logs | Availability and incident diagnosis | Restricted operators | Short rolling period based on operational need |

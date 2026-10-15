@@ -38,7 +38,7 @@ No card inputs, M-Pesa prompt or Pay button exists. The placeholder explains tha
 
 Offer selectors use radio semantics and labels. Quantity and remove controls include descriptive accessible names. Cart updates and price changes use polite live regions. Validation failures use alert semantics. Checkout inputs have visible labels and native autocomplete attributes. All controls retain visible global focus treatment and keyboard operation.
 
-The storefront uses the existing semantic color and spacing tokens, so System, Light and Dark modes work without a separate theme. On narrow screens, offer details, cart lines and checkout columns collapse into single-column layouts with full-width actions and no horizontal table.
+The storefront uses the existing semantic color and spacing tokens, so Light and Dark modes work without a separate theme. On narrow screens, offer details, cart lines and checkout columns collapse into single-column layouts with full-width actions and no horizontal table.
 
 ## Analytics and SEO
 

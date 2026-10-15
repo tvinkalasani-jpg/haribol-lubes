@@ -1,0 +1,170 @@
+{
+  "tool": "Lighthouse 13.5.0",
+  "profile": "standard mobile",
+  "origin": "http://localhost:3039/",
+  "generatedAt": "2026-10-13T21:31:12.7573250Z",
+  "baseline": {
+    "lightPerformance": 99,
+    "darkPerformance": 99,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 69,
+    "cls": 0
+  },
+  "light": [
+    {
+      "run": 1,
+      "performance": 97.0,
+      "accessibility": 100.0,
+      "bestPractices": 100.0,
+      "seo": 69.0,
+      "fcpMs": 917.54875,
+      "lcpMs": 972.54875,
+      "tbtMs": 188.4999999999999,
+      "cls": 0,
+      "speedIndexMs": 1153.1679879998237,
+      "mainThreadMs": 1837.2200000000043,
+      "jsExecutionMs": 192.31600000000043,
+      "benchmarkIndex": 2574
+    },
+    {
+      "run": 2,
+      "performance": 96,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 932.61405,
+      "lcpMs": 1082.6140500000001,
+      "tbtMs": 213.0000000000001,
+      "cls": 0,
+      "speedIndexMs": 1159.2660159999184,
+      "mainThreadMs": 1753.0720000000033,
+      "totalTransferBytes": 1128,
+      "scriptTransferBytes": 0,
+      "scriptRequestCount": 9,
+      "jsExecutionMs": 240.82400000000044,
+      "benchmarkIndex": 2644.5
+    },
+    {
+      "run": 3,
+      "performance": 98,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 920.32995,
+      "lcpMs": 1065.32995,
+      "tbtMs": 161.5,
+      "cls": 0,
+      "speedIndexMs": 1151.3064260000979,
+      "mainThreadMs": 1833.428000000001,
+      "totalTransferBytes": 1128,
+      "scriptTransferBytes": 0,
+      "scriptRequestCount": 9,
+      "jsExecutionMs": 209.10800000000032,
+      "benchmarkIndex": 2532
+    }
+  ],
+  "dark": [
+    {
+      "run": 1,
+      "performance": 97.0,
+      "accessibility": 100.0,
+      "bestPractices": 100.0,
+      "seo": 69.0,
+      "fcpMs": 936.697,
+      "lcpMs": 1128.6970000000001,
+      "tbtMs": 192.0000000000001,
+      "cls": 0,
+      "speedIndexMs": 1133.4595419998577,
+      "mainThreadMs": 1938.8560000000052,
+      "jsExecutionMs": 277.96000000000004,
+      "benchmarkIndex": 2424
+    },
+    {
+      "run": 2,
+      "performance": 99,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 912.225,
+      "lcpMs": 1040.225,
+      "tbtMs": 142.4999999999999,
+      "cls": 0,
+      "speedIndexMs": 1075.857954000093,
+      "mainThreadMs": 1864.004000000001,
+      "totalTransferBytes": 1128,
+      "scriptTransferBytes": 0,
+      "scriptRequestCount": 9,
+      "jsExecutionMs": 211.01600000000053,
+      "benchmarkIndex": 2430.5
+    },
+    {
+      "run": 3,
+      "performance": 98,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 69,
+      "fcpMs": 917.0456,
+      "lcpMs": 1065.0456,
+      "tbtMs": 171.9999999999999,
+      "cls": 0,
+      "speedIndexMs": 1065.429558000032,
+      "mainThreadMs": 1881.748,
+      "totalTransferBytes": 1128,
+      "scriptTransferBytes": 0,
+      "scriptRequestCount": 9,
+      "jsExecutionMs": 252.20400000000006,
+      "benchmarkIndex": 2430.5
+    }
+  ],
+  "lightMedian": {
+    "run": 1,
+    "performance": 97.0,
+    "accessibility": 100.0,
+    "bestPractices": 100.0,
+    "seo": 69.0,
+    "fcpMs": 917.54875,
+    "lcpMs": 972.54875,
+    "tbtMs": 188.4999999999999,
+    "cls": 0,
+    "speedIndexMs": 1153.1679879998237,
+    "mainThreadMs": 1837.2200000000043,
+    "jsExecutionMs": 192.31600000000043,
+    "benchmarkIndex": 2574
+  },
+  "darkMedian": {
+    "run": 3,
+    "performance": 98,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 69,
+    "fcpMs": 917.0456,
+    "lcpMs": 1065.0456,
+    "tbtMs": 171.9999999999999,
+    "cls": 0,
+    "speedIndexMs": 1065.429558000032,
+    "mainThreadMs": 1881.748,
+    "totalTransferBytes": 1128,
+    "scriptTransferBytes": 0,
+    "scriptRequestCount": 9,
+    "jsExecutionMs": 252.20400000000006,
+    "benchmarkIndex": 2430.5
+  },
+  "diagnosticWarmupSeries": {
+    "performance": [
+      84,
+      87,
+      99
+    ],
+    "benchmarkIndex": [
+      1093,
+      1191,
+      1573.5
+    ],
+    "interpretation": "Initial light series was materially CPU constrained; the repeat series after the preview settled is the reported series."
+  },
+  "notes": [
+    "Two attempted dark passes and one attempted final light pass failed with Lighthouse NO_NAVSTART before producing results; each was replaced.",
+    "Transfer weight is recorded separately with cache disabled in transfer-report.json."
+  ]
+}

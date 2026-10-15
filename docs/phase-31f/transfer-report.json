@@ -1,0 +1,37 @@
+{
+  "origin": "http://localhost:3000",
+  "generatedAt": "2026-10-13T22:39:42.977Z",
+  "cacheDisabled": true,
+  "initialDocumentTransferBytes": 36194,
+  "initialScriptTransferBytes": 157680,
+  "initialScriptRequestCount": 9,
+  "initialMastermaxImageTransferBytes": 0,
+  "mastermaxImagesAfterScrollTransferBytes": 59664,
+  "mastermaxImagesAfterScrollCount": 4,
+  "mastermaxImages": [
+    {
+      "url": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fengine-oil-15w40.webp&w=384&q=75",
+      "type": "Image",
+      "status": 200,
+      "transferBytes": 14370
+    },
+    {
+      "url": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fhydraulic-oil-iso-vg-68.webp&w=384&q=75",
+      "type": "Image",
+      "status": 200,
+      "transferBytes": 14804
+    },
+    {
+      "url": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fgear-oil-85w140.webp&w=384&q=75",
+      "type": "Image",
+      "status": 200,
+      "transferBytes": 15266
+    },
+    {
+      "url": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fcompressor-oil-68.webp&w=384&q=75",
+      "type": "Image",
+      "status": 200,
+      "transferBytes": 15224
+    }
+  ]
+}

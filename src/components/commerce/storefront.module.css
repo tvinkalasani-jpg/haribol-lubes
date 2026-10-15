@@ -12,8 +12,6 @@
 .price,.priceOnRequest{margin:.35rem 0;font-family:var(--font-family-display);font-size:clamp(2.25rem,5vw,4rem);font-weight:700;line-height:1}.priceOnRequest{font-size:2.25rem}
 .saleMeta{display:flex;align-items:center;gap:.8rem}.saleMeta del{color:var(--color-foreground-muted)}.saleMeta strong{padding:.25rem .45rem;color:var(--color-accent-foreground);background:var(--color-accent)}
 .availability{font-weight:700;color:var(--color-success)}
-:global([data-theme="light"]) .availability{color:#155f3c}
-@media(prefers-color-scheme:light){:global(:root:not([data-theme])) .availability{color:#155f3c}}
 .purchaseActions{display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:.75rem}.cartLink{text-align:center;font-size:.85rem;font-weight:700}
 .srAnnouncement{min-height:1.5rem;margin:1rem 0 0;color:var(--color-success)}
 :global(.commerce-quantity){display:grid;grid-template-columns:3rem 1fr 3rem;align-items:end;gap:.4rem}

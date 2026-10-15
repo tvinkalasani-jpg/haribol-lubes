@@ -1,0 +1,19 @@
+{
+  "tool": "Lighthouse 13.5.0",
+  "profile": "standard mobile",
+  "origin": "http://localhost:3032/",
+  "light": {
+    "runs": [87, 89, 86],
+    "medianPerformance": 87,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 69
+  },
+  "dark": {
+    "runs": [82, 92, 99],
+    "medianPerformance": 92,
+    "accessibility": 100,
+    "bestPractices": 100,
+    "seo": 69
+  }
+}

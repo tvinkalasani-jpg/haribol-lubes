@@ -51,3 +51,8 @@ next-env.d.ts
 .content-test-build/
 .theme-test-build/
 .tmp/
+
+# Raw local browser/Lighthouse evidence (summaries and authored reports are tracked)
+/docs/phase-31*/**/*.jpg
+/docs/phase-31*/**/light-[0-9].json
+/docs/phase-31*/**/dark-[0-9].json

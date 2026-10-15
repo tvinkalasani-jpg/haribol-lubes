@@ -7,15 +7,16 @@ export const productNavigation = productCategories.map((category) => ({
 
 export const primaryNavigation = [
   { href: "/industries", label: "Industries" },
-  { href: "/applications", label: "Applications" },
+  { href: "/product-finder", label: "Product Finder" },
   { href: "/resources", label: "Resources" },
-  { href: "/insights", label: "Insights" },
   { href: "/about", label: "About" },
 ] as const;
 
 export const siteNavigation = [
   { href: "/products", label: "Products" },
   ...primaryNavigation,
+  { href: "/applications", label: "Applications" },
+  { href: "/insights", label: "Insights" },
   { href: "/contact", label: "Contact" },
   { href: "/request-a-quote", label: "Request a Quote" },
 ] as const;

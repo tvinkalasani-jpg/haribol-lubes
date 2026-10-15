@@ -6,7 +6,7 @@ Verified Haribol business facts are kept in `src/config/site.ts` or environment 
 
 - WhatsApp: `NEXT_PUBLIC_WHATSAPP_NUMBER=+254 794 205 115` (normalizes to `254794205115` for `wa.me`).
 - Address: Emerald Business Park, Kutch Rd, Mlolongo, Kenya.
-- Directions: the exact business-supplied Google Maps URL in `siteConfig.businessAddress.mapsUrl`. No coordinates, approximate map, or embedded third-party map is used.
+- Directions: the exact business-supplied Google Maps URL in `siteConfig.businessAddress.mapsUrl`. The homepage location graphic uses sourced settlement reference coordinates and an accurate public-domain country boundary; it does not claim that those settlement references are the business premises coordinates. No embedded third-party map is used.
 - Public email: intentionally empty. The RFQ inbox is not presented as a general company address.
 - Social profiles: `instagram`, `facebook`, `linkedin`, and `youtube` are empty until verified profile URLs exist. Only valid HTTPS profile URLs on the matching platform render.
 

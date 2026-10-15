@@ -210,7 +210,7 @@ export function IndustryIndexPage() {
       <section className={styles.cta} aria-labelledby="index-cta-title">
         <PageContainer className={styles.ctaGrid} size="wide">
           <div><p>Product and commercial enquiries</p><h2 id="index-cta-title">Start with the sector. Continue with the requirement.</h2></div>
-          <div className={styles.ctaActions}><a href="/request-a-quote">Request a Quote <Arrow /></a><a href="/contact">Contact Haribol <Arrow /></a></div>
+          <div className={styles.ctaActions}><a href="/request-a-quote">Request a Quote <Arrow /></a><a href="/product-finder">Open Product Finder <Arrow /></a><a href="/contact">Contact Haribol <Arrow /></a></div>
         </PageContainer>
       </section>
     </article>

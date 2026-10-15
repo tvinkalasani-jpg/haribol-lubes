@@ -132,7 +132,7 @@ export function IndustriesSection() {
       <PageContainer className={styles.container} size="wide">
         <header className={styles.heading}>
           <p className={styles.eyebrow}>
-            <span>04</span>
+            <span>05</span>
             Industries
           </p>
           <div className={styles.headingGrid}>

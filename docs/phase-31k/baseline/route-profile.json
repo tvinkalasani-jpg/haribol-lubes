@@ -1,0 +1,350 @@
+{
+  "stage": "baseline",
+  "generatedAt": "2026-10-15T17:00:58.602Z",
+  "origin": "http://localhost:3000",
+  "result": [
+    {
+      "id": "homepage-light",
+      "path": "/",
+      "theme": "light",
+      "domNodes": 1416,
+      "htmlBytes": 280953,
+      "longTasks": [],
+      "clientComponents": 0,
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fengine-oil-15w40.webp&w=3840&q=75",
+          "loading": "lazy",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "renderWidth": 211,
+          "renderHeight": 269
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fhydraulic-oil-iso-vg-68.webp&w=3840&q=75",
+          "loading": "lazy",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "renderWidth": 128,
+          "renderHeight": 158
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fgear-oil-85w140.webp&w=3840&q=75",
+          "loading": "lazy",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "renderWidth": 125,
+          "renderHeight": 154
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fcompressor-oil-68.webp&w=3840&q=75",
+          "loading": "lazy",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "renderWidth": 106,
+          "renderHeight": 128
+        }
+      ],
+      "network": {
+        "requests": 17,
+        "documentBytes": 44089,
+        "jsRequests": 9,
+        "jsBytes": 157680,
+        "cssRequests": 3,
+        "cssBytes": 36774,
+        "imageRequests": 0,
+        "imageBytes": 0,
+        "fontRequests": 3,
+        "fontBytes": 57626,
+        "totalBytes": 297554
+      },
+      "runtime": {
+        "nodes": 2031,
+        "jsHeapUsedBytes": 3371648,
+        "layoutCount": 3,
+        "recalcStyleCount": 78,
+        "layoutDurationMs": 118.346,
+        "recalcStyleDurationMs": 57.522999999999996,
+        "scriptDurationMs": 38.328,
+        "taskDurationMs": 404.304
+      }
+    },
+    {
+      "id": "homepage-dark",
+      "path": "/",
+      "theme": "dark",
+      "domNodes": 1416,
+      "htmlBytes": 280951,
+      "longTasks": [],
+      "clientComponents": 0,
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fengine-oil-15w40.webp&w=3840&q=75",
+          "loading": "lazy",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "renderWidth": 211,
+          "renderHeight": 269
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fhydraulic-oil-iso-vg-68.webp&w=3840&q=75",
+          "loading": "lazy",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "renderWidth": 128,
+          "renderHeight": 158
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fgear-oil-85w140.webp&w=3840&q=75",
+          "loading": "lazy",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "renderWidth": 125,
+          "renderHeight": 154
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fcompressor-oil-68.webp&w=3840&q=75",
+          "loading": "lazy",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "renderWidth": 106,
+          "renderHeight": 128
+        }
+      ],
+      "network": {
+        "requests": 17,
+        "documentBytes": 44089,
+        "jsRequests": 9,
+        "jsBytes": 157680,
+        "cssRequests": 3,
+        "cssBytes": 36774,
+        "imageRequests": 0,
+        "imageBytes": 0,
+        "fontRequests": 3,
+        "fontBytes": 57626,
+        "totalBytes": 297554
+      },
+      "runtime": {
+        "nodes": 4062,
+        "jsHeapUsedBytes": 4962384,
+        "layoutCount": 4,
+        "recalcStyleCount": 81,
+        "layoutDurationMs": 46.411,
+        "recalcStyleDurationMs": 99.47,
+        "scriptDurationMs": 22.575000000000003,
+        "taskDurationMs": 397.60200000000003
+      }
+    },
+    {
+      "id": "product-detail-light",
+      "path": "/products/engine-oils/mastermax-engine-oils",
+      "theme": "light",
+      "domNodes": 616,
+      "htmlBytes": 106532,
+      "longTasks": [],
+      "clientComponents": 0,
+      "images": [
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fengine-oil-15w40.webp&w=384&q=75",
+          "loading": "auto",
+          "complete": true,
+          "naturalWidth": 343,
+          "naturalHeight": 429,
+          "renderWidth": 285,
+          "renderHeight": 357
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fhydraulic-oil-iso-vg-68.webp&w=3840&q=75",
+          "loading": "lazy",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "renderWidth": 62,
+          "renderHeight": 63
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fgear-oil-85w140.webp&w=3840&q=75",
+          "loading": "lazy",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "renderWidth": 62,
+          "renderHeight": 63
+        },
+        {
+          "src": "http://localhost:3000/_next/image?url=%2Fbrand%2Fmastermax%2Fcatalogue%2Fcompressor-oil-68.webp&w=3840&q=75",
+          "loading": "lazy",
+          "complete": false,
+          "naturalWidth": 0,
+          "naturalHeight": 0,
+          "renderWidth": 62,
+          "renderHeight": 63
+        }
+      ],
+      "network": {
+        "requests": 17,
+        "documentBytes": 15855,
+        "jsRequests": 8,
+        "jsBytes": 155427,
+        "cssRequests": 3,
+        "cssBytes": 33760,
+        "imageRequests": 1,
+        "imageBytes": 14369,
+        "fontRequests": 3,
+        "fontBytes": 57626,
+        "totalBytes": 278422
+      },
+      "runtime": {
+        "nodes": 4995,
+        "jsHeapUsedBytes": 6439044,
+        "layoutCount": 4,
+        "recalcStyleCount": 18,
+        "layoutDurationMs": 46.099000000000004,
+        "recalcStyleDurationMs": 30.919999999999998,
+        "scriptDurationMs": 21.746000000000002,
+        "taskDurationMs": 200.93
+      }
+    },
+    {
+      "id": "industries-light",
+      "path": "/industries",
+      "theme": "light",
+      "domNodes": 418,
+      "htmlBytes": 68907,
+      "longTasks": [],
+      "clientComponents": 0,
+      "images": [],
+      "network": {
+        "requests": 15,
+        "documentBytes": 11475,
+        "jsRequests": 7,
+        "jsBytes": 148621,
+        "cssRequests": 3,
+        "cssBytes": 33302,
+        "imageRequests": 0,
+        "imageBytes": 0,
+        "fontRequests": 3,
+        "fontBytes": 57626,
+        "totalBytes": 252409
+      },
+      "runtime": {
+        "nodes": 5627,
+        "jsHeapUsedBytes": 8095392,
+        "layoutCount": 3,
+        "recalcStyleCount": 3,
+        "layoutDurationMs": 29.291,
+        "recalcStyleDurationMs": 7.742,
+        "scriptDurationMs": 8.184000000000001,
+        "taskDurationMs": 90.627
+      }
+    },
+    {
+      "id": "contact-light",
+      "path": "/contact",
+      "theme": "light",
+      "domNodes": 487,
+      "htmlBytes": 77686,
+      "longTasks": [],
+      "clientComponents": 0,
+      "images": [],
+      "network": {
+        "requests": 16,
+        "documentBytes": 13899,
+        "jsRequests": 8,
+        "jsBytes": 152419,
+        "cssRequests": 3,
+        "cssBytes": 33509,
+        "imageRequests": 0,
+        "imageBytes": 0,
+        "fontRequests": 3,
+        "fontBytes": 57626,
+        "totalBytes": 258838
+      },
+      "runtime": {
+        "nodes": 6436,
+        "jsHeapUsedBytes": 9947656,
+        "layoutCount": 3,
+        "recalcStyleCount": 3,
+        "layoutDurationMs": 41.756,
+        "recalcStyleDurationMs": 7.635000000000001,
+        "scriptDurationMs": 11.815000000000001,
+        "taskDurationMs": 113.414
+      }
+    },
+    {
+      "id": "rfq-light",
+      "path": "/request-a-quote",
+      "theme": "light",
+      "domNodes": 451,
+      "htmlBytes": 66749,
+      "longTasks": [],
+      "clientComponents": 0,
+      "images": [],
+      "network": {
+        "requests": 16,
+        "documentBytes": 13469,
+        "jsRequests": 8,
+        "jsBytes": 154673,
+        "cssRequests": 3,
+        "cssBytes": 32782,
+        "imageRequests": 0,
+        "imageBytes": 0,
+        "fontRequests": 3,
+        "fontBytes": 57626,
+        "totalBytes": 259935
+      },
+      "runtime": {
+        "nodes": 7177,
+        "jsHeapUsedBytes": 7938016,
+        "layoutCount": 3,
+        "recalcStyleCount": 4,
+        "layoutDurationMs": 28.962999999999997,
+        "recalcStyleDurationMs": 7.6499999999999995,
+        "scriptDurationMs": 14.281,
+        "taskDurationMs": 149.608
+      }
+    },
+    {
+      "id": "finder-light",
+      "path": "/product-finder",
+      "theme": "light",
+      "domNodes": 471,
+      "htmlBytes": 75726,
+      "longTasks": [],
+      "clientComponents": 0,
+      "images": [],
+      "network": {
+        "requests": 17,
+        "documentBytes": 14484,
+        "jsRequests": 9,
+        "jsBytes": 164973,
+        "cssRequests": 3,
+        "cssBytes": 32644,
+        "imageRequests": 0,
+        "imageBytes": 0,
+        "fontRequests": 3,
+        "fontBytes": 57626,
+        "totalBytes": 271112
+      },
+      "runtime": {
+        "nodes": 2445,
+        "jsHeapUsedBytes": 4937436,
+        "layoutCount": 3,
+        "recalcStyleCount": 5,
+        "layoutDurationMs": 69.04299999999999,
+        "recalcStyleDurationMs": 14.508000000000001,
+        "scriptDurationMs": 70.365,
+        "taskDurationMs": 279.881
+      }
+    }
+  ],
+  "errors": []
+}

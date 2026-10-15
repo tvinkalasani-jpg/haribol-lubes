@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import { createRequire } from "node:module";
-import { mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { copyFile, mkdtemp, open, readFile, readdir, rename, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
 
@@ -11,7 +11,7 @@ const require = createRequire(import.meta.url);
 const { validateRfqPayload, rfqLimits } = require("../.rfq-test-build/lib/validation/rfq.js");
 const { RfqService } = require("../.rfq-test-build/features/enquiries/rfq-service.js");
 const { InMemoryRfqRateLimiter } = require("../.rfq-test-build/features/enquiries/rate-limit.js");
-const { FilesystemEnquiryRepository } = require("../.rfq-test-build/features/enquiries/filesystem-repository.js");
+const { FilesystemEnquiryRepository, replaceFileAtomically } = require("../.rfq-test-build/features/enquiries/filesystem-repository.js");
 const { createEnquiryNotifier } = require("../.rfq-test-build/features/enquiries/notifier.js");
 
 const now = Date.now();
@@ -22,6 +22,26 @@ const tests = [];
 function test(name, fn) { tests.push([name, fn]); }
 function expectValid(payload) { assert.equal(validateRfqPayload(payload, context, now).success, true); }
 function expectError(payload, field) { const result = validateRfqPayload(payload, context, now); assert.equal(result.success, false); assert.ok(result.errors[field]); }
+async function withTemporaryDirectory(run) {
+  const directory = await mkdtemp(path.join(tmpdir(), "haribol-rfq-"));
+  try { return await run(directory); }
+  finally { await rm(directory, { recursive: true, force: true }); }
+}
+function filesystemError(code) { return Object.assign(new Error(`Synthetic ${code}`), { code }); }
+function storedInput() {
+  const validation = validateRfqPayload(valid(), context, now);
+  assert.equal(validation.success, true);
+  return {
+    ...validation.data,
+    productId: validation.productId,
+    productSlug: validation.productId ? validation.data.productSlug : null,
+    status: "received",
+    consentRecordedAt: new Date(now).toISOString(),
+    notificationStatus: "pending",
+    notificationAttempts: 0,
+    metadata: { industryId: null, requestFingerprint: "filesystem-test" },
+  };
+}
 
 test("01 empty submission", () => expectError({}, "name"));
 test("02 valid phone-only enquiry", () => expectValid(valid()));
@@ -62,8 +82,105 @@ test("25 duplicate submission is idempotent", async () => { const repo = new Mem
 test("26 rate limit returns typed outcome", async () => { const service = new RfqService(new MemoryRepository(), new Notifier(), new InMemoryRfqRateLimiter(1, 60000)); await service.submit({ raw: valid(), context, requestFingerprint: "rate", now }); const r = await service.submit({ raw: valid(), context, requestFingerprint: "rate", now }); assert.equal(r.type, "rate_limited"); });
 test("27 notifier failure preserves stored record", async () => { const repo = new MemoryRepository(); const service = new RfqService(repo, new Notifier("throw"), new InMemoryRfqRateLimiter()); const r = await service.submit({ raw: valid(), context, requestFingerprint: "notify", now }); assert.equal(r.type, "success"); assert.equal(repo.records.length, 1); assert.equal(repo.records[0].notificationStatus, "failed"); });
 test("28 storage failure never returns success", async () => { const repo = new MemoryRepository(); repo.fail = true; const service = new RfqService(repo, new Notifier(), new InMemoryRfqRateLimiter()); assert.equal((await service.submit({ raw: valid(), context, requestFingerprint: "storage", now })).type, "storage_error"); });
-test("29 filesystem persistence stores a synthetic record", async () => { const directory = await mkdtemp(path.join(tmpdir(), "haribol-rfq-")); try { const repo = new FilesystemEnquiryRepository(directory); const service = new RfqService(repo, new Notifier("unavailable"), new InMemoryRfqRateLimiter()); const result = await service.submit({ raw: valid(), context, requestFingerprint: "filesystem", now }); assert.equal(result.type, "success"); const files = await readdir(directory); assert.equal(files.length, 1); const stored = JSON.parse(await readFile(path.join(directory, files[0]), "utf8")); assert.equal(stored.referenceNumber, result.referenceNumber); assert.equal(stored.notificationStatus, "unavailable"); } finally { await rm(directory, { recursive: true, force: true }); } });
-test("30 Resend adapter sends plain text with safe Reply-To", async () => {
+test("29 filesystem initial write creates one valid JSON record", () => withTemporaryDirectory(async (directory) => {
+  const repo = new FilesystemEnquiryRepository(directory);
+  const record = await repo.create(storedInput());
+  const files = await readdir(directory);
+  assert.deepEqual(files, [`${record.id}.json`]);
+  assert.equal(JSON.parse(await readFile(path.join(directory, files[0]), "utf8")).id, record.id);
+}));
+test("30 filesystem update replaces an existing record without temporary files", () => withTemporaryDirectory(async (directory) => {
+  const repo = new FilesystemEnquiryRepository(directory);
+  const service = new RfqService(repo, new Notifier("unavailable"), new InMemoryRfqRateLimiter());
+  const result = await service.submit({ raw: valid(), context, requestFingerprint: "filesystem", now });
+  assert.equal(result.type, "success");
+  const files = await readdir(directory);
+  assert.equal(files.length, 1);
+  assert.match(files[0], /\.json$/);
+  const stored = JSON.parse(await readFile(path.join(directory, files[0]), "utf8"));
+  assert.equal(stored.referenceNumber, result.referenceNumber);
+  assert.equal(stored.notificationStatus, "unavailable");
+}));
+test("31 repeated filesystem updates remain valid and leave no temporary files", () => withTemporaryDirectory(async (directory) => {
+  const repo = new FilesystemEnquiryRepository(directory);
+  const record = await repo.create(storedInput());
+  await repo.updateNotificationStatus(record.id, "failed", 1);
+  await repo.updateNotificationStatus(record.id, "sent", 2);
+  const files = await readdir(directory);
+  assert.deepEqual(files, [`${record.id}.json`]);
+  const stored = JSON.parse(await readFile(path.join(directory, files[0]), "utf8"));
+  assert.equal(stored.notificationStatus, "sent");
+  assert.equal(stored.notificationAttempts, 2);
+}));
+test("32 Windows replacement fallback preserves the record and cleans artifacts", () => withTemporaryDirectory(async (directory) => {
+  const destination = path.join(directory, "windows-record.json");
+  await writeFile(destination, '{"version":"old"}\n');
+  let renameCalls = 0;
+  const operations = {
+    open,
+    rm,
+    rename: async (source, target) => {
+      renameCalls += 1;
+      if (renameCalls === 1) throw filesystemError("EPERM");
+      await rename(source, target);
+    },
+  };
+  await replaceFileAtomically(destination, '{"version":"new"}\n', operations);
+  assert.deepEqual(JSON.parse(await readFile(destination, "utf8")), { version: "new" });
+  assert.deepEqual(await readdir(directory), ["windows-record.json"]);
+  assert.equal(renameCalls, 1);
+}));
+test("33 POSIX rename-over-existing remains the direct replacement path", () => withTemporaryDirectory(async (directory) => {
+  const destination = path.join(directory, "posix-record.json");
+  await writeFile(destination, '{"version":"old"}\n');
+  let renameCalls = 0;
+  const operations = {
+    open,
+    rm,
+    rename: async (source, target) => {
+      renameCalls += 1;
+      await rm(target, { force: true });
+      await copyFile(source, target);
+      await rm(source, { force: true });
+    },
+  };
+  await replaceFileAtomically(destination, '{"version":"new"}\n', operations);
+  assert.deepEqual(JSON.parse(await readFile(destination, "utf8")), { version: "new" });
+  assert.deepEqual(await readdir(directory), ["posix-record.json"]);
+  assert.equal(renameCalls, 1);
+}));
+test("34 replacement failure restores existing JSON and cleans temporary files", () => withTemporaryDirectory(async (directory) => {
+  const destination = path.join(directory, "failure-record.json");
+  await writeFile(destination, '{"version":"old"}\n');
+  let copyCalls = 0;
+  const operations = {
+    open,
+    rm,
+    rename: async () => { throw filesystemError("EPERM"); },
+    copyFile: async (source, target, mode) => {
+      copyCalls += 1;
+      if (copyCalls === 2) throw filesystemError("EIO");
+      await copyFile(source, target, mode);
+    },
+  };
+  await assert.rejects(() => replaceFileAtomically(destination, '{"version":"new"}\n', operations), /Synthetic EIO/);
+  assert.deepEqual(JSON.parse(await readFile(destination, "utf8")), { version: "old" });
+  assert.deepEqual(await readdir(directory), ["failure-record.json"]);
+}));
+test("35 concurrent updates to one record are serialized", () => withTemporaryDirectory(async (directory) => {
+  const repo = new FilesystemEnquiryRepository(directory);
+  const record = await repo.create(storedInput());
+  await Promise.all([
+    repo.updateNotificationStatus(record.id, "failed", 1),
+    repo.updateNotificationStatus(record.id, "sent", 2),
+  ]);
+  const files = await readdir(directory);
+  assert.deepEqual(files, [`${record.id}.json`]);
+  const stored = JSON.parse(await readFile(path.join(directory, files[0]), "utf8"));
+  assert.equal(stored.notificationStatus, "sent");
+  assert.equal(stored.notificationAttempts, 2);
+}));
+test("36 Resend adapter sends plain text with safe Reply-To", async () => {
   let request;
   const fakeFetch = async (url, options) => { request = { url, options }; return new Response(JSON.stringify({ id: "synthetic" }), { status: 200 }); };
   const notifier = createEnquiryNotifier({ EMAIL_PROVIDER: "resend", EMAIL_API_KEY: "test-token", EMAIL_FROM: "verified@example.test", RFQ_NOTIFICATION_EMAIL: "info@mastermax.co.ke" }, fakeFetch);
@@ -81,7 +198,7 @@ test("30 Resend adapter sends plain text with safe Reply-To", async () => {
   assert.match(body.subject, /RFQ-2026-ABC123/);
   assert.match(body.text, /<script>alert\(1\)<\/script>/);
 });
-test("31 Resend provider failure preserves the stored enquiry", async () => {
+test("37 Resend provider failure preserves the stored enquiry", async () => {
   const fakeFetch = async () => new Response("failure", { status: 503 });
   const notifier = createEnquiryNotifier({ EMAIL_PROVIDER: "resend", EMAIL_API_KEY: "test-token", EMAIL_FROM: "verified@example.test", RFQ_NOTIFICATION_EMAIL: "info@mastermax.co.ke" }, fakeFetch);
   const repo = new MemoryRepository();
@@ -91,7 +208,7 @@ test("31 Resend provider failure preserves the stored enquiry", async () => {
   assert.equal(repo.records[0].notificationStatus, "failed");
   assert.equal(repo.records[0].notificationAttempts, 1);
 });
-test("32 malformed Reply-To is never sent", async () => {
+test("38 malformed Reply-To is never sent", async () => {
   let body;
   const fakeFetch = async (_url, options) => { body = JSON.parse(options.body); return new Response("{}", { status: 200 }); };
   const notifier = createEnquiryNotifier({ EMAIL_PROVIDER: "resend", EMAIL_API_KEY: "test-token", EMAIL_FROM: "verified@example.test", RFQ_NOTIFICATION_EMAIL: "info@mastermax.co.ke" }, fakeFetch);

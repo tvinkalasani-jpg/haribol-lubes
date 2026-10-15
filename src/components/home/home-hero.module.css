@@ -136,7 +136,7 @@
 
 .statement span:last-child {
   color: transparent;
-  -webkit-text-stroke: 1px rgb(244 241 233 / 72%);
+  -webkit-text-stroke: 1px var(--color-outline-text);
 }
 
 .supportingCopy {
@@ -157,6 +157,25 @@
 .actions a {
   min-width: 11.5rem;
 }
+
+.actions .whatsappAction {
+  display: inline-flex;
+  min-width: 0;
+  flex-basis: 100%;
+  align-self: center;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 0.25rem;
+  color: var(--color-accent);
+  font-size: var(--font-size-label);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.whatsappAction svg { width: 1rem; transition: transform var(--duration-normal) var(--ease-standard); }
+.whatsappAction:hover svg { transform: translateX(0.25rem); }
 
 .capabilities {
   display: flex;
@@ -200,11 +219,30 @@
 }
 
 .visual {
+  --hero-ambient: rgb(224 165 43 / 10%);
+  --hero-frame-shadow: rgb(0 0 0 / 32%);
+  --hero-light-position: 52%;
+  --hero-shift-x: 0px;
+  --hero-shift-y: 0px;
+  --hero-tilt-x: 0deg;
+  --hero-tilt-y: 0deg;
   position: relative;
   width: min(47vw, 46rem);
   aspect-ratio: 1;
+  contain: layout paint style;
   justify-self: end;
+  perspective: 75rem;
   animation: visualEnter 850ms 80ms var(--ease-emphasized) both;
+}
+
+:global(html[data-theme="light"]) .visual {
+  --hero-ambient: rgb(176 116 14 / 12%);
+  --hero-frame-shadow: rgb(37 31 20 / 24%);
+}
+
+:global(html[data-theme="dark"]) .visual {
+  --hero-ambient: rgb(224 165 43 / 12%);
+  --hero-frame-shadow: rgb(0 0 0 / 54%);
 }
 
 .visual::before,
@@ -216,107 +254,247 @@
 }
 
 .visual::before {
-  inset: 17%;
-  background: rgb(224 165 43 / 12%);
-  filter: blur(4rem);
+  inset: 15%;
+  background:
+    radial-gradient(circle at var(--hero-light-position) 38%, rgb(255 239 190 / 18%), transparent 34%),
+    var(--hero-ambient);
+  filter: blur(4.5rem);
 }
 
 .visual::after {
-  inset: 8%;
-  border: 1px solid rgb(255 255 255 / 4%);
-  box-shadow: 0 0 9rem rgb(0 0 0 / 55%);
+  inset: 5%;
+  border: 1px solid var(--color-grid-line);
+  box-shadow: 0 0 9rem var(--hero-frame-shadow);
+}
+
+.visualAssembly {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  transform: translate3d(var(--hero-shift-x), var(--hero-shift-y), 0)
+    rotateX(var(--hero-tilt-x)) rotateY(var(--hero-tilt-y));
+  transform-style: preserve-3d;
+  transition: transform 180ms var(--ease-standard);
+}
+
+.visual[data-pointer-response="enabled"] .visualAssembly {
+  will-change: transform;
 }
 
 .instrument {
+  position: relative;
+  z-index: 2;
   display: block;
   width: 100%;
   height: 100%;
   overflow: visible;
 }
 
-.outerGuide,
-.dashedOrbit,
-.metalRing,
-.innerRing,
-.core circle,
-.core path,
-.highlightArc,
-.calibrationMarks,
-.readout {
+.blueprintLayer,
+.outerRim,
+.outerRimHighlight,
+.rollerTrack,
+.innerRace,
+.shaftBore,
+.shaftKey,
+.gearFace,
+.gearHub,
+.gearSpokes,
+.readoutLayer {
   fill: none;
   vector-effect: non-scaling-stroke;
 }
 
-.outerGuide {
-  stroke: rgb(126 135 139 / 22%);
+.blueprintLayer {
+  stroke: var(--color-foreground-subtle);
+  stroke-width: 1;
+  opacity: 0.24;
+}
+
+.blueprintLayer circle:nth-child(2) {
+  stroke: var(--color-accent);
+  stroke-dasharray: 2 16;
+  opacity: 0.7;
+}
+
+.mechanicalAssembly {
+  transform-origin: 378px 344px;
+  transform-box: view-box;
+}
+
+.backPlate {
+  fill: rgb(7 10 11 / 42%);
+  stroke: rgb(167 175 177 / 20%);
   stroke-width: 1;
 }
 
-.dashedOrbit {
-  stroke: rgb(224 165 43 / 34%);
-  stroke-width: 1;
-  stroke-dasharray: 2 15;
-  transform-origin: center;
-  animation: rotate 55s linear infinite;
-}
-
-.rotor {
-  transform-origin: center;
-}
-
-.metalRing {
-  stroke: rgb(175 182 183 / 28%);
-  stroke-width: 3;
-}
-
-.innerRing {
-  stroke: rgb(224 165 43 / 22%);
-  stroke-width: 1;
-  stroke-dasharray: 100 16 4 16;
-}
-
-.oilFilm {
-  opacity: 0.9;
-}
-
-.highlightArc {
-  stroke: rgb(244 241 233 / 46%);
-  stroke-linecap: round;
+.outerRim {
+  fill: url(#hero-bearing-rim);
+  stroke: rgb(228 229 222 / 24%);
   stroke-width: 2;
 }
 
-.metalSweep {
-  opacity: 0.65;
+.outerRimHighlight {
+  stroke: rgb(246 242 228 / 26%);
+  stroke-dasharray: 290 28 74 18;
+  stroke-linecap: round;
+  stroke-width: 3;
 }
 
-.core circle:first-child {
-  fill: rgb(11 14 16 / 90%);
+.bearingFace {
+  fill: url(#hero-bearing-face);
+  stroke: rgb(11 14 16 / 82%);
+  stroke-width: 10;
+}
+
+.rollerCage {
+  transform-origin: 378px 344px;
+  transform-box: view-box;
+  animation: engineeredRotation 52s linear infinite;
+}
+
+.rollerTrack {
+  stroke: rgb(224 165 43 / 20%);
+  stroke-width: 1;
+  stroke-dasharray: 72 14 3 14;
+}
+
+.roller {
+  fill: rgb(135 144 146 / 48%);
+  stroke: rgb(227 228 221 / 20%);
+  stroke-width: 1;
+}
+
+.innerRace {
+  fill: rgb(9 12 13 / 88%);
+  stroke: rgb(224 165 43 / 34%);
+  stroke-width: 2;
+}
+
+.shaftFace {
+  fill: url(#hero-bearing-rim);
+  stroke: rgb(240 238 228 / 22%);
+  stroke-width: 1;
+}
+
+.shaftBore {
+  fill: rgb(5 7 8 / 92%);
+  stroke: rgb(150 159 161 / 34%);
+  stroke-width: 1;
+}
+
+.shaftKey {
+  fill: rgb(224 165 43 / 58%);
+}
+
+.gearAssembly {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: engineeredRotationReverse 38s linear infinite;
+}
+
+.gearTooth {
+  fill: rgb(54 61 63 / 96%);
+  stroke: rgb(211 215 209 / 20%);
+  stroke-width: 1;
+}
+
+.gearFace {
+  fill: rgb(16 21 23 / 96%);
   stroke: rgb(224 165 43 / 48%);
+  stroke-width: 2;
+}
+
+.gearHub {
+  fill: rgb(6 9 10 / 96%);
+  stroke: rgb(174 183 185 / 38%);
   stroke-width: 1;
 }
 
-.core circle:nth-child(2) {
-  stroke: rgb(167 173 177 / 26%);
-  stroke-width: 1;
+.gearSpokes {
+  stroke: rgb(130 140 143 / 54%);
+  stroke-linecap: round;
+  stroke-width: 7;
 }
 
-.core path {
-  stroke: rgb(89 97 104 / 45%);
-  stroke-width: 1;
+.lubricantLayer {
+  pointer-events: none;
 }
 
-.calibrationMarks {
-  stroke: rgb(167 173 177 / 38%);
-  stroke-width: 1;
+.oilRibbonShadow,
+.oilRibbon,
+.oilRibbonEdge {
+  fill: none;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
 }
 
-.readout {
-  stroke: rgb(224 165 43 / 56%);
-  stroke-width: 1;
+.oilRibbonShadow {
+  stroke: rgb(28 16 2 / 42%);
+  stroke-width: 58;
 }
 
-.readout circle {
+.oilRibbon {
+  stroke: url(#hero-lubricant);
+  stroke-width: 45;
+  animation: lubricantPulse 7s var(--ease-standard) infinite alternate;
+}
+
+.oilRibbonEdge {
+  stroke: url(#hero-lubricant-edge);
+  stroke-width: 3;
+}
+
+.oilDroplet {
   fill: var(--color-accent);
+  opacity: 0.88;
+}
+
+.readoutLayer {
+  stroke: var(--color-accent);
+  stroke-width: 1;
+  opacity: 0.62;
+}
+
+.readoutLayer circle {
+  fill: var(--color-accent);
+}
+
+.depthPlane {
+  position: absolute;
+  z-index: -1;
+  right: 12%;
+  bottom: 9%;
+  left: 16%;
+  height: 17%;
+  border-radius: 50%;
+  background: rgb(2 4 5 / 42%);
+  filter: blur(2.2rem);
+  opacity: 0.72;
+  transform: rotateX(72deg) translateZ(-5rem);
+}
+
+.lightSweep {
+  position: absolute;
+  z-index: 3;
+  inset: 12% 14%;
+  overflow: hidden;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  opacity: 0.32;
+}
+
+.lightSweep::after {
+  position: absolute;
+  top: -35%;
+  bottom: -35%;
+  left: -42%;
+  width: 32%;
+  background: linear-gradient(90deg, transparent, rgb(255 247 217 / 48%), transparent);
+  content: "";
+  filter: blur(0.9rem);
+  transform: rotate(18deg);
+  animation: assemblyLightSweep 9s var(--ease-standard) infinite;
 }
 
 .visualLabel,
@@ -346,12 +524,12 @@
 
 .visualCaption {
   right: 2%;
-  bottom: 23%;
+  bottom: 20%;
 }
 
 .visualCoordinate {
-  bottom: 14%;
-  left: 12%;
+  bottom: 12%;
+  left: 10%;
 }
 
 .scrollCue {
@@ -407,9 +585,39 @@
   }
 }
 
-@keyframes rotate {
+@keyframes engineeredRotation {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes engineeredRotationReverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes lubricantPulse {
+  from {
+    opacity: 0.78;
+    stroke-width: 42;
+  }
+
+  to {
+    opacity: 1;
+    stroke-width: 47;
+  }
+}
+
+@keyframes assemblyLightSweep {
+  0%,
+  18% {
+    translate: 0 0;
+  }
+
+  58%,
+  100% {
+    translate: 430% 0;
   }
 }
 
@@ -481,9 +689,22 @@
     position: absolute;
     z-index: 0;
     top: calc(var(--header-height) + 0.75rem);
-    right: -9rem;
-    width: min(31rem, 92vw);
-    opacity: 0.47;
+    right: -1.5rem;
+    width: min(28rem, 106vw);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .visualAssembly {
+    transform: none;
+    transition: none;
+  }
+
+  .rollerCage,
+  .gearAssembly,
+  .oilRibbon,
+  .lightSweep::after {
+    animation: none;
   }
 
   .visual::before {
@@ -558,6 +779,12 @@
     width: 100%;
   }
 
+  .actions .whatsappAction {
+    min-height: 2.75rem;
+    justify-content: flex-start;
+    padding-inline: 0;
+  }
+
   .capabilities {
     margin-top: 1.75rem;
   }
@@ -572,8 +799,8 @@
 
   .visual {
     top: calc(var(--header-height) + 0.25rem);
-    right: -8rem;
-    width: 26rem;
+    right: -1rem;
+    width: 106vw;
   }
 }
 
@@ -587,12 +814,33 @@
 @media (prefers-reduced-motion: reduce) {
   .content,
   .visual,
-  .dashedOrbit,
-  .rotor,
+  .rollerCage,
+  .gearAssembly,
+  .oilRibbon,
+  .lightSweep::after,
   .light,
   .scrollCue i::after {
     animation: none;
   }
+
+  .visualAssembly {
+    transform: none;
+    transition: none;
+  }
+}
+
+.visual[data-motion-state="paused"] .rollerCage,
+.visual[data-motion-state="paused"] .gearAssembly,
+.visual[data-motion-state="paused"] .oilRibbon,
+.visual[data-motion-state="paused"] .lightSweep::after {
+  animation-play-state: paused;
+}
+
+.visual[data-motion-preference="reduced"] .rollerCage,
+.visual[data-motion-preference="reduced"] .gearAssembly,
+.visual[data-motion-preference="reduced"] .oilRibbon,
+.visual[data-motion-preference="reduced"] .lightSweep::after {
+  animation: none;
 }
 
 @supports not (overflow: clip) {

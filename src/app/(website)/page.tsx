@@ -5,9 +5,12 @@ import { HomeHero } from "@/components/home/home-hero";
 import { IndustriesSection } from "@/components/home/industries-section";
 import { KenyaPresence } from "@/components/home/kenya-presence";
 import { MastermaxShowcase } from "@/components/home/mastermax-showcase";
+import { KnowledgeSection } from "@/components/home/knowledge-section";
 import { ProductCategories } from "@/components/home/product-categories";
+import { ProductFinderFeature } from "@/components/home/product-finder-feature";
 import { QuoteCta } from "@/components/home/quote-cta";
 import { WhyHaribol } from "@/components/home/why-haribol";
+import { getPublicInsights, getPublicResources } from "@/features/content/content-repository";
 import { createMetadata } from "@/lib/seo/metadata";
 import { createOrganizationSchema, createPageSchema, createSchemaGraph, createWebsiteSchema, JsonLd } from "@/lib/seo/structured-data";
 
@@ -19,7 +22,12 @@ export const metadata: Metadata = createMetadata({
   path: "/",
 });
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [insights, resources] = await Promise.all([
+    getPublicInsights(),
+    getPublicResources(),
+  ]);
+
   return (
     <>
       <JsonLd data={createSchemaGraph([
@@ -30,10 +38,12 @@ export default function HomePage() {
       <HomeHero />
       <BusinessIntro />
       <ProductCategories />
-      <IndustriesSection />
-      <WhyHaribol />
-      <KenyaPresence />
       <MastermaxShowcase />
+      <IndustriesSection />
+      <ProductFinderFeature />
+      <KenyaPresence />
+      <WhyHaribol />
+      <KnowledgeSection insights={insights} resources={resources} />
       <QuoteCta />
     </>
   );

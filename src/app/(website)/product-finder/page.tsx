@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import { Breadcrumbs } from "@/components/catalogue/breadcrumbs";
 import { ProductFinder } from "@/components/catalogue/product-finder";
+import { SupportingPageHero } from "@/components/layout/supporting-page-hero";
 import { PageContainer } from "@/components/ui/page-container";
 import {
   createProductFinderDataset,
@@ -43,21 +43,8 @@ export default async function ProductFinderPage({ searchParams }: ProductFinderP
         createPageSchema({ path: "/product-finder", name: "Product Finder", description: "Guided lubricant catalogue selection by application and technical detail." }),
         createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Product Finder", path: "/product-finder" }]),
       ])} />
+      <SupportingPageHero breadcrumb="Product Finder" code="FND" description="Narrow the current automotive and industrial range using structured catalogue information." eyebrow="Guided catalogue selection" items={[{ label: "Method", value: "Application first" }, { label: "Source", value: "Current catalogue" }, { label: "Outcome", value: "Enquiry pathway" }]} note="No vehicle, machine or OEM compatibility is confirmed by this tool." title="Product Finder" variant="finder" />
       <PageContainer className={styles.container} size="wide">
-        <Breadcrumbs
-          items={[{ label: "Home", href: "/" }, { label: "Product Finder" }]}
-        />
-        <header className={styles.heading}>
-          <p>Haribol Lubes Limited / Guided catalogue selection</p>
-          <h1>Product Finder</h1>
-          <div>
-            <span>
-              Narrow the current automotive and industrial range using structured catalogue information.
-            </span>
-            <small>No vehicle, machine or OEM compatibility is confirmed by this tool.</small>
-          </div>
-        </header>
-
         <ProductFinder dataset={dataset} initialState={initialState} />
       </PageContainer>
     </article>

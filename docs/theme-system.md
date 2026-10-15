@@ -1,33 +1,27 @@
 # Public theme system
 
-The public Haribol website supports `system`, `light`, and `dark` preferences. `system` is the default and remains the stored preference while the resolved appearance follows `prefers-color-scheme`. The single functional preference key is `haribol-theme`; it is not analytics data and does not require a marketing-consent banner.
+The public Haribol website supports two explicit appearances: `light` and `dark`. Light is the brand default and the deterministic server-rendered fallback. The functional preference key is `haribol-theme`; it is not analytics data and does not require a marketing-consent banner.
 
 ## Rendering and flash prevention
 
-The website layout includes a small inline script in `<head>`. Before the body paints, it validates the stored preference, resolves System against the OS, and sets `data-theme="light|dark"` plus `data-theme-preference="system|light|dark"` on `<html>`. The `<html>` element suppresses only this expected attribute difference during hydration. Public content remains server/static rendered.
+The website and global not-found layouts render `<html data-theme="light" data-theme-preference="light">`. A small inline script in `<head>` reads the saved value before the body paints and changes both attributes only when the saved value is `dark`. Missing, malformed, or legacy values such as `system` resolve to light. Invalid stored values are replaced with `light` when storage is available.
 
-Without JavaScript, semantic defaults remain dark and a `prefers-color-scheme: light` fallback supplies the light palette. Manual selection naturally requires JavaScript.
+The script also sets the native `color-scheme` value. The layout suppresses only the expected pre-hydration attribute difference for a returning dark-mode visitor. Without JavaScript the site remains fully readable in light mode, and the initial theme never depends on an operating-system media query.
 
-## Synchronization
+## Control and persistence
 
-The control stores the chosen preference, including the literal value `system`. While System is selected, a media-query listener updates the resolved appearance when the OS changes. Light or Dark overrides ignore OS changes until System is selected again. A small same-window event keeps the desktop and mobile controls synchronized; `localStorage` persists across refreshes and route navigation.
+The header exposes a labelled `Light | Dark` segmented control on desktop and inside the mobile menu. Each option is a native button with an `aria-pressed` state, a visible text label, a check mark in the active option, a comfortable target, and a visible focus ring. Selection applies immediately and stores only `light` or `dark` in local storage.
+
+A same-window event keeps the desktop and mobile instances synchronized. Normal document persistence carries the selected appearance across client and full-page navigation. There is no operating-system listener or third theme state.
 
 ## Semantic tokens
 
-Components use shared tokens for background, raised and muted surfaces, foreground levels, borders, accent states, focus, panels, inputs, overlays, header surfaces, shadows, and Mastermax accents. New components should use these tokens rather than theme checks or dark-only hexadecimal colors.
+Shared tokens describe page backgrounds, raised and muted surfaces, foreground levels, borders, accent states, focus, panels, inputs, overlays, header surfaces, status colours, shadows, and Mastermax accents. Components consume those roles instead of switching themes themselves. Light values are defined on `:root`; `[data-theme="dark"]` supplies the dark override.
 
-The dark palette preserves graphite backgrounds, off-white type, brass accents, and restrained Mastermax orange. The light palette uses mineral off-white, warm stone surfaces, graphite type, muted charcoal, brass with AA-safe darker text usage, and a darker Mastermax orange. Raster product imagery is never inverted.
+The light palette uses mineral ivory surfaces, graphite text, charcoal secondary text, AA-safe brass, restrained burnt orange, and stronger functional-control borders. The dark palette retains graphite backgrounds, off-white type, warm brass, and restrained Mastermax orange. Raster product imagery is never inverted.
 
-## Component decisions
-
-The header follows the selected theme. Its dropdown and mobile navigation use theme surfaces. The footer deliberately remains a dark brand anchor in both themes and locally scopes its contrast tokens. Technical panels may remain visually deeper, but general page surfaces, forms, filters, Product Finder cards, enquiry states, and public navigation adapt through semantic tokens.
-
-The selector is a compact menu with local monitor, sun, and moon SVGs. It exposes an expanded state, a menu of checked radio choices, keyboard focus, Escape handling, outside-click dismissal, and focus return. The mobile control uses a full-width comfortable target.
-
-## Accessibility and motion
-
-Theme choices have accessible names and checked states. Focus uses the brass focus token. Text, borders, inputs, errors, success states, and Mastermax orange use theme-specific contrast values. Theme application has no global color animation, so it does not create a large flash and respects existing reduced-motion rules.
+The footer and Mastermax homepage showcase are intentional dark brand anchors in both appearances and scope the contrast tokens they need. General page surfaces, forms, filters, Product Finder cards, enquiry states, and public navigation follow the selected theme.
 
 ## Payload isolation
 
-The public tokens are imported only by `src/app/(website)/layout.tsx`. Payload admin uses its own layout and `custom.css`; it does not receive the public theme script, control, attributes, or token stylesheet.
+Public theme styles are imported only by the website layout. Payload admin uses its own layout and `custom.css`; it does not receive the public initialization script, controls, attributes, or token stylesheet.

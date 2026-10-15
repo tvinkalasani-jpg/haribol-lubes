@@ -13,12 +13,12 @@ export function QuoteCta() {
         <div className={styles.frame}>
           <div className={styles.statement}>
             <div className={styles.sectionMeta} aria-hidden="true">
-              <span>HL / 08</span>
+              <span>HL / 10</span>
               <span>Commercial Enquiries</span>
             </div>
 
             <p className={styles.eyebrow}>
-              <span>08</span>
+              <span>10</span>
               Ready to talk?
             </p>
             <h2 id="quote-cta-title">Need lubricants for your business?</h2>

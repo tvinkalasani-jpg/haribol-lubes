@@ -1,0 +1,14 @@
+{
+  "origin": "http://localhost:3039",
+  "generatedAt": "2026-10-13T19:52:10.684Z",
+  "checks": 20,
+  "passed": 20,
+  "failed": [],
+  "engineTransform": "matrix(1, 0, 0, 1, 0, -3)",
+  "hydraulicTransform": "matrix(1, 0, 0, 1, 0, -3)",
+  "reducedMotion": {
+    "card": "1e-05s",
+    "artwork": "1e-05s"
+  },
+  "browserErrors": []
+}

@@ -6,6 +6,7 @@ export const whatsappSources = [
   "industry-page",
   "product-finder",
   "rfq-success",
+  "header",
   "footer",
 ] as const;
 

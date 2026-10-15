@@ -94,6 +94,8 @@ Current public routes:
 
 The development-only design-system specimen is available at `/design-system`. It is marked `noindex, nofollow` and demonstrates the current tokens, typography, controls, cards, forms, containers, grids, spacing, borders, and surfaces.
 
-The global header includes a sticky transparent-to-elevated scroll state, an accessible desktop Products dropdown, and an accessible full-screen mobile navigation panel. Product category links currently point to placeholder anchors on `/products` until catalogue routes are defined.
+The global header uses a spacious light-first presentation with a compact elevated scroll state, an accessible desktop Products dropdown, clear Product Finder access, configuration-driven WhatsApp and quotation actions, and a full-height mobile navigation dialog. Its responsive and keyboard behavior is documented in [`docs/header-navigation.md`](docs/header-navigation.md) and validated with `pnpm validate:header`.
+
+The homepage follows a ten-part editorial journey from product discovery through technical guidance and enquiry. Its section order, visual hierarchy, responsive behavior, CMS publication rules and future visual slots are documented in [`docs/homepage-architecture.md`](docs/homepage-architecture.md) and validated with `pnpm validate:homepage`.
 
 The development-only health endpoint is available at `/api/health`.
