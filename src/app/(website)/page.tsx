@@ -22,6 +22,11 @@ export const metadata: Metadata = createMetadata({
   path: "/",
 });
 
+// Public content is backed by Payload in deployed environments. Railway's
+// private database network is available to the running service, not to its
+// isolated image builder, so resolve this page at request time.
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const [insights, resources] = await Promise.all([
     getPublicInsights(),
