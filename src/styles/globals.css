@@ -64,7 +64,6 @@ textarea {
   color: var(--color-accent-foreground);
   background: var(--color-accent);
   transform: translateY(-200%);
-  transition: transform var(--duration-fast) var(--ease-standard);
 }
 
 .skip-link:focus {

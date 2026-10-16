@@ -4,7 +4,8 @@ import { NextResponse } from "next/server";
 import { isStagingAccessAuthorized } from "@/lib/security/staging-access";
 
 export function proxy(request: NextRequest) {
-  if (request.nextUrl.pathname === "/api/health" || request.nextUrl.pathname === "/api/readiness") {
+  const publicAsset = ["/brand/", "/images/", "/icons/"].some((prefix) => request.nextUrl.pathname.startsWith(prefix));
+  if (request.nextUrl.pathname === "/api/health" || request.nextUrl.pathname === "/api/readiness" || publicAsset) {
     return NextResponse.next();
   }
   if (isStagingAccessAuthorized(request.headers.get("authorization"))) {

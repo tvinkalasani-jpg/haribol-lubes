@@ -75,6 +75,10 @@ await test("admin login attempts are bounded", () => assert.match(collections, /
 await test("admin lockout is configured", () => assert.match(collections, /lockTime:\s*10 \* 60 \* 1000/));
 await test("admin session duration is bounded", () => assert.match(collections, /tokenExpiration:\s*8 \* 60 \* 60/));
 await test("staging Basic Auth is not forwarded into Payload", () => assert.match(stagingProxy, /requestHeaders\.delete\("authorization"\)/));
+await test("staging permits only known public asset roots for image optimization", () => {
+  assert.match(stagingProxy, /\["\/brand\/", "\/images\/", "\/icons\/"\]/);
+  assert.match(stagingProxy, /publicAsset/);
+});
 await test("zero-admin production startup fails closed", () => assert.match(payloadConfig, /users\.totalDocs === 0[\s\S]*ADMIN_BOOTSTRAP_MODE !== "allow-local"/));
 await test("user collection is admin-only", () => assert.match(collections, /slug: "users"[\s\S]*?access: \{ create: adminsOnly, delete: adminsOnly, read: adminsOnly, update: adminsOnly \}/));
 await test("enquiries are private", () => assert.match(collections, /slug: "enquiries"[\s\S]*?access: \{ create: noPublicAccess, delete: adminsOnly, read: adminsOnly, update: adminsOnly \}/));
