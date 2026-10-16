@@ -26,6 +26,7 @@ const theme = source("src/lib/theme.ts");
 const cart = source("src/lib/checkout/cart.ts");
 const whatsapp = source("src/lib/utils/whatsapp.ts");
 const nextConfig = source("next.config.ts");
+const stagingProxy = source("src/proxy.ts");
 const envExample = source(".env.example");
 
 await test("homepage uses enforcing CSP", () => assert.ok(csp));
@@ -73,6 +74,7 @@ await test("RFQ route never logs request bodies", () => assert.doesNotMatch(rfqR
 await test("admin login attempts are bounded", () => assert.match(collections, /maxLoginAttempts:\s*5/));
 await test("admin lockout is configured", () => assert.match(collections, /lockTime:\s*10 \* 60 \* 1000/));
 await test("admin session duration is bounded", () => assert.match(collections, /tokenExpiration:\s*8 \* 60 \* 60/));
+await test("staging Basic Auth is not forwarded into Payload", () => assert.match(stagingProxy, /requestHeaders\.delete\("authorization"\)/));
 await test("zero-admin production startup fails closed", () => assert.match(payloadConfig, /users\.totalDocs === 0[\s\S]*ADMIN_BOOTSTRAP_MODE !== "allow-local"/));
 await test("user collection is admin-only", () => assert.match(collections, /slug: "users"[\s\S]*?access: \{ create: adminsOnly, delete: adminsOnly, read: adminsOnly, update: adminsOnly \}/));
 await test("enquiries are private", () => assert.match(collections, /slug: "enquiries"[\s\S]*?access: \{ create: noPublicAccess, delete: adminsOnly, read: adminsOnly, update: adminsOnly \}/));
